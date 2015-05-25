@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head lang="en">
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title></title>
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="libs/fontawesome/css/font-awesome.css"/>
@@ -22,8 +22,21 @@
     <script src="rainModules/rainFramework/rainFrameworkCtrl.js"></script>
     <link rel="stylesheet" href="rainModules/rainFramework/rainFramework.css"/>
 
+    <!-- rainMenu -->
+    <script src="rainModules/rainMenu/rainMenuDirective.js"></script>
+    <script src="rainModules/rainMenu/rainMenuCtrl.js"></script>
+    <script src="rainModules/rainMenu/rainMenuItemDirective.js"></script>
+    <link rel="stylesheet" href="rainModules/rainMenu/rainMenu.css"/>
+
 </head>
 <body class="container-fluid">
-    <rain-framework></rain-framework>
+    <rain-framework title="Rain Framework" sub-title="with Responsive Design" icon-file="images/r-design150.jpg">
+        <rain-menu>
+            <rain-menu-item label="Orders" icon="fa fa-tags" route="orders"></rain-menu-item>
+            <rain-menu-item label="Data Management" icon="fa fa-newspaper-o" route="data-management"></rain-menu-item>
+            <rain-menu-item label="Reports" icon="fa fa-line-chart" route="reports"></rain-menu-item>
+            <rain-menu-item label="App Settings" icon="fa fa-cog" route="app-settings"></rain-menu-item>
+        </rain-menu>
+    </rain-framework>
 </body>
 </html>

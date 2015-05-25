@@ -4,8 +4,12 @@
 
     function rainFramework() {
         return {
-            transclude: false,
-            scope: {},
+            transclude: true,
+            scope: {
+                title:'@',
+                subTitle:'@',
+                iconFile:'@'
+            },
             controller: 'rainFrameworkCtrl',
             templateUrl: 'rainModules/rainFramework/rainFrameworkTemplate.html'
         }

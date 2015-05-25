@@ -1,0 +1,49 @@
+.r-title-bar {
+  background-color: white;
+  padding: 0 20px;
+  border-bottom: 2px solid black;
+
+  .r-logo-area {
+    text-align: center;
+
+    .r-title-area {
+      display: inline-block;
+      text-align: center;
+
+      .r-logo-title {
+        color: #111;
+        margin-top: 6px;
+        font-size: 22px;
+      }
+
+      .r-logo-subtitle {
+        font-size: 14px;
+        margin-top: -13px;
+      }
+    }
+    .r-icon {
+      display: inline-block;
+      width: 65px;
+      height: 65px;
+      margin: 8px;
+      vertical-align: top;
+      border: 1px solid #999;
+    }
+  }
+  .r-right-side-controls{
+    line-height: 60px;
+
+    >div{
+      text-align: center;
+    }
+  }
+
+  @media screen and(min-width: 768px) {
+    .r-logo-area{
+      text-align: left;
+    }
+    .r-right-side-controls>div{
+      text-align: right;
+    }
+  }
+}

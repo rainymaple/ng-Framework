@@ -1,0 +1,47 @@
+.r-menu-area {
+  position: relative;
+  background-color: #333;
+  color: #ccc;
+  padding-left: 0;
+  width: 260px;
+  min-height: 100vh;
+  padding-top: 30px;
+
+  .button:hover {
+    color: #cccccc;
+  }
+
+  .r-menu {
+    list-style-type: none;
+    vertical-align: top;
+
+  }
+  ul {
+    /*display: inline-block;*/
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      line-height: 3em;
+      cursor: pointer;
+
+      div {
+        display: inline-block;
+        /*width: 95%;*/
+        padding-left: 16px;
+      }
+      .r-menu-icon {
+        margin-right: 10px;
+      }
+    }
+  }
+  .r-selectable-item:hover {
+    background-color: #555;
+  }
+  .r-no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}

@@ -1,1 +1,23 @@
-<h1>The View is showing</h1>
+<div class="r-title-bar">
+    <div class="row">
+        <div class="r-logo-area col-sm-6">
+            <img ng-src="{{iconFile}}" alt="" class="r-icon"/>
+
+            <div class="r-title-area">
+                <p class="r-logo-title">{{title}}</p>
+
+                <p class="r-logo-subtitle">{{subTitle}}</p>
+            </div>
+        </div>
+        <div class="r-right-side-controls col-sm-6">
+            <div>
+                <button class="btn btn-primary">Button 1</button>
+                <button class="btn btn-success">Button 2</button>
+                <button class="btn btn-warning">Button3</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-transclude></div>
+
+<div style="position:absolute;left:280px;top: 200px;color: red;font-size: 44px;">{{routeString}}</div>
