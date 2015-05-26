@@ -1,21 +1,23 @@
+.r-menu-area-vertical {
+  width: 260px;
+  min-height: 90vh;
+  padding-top: 30px;
+}
+.r-menu-area-horizontal {
+  width: 100%;
+  height: 40px;
+}
+
 .r-menu-area {
   position: relative;
   background-color: #333;
   color: #ccc;
   padding-left: 0;
-  width: 260px;
-  min-height: 100vh;
-  padding-top: 30px;
 
   .button:hover {
     color: #cccccc;
   }
 
-  .r-menu {
-    list-style-type: none;
-    vertical-align: top;
-
-  }
   ul {
     /*display: inline-block;*/
     list-style-type: none;
@@ -24,16 +26,33 @@
     li {
       line-height: 3em;
       cursor: pointer;
+      border-left: 3px solid transparent;
 
-      div {
+      .group-title {
         display: inline-block;
-        /*width: 95%;*/
         padding-left: 16px;
+        /*width: 95%;
+        border-color: #333;*/
       }
       .r-menu-icon {
         margin-right: 10px;
       }
+      .r-menu-active-indicator {
+        float: right;
+        color: #dddddd;
+        margin-right: 5px;
+        margin-top: 6px;
+      }
     }
+  }
+
+  .r-menu {
+    list-style-type: none;
+    vertical-align: top;
+
+    >rain-menu-group>li.isActive{
+        border-left: 3px solid #F0AD4E;
+      }
   }
   .r-selectable-item:hover {
     background-color: #555;
@@ -44,4 +63,52 @@
     -ms-user-select: none;
     user-select: none;
   }
+  .r-menu-group-indicator{
+    float: right;
+    margin-right: 10px;
+    margin-top: 12px;
+  }
+  .r-menu-sub-section{
+    display: block;
+    padding-left: 16px;
+  }
+  .r-menu-layout-button{
+    margin: 12px;
+    padding: 2px 8px;
+    color: #bbb;
+    background-color: #333333;
+    border:1px solid #999999;
+  }
+  .r-menu-layout-button-horizontal{
+    position: absolute;
+    top: -6px;
+    right: 10px;
+  }
+  .r-menu-layout-button-vertical{
+
+  }
+}
+
+.r-menu-item-horizontal{
+  display: inline-block;
+  width: 200px !important;
+  margin-left: 20px;
+  margin-top: 5px;
+  line-height: 1.5em !important;;
+}
+
+.r-menu-popup{
+  position: absolute;
+  z-index: 1000;
+  width: 200px;
+  background-color: #333333;
+  padding-left: 0;
+}
+.r-menu-fade-in-animation{
+  -webkit-animation:fadeIn 0.5s;
+  animation:fadeIn 0.5s;
+}
+.r-menu-fade-in-animation.ng-hide{
+ -webkit-animation:fadeOut 0s;
+  animation:fadeOut 0s;/* */
 }

@@ -17,13 +17,22 @@
         }
     }
 
-    function link(scope, element, attr, ctrl) {
+    function link(scope, element, attr, rainMenuCtrl) {
+
+        scope.isActive=function(){
+            return element === rainMenuCtrl.getActiveElement();
+        };
+
+        scope.isVertical = function(){
+            return rainMenuCtrl.isVertical();
+        };
+
         element.on('click',function(e){
             e.stopPropagation();
             e.preventDefault();
             scope.$apply(function(){
-                ctrl.setActiveItem(element);
-                ctrl.setRoute(scope.route);
+                rainMenuCtrl.setActiveElement(element);
+                rainMenuCtrl.setRoute(scope.route);
             })
         })
     }

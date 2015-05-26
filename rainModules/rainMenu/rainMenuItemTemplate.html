@@ -1,7 +1,7 @@
-<li class="r-selectable-item r-no-select">
+<li class="r-selectable-item r-no-select" ng-class="{'r-menu-item-horizontal':!isVertical()}">
     <div class="r-no-select">
         <i class="fa {{icon}} r-menu-icon"></i>
         {{label}}
     </div>
-
+    <!--<i class="fa fa-2x fa-angle-left  r-menu-active-indicator" ng-if="isActive()"></i>-->
 </li>
