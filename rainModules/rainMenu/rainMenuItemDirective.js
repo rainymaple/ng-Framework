@@ -33,6 +33,9 @@
             scope.$apply(function(){
                 rainMenuCtrl.setActiveElement(element);
                 rainMenuCtrl.setRoute(scope.route);
+                if(!scope.isVertical()){
+                    rainMenuCtrl.closeCurrentMenu();
+                }
             })
         })
     }

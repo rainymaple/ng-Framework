@@ -25,11 +25,12 @@
         };
 
         scope.clicked = function () {
-            if(!scope.isOpen) {
+            if (!scope.isOpen) {
                 rainMenuCtrl.closeCurrentMenu();
             }
             scope.isOpen = !scope.isOpen;
-            if(scope.isVertical) {
+
+            if (!scope.isVertical()) {
                 setSubMenuPosition();
             }
             // pass the current scope to rainMenuCtrl
@@ -49,9 +50,14 @@
             })
         });
 
-        function setSubMenuPosition(){
-            var pos =element.offset();
-            $(this).find('.r-menu-sub-section').css({'left':pos.left+20,'top':pos.top+20});
+        function setSubMenuPosition() {
+            var pos = element.offset();
+            var menuGroup = element.find('.r-menu-group-horizontal');
+            var height = 40;
+            if (menuGroup) {
+                height = menuGroup.height();
+            }
+            element.find('.r-menu-sub-section').css({'left': pos.left + 22, top: height + 1});
         }
     }
 })('rainMenu');

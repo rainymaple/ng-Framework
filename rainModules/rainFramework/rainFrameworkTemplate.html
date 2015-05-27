@@ -1,3 +1,4 @@
+<!-- header -->
 <div class="r-title-bar">
     <div class="row">
         <div class="r-logo-area col-sm-6">
@@ -5,6 +6,7 @@
 
             <div class="r-title-area">
                 <p class="r-logo-title">{{title}}</p>
+
                 <p class="r-logo-subtitle">{{subTitle}}</p>
             </div>
             <div ng-if="isMenuButtonVisible" class="r-collapsed-menu pull-right">
@@ -22,6 +24,17 @@
         </div>
     </div>
 </div>
+
+<!-- menu -->
 <div ng-transclude></div>
 
-<div style="position:absolute;left:280px;top: 200px;color: red;font-size: 44px;">{{routeString}}</div>
+
+<!-- viewport -->
+<!-- Accepted attributes: title, sub-title, router, icon-file -->
+<div ng-switch="routerName" class="rain-view" ng-class="{'rain-view-full-width':isFullWidth()}">
+
+    <div ng-switch-when="NGNEWROUTER" ng-viewport>{{routeString}}</div>
+    <div ng-switch-when="UIROUTER" ui-view>{{routeString}}</div>
+    <div ng-switch-default ng-view>{{routeString}}</div>
+
+</div>

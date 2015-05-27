@@ -52,22 +52,32 @@
     color: #777;
     background-color: transparent;
   }
+}
 
+@media screen and(min-width: 768px) {
+  .r-logo-area {
+    text-align: left;
+  }
+  .r-right-side-controls > div {
+    text-align: right;
+  }
+}
+@media screen and (max-width: 430px) {
+  .r-icon {
+    display: none;
+  }
+  .r-logo-title {
+    font-size: 18px;
+  }
+}
 
-  @media screen and(min-width: 768px) {
-    .r-logo-area {
-      text-align: left;
-    }
-    .r-right-side-controls > div {
-      text-align: right;
-    }
-  }
-  @media screen and (max-width: 430px) {
-    .r-icon {
-      display: none;
-    }
-    .r-logo-title {
-      font-size: 18px;
-    }
-  }
+.rain-view {
+  margin-left: 260px;
+  padding: 20px;
+  background-color: #cccccc;
+  min-height: 100vh;
+  overflow: auto;
+}
+.rain-view-full-width {
+  margin-left: 0;
 }

@@ -1,5 +1,6 @@
 .r-menu-area-vertical {
   width: 260px;
+  float: left;
   min-height: 90vh;
   padding-top: 30px;
 }
@@ -11,7 +12,7 @@
 .r-menu-area {
   position: relative;
   background-color: #333;
-  color: #ccc;
+  color: #B6B1B1;
   padding-left: 0;
 
   .button:hover {
@@ -55,7 +56,7 @@
       }
   }
   .r-selectable-item:hover {
-    background-color: #555;
+    background-color: #242424;
   }
   .r-no-select {
     -webkit-user-select: none;
@@ -70,13 +71,13 @@
   }
   .r-menu-sub-section{
     display: block;
-    padding-left: 16px;
+    /*padding-left: 16px;*/
   }
   .r-menu-layout-button{
     margin: 12px;
     padding: 2px 8px;
     color: #bbb;
-    background-color: #333333;
+    background-color: transparent;
     border:1px solid #999999;
   }
   .r-menu-layout-button-horizontal{
@@ -89,14 +90,27 @@
   }
 }
 
-.r-menu-item-horizontal{
-  display: inline-block;
-  width: 200px !important;
-  margin-left: 20px;
-  margin-top: 5px;
-  line-height: 1.5em !important;;
+.r-menu-item{
+  padding-left: 38px;
 }
-
+.r-menu-item:hover{
+  color: #fff2e4;
+  font-weight: bold;
+}
+.r-menu-item-active{
+  color: #fff2e4;
+  font-weight: bold;
+}
+.r-menu-group{
+  position: relative;
+}
+.r-menu-group-horizontal{
+  display: inline-block;
+  min-width: 120px !important;
+  margin-left: 20px;
+  padding-right: 16px;
+  height: 40px;
+}
 .r-menu-popup{
   position: absolute;
   z-index: 1000;

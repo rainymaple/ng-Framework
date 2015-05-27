@@ -1,3 +1,7 @@
+/*
+* Accepted attributes: title, sub-title, router, icon-file
+* */
+
 (function (module) {
     angular.module(module).directive('rainFramework', rainFramework);
 
@@ -8,7 +12,8 @@
             scope: {
                 title:'@',
                 subTitle:'@',
-                iconFile:'@'
+                iconFile:'@',
+                router:'@'
             },
             controller: 'rainFrameworkCtrl',
             templateUrl: 'rainModules/rainFramework/rainFrameworkTemplate.html'

@@ -1,17 +1,22 @@
 /*
-* event to broadcast:   'rain-menu-show'
-* event to watch:       'rain-menu-item-selected-event','rain-menu-orientation-changed-event'
-* */
+ * event to broadcast:   'rain-menu-show','rain-change-route-event'
+ * event to watch:       'rain-menu-item-selected-event','rain-menu-orientation-changed-event'
+ * router:               'ngRoute','uiRouter','ngNewRouter'
+ * */
 
 (function (module) {
-    angular.module(module).controller('rainFrameworkCtrl', ['$scope', '$window', '$timeout', '$rootScope', rainFrameworkCtrl]);
-
+    angular.module(module).controller('rainFrameworkCtrl',
+        ['$scope', '$window', '$timeout', '$rootScope', rainFrameworkCtrl]);
 
     function rainFrameworkCtrl($scope, $window, $timeout, $rootScope) {
 
         $scope.isMenuButtonVisible = true;
-        $scope.isMenuVisible = true;
-        $scope.isMenuVertical =true;
+        $scope.isVerticalMenuVisible = true;
+        $scope.isMenuVertical = true;
+        $scope.routerName = $scope.router.trim().toUpperCase();
+        $scope.isFullWidth = function () {
+            return !$scope.isMenuVertical || !$scope.isVerticalMenuVisible;
+        };
 
         activate();
 
@@ -29,11 +34,14 @@
         function setupEvents() {
             $scope.$on('rain-menu-item-selected-event', function (event, data) {
                 $scope.routeString = data.route;
+                if ($scope.routeString) {
+                    broadcastRoute($scope.routeString);
+                }
                 checkWidth();
             });
 
-            $scope.$on('rain-menu-orientation-changed-event',function(event,data){
-               $scope.isMenuVertical = data.isMenuVertical;
+            $scope.$on('rain-menu-orientation-changed-event', function (event, data) {
+                $scope.isMenuVertical = data.isMenuVertical;
             });
 
 
@@ -50,7 +58,9 @@
             });
 
             $scope.menuButtonClicked = function () {
-                $scope.isMenuVisible = !$scope.isMenuVisible;
+                $scope.isVerticalMenuVisible = !$scope.isVerticalMenuVisible;
+                var width = Math.max($window.innerWidth, $($window).width());
+                $scope.isMenuVertical =(width < 768);
                 broadcastMenuState();
                 //$scope.$apply();
             }
@@ -58,16 +68,21 @@
 
         function broadcastMenuState() {
             $rootScope.$broadcast('rain-menu-show', {
-                show: $scope.isMenuVisible,
+                show: $scope.isVerticalMenuVisible,
                 isVertical: $scope.isMenuVertical,
-                allowHorizontalMenu : !$scope.isMenuButtonVisible
+                allowHorizontalMenu: !$scope.isMenuButtonVisible
             })
+        }
+
+        // inform the application to switch route
+        function broadcastRoute(routeString) {
+            $rootScope.$broadcast('rain-change-route-event', {route: routeString});
         }
 
         function checkWidth() {
             var width = Math.max($window.innerWidth, $($window).width());
-            $scope.isMenuVisible = (width >= 768);
-            $scope.isMenuButtonVisible = !$scope.isMenuVisible;
+            $scope.isVerticalMenuVisible = (width >= 768);
+            $scope.isMenuButtonVisible = !$scope.isVerticalMenuVisible;
             broadcastMenuState();
         }
 
