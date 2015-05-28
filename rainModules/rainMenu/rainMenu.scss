@@ -1,3 +1,16 @@
+/*
+$text-color:#a7b1c2;
+$text-color-active:#dddddd;
+$menu-group-color-active:#19AA8D;
+$menu-background-color: #2F4050;
+$menu-background-color-hover: #293846;
+*/
+$text-color:#B1B1B1;
+$text-color-active:#dddddd;
+$menu-group-color-active:#F0AD4E;
+$menu-background-color: #333;
+$menu-background-color-hover: #242424;
+
 .r-menu-area-vertical {
   width: 260px;
   float: left;
@@ -11,12 +24,12 @@
 
 .r-menu-area {
   position: relative;
-  background-color: #333;
-  color: #B6B1B1;
+  background-color: $menu-background-color;
+  color: $text-color;
   padding-left: 0;
 
   .button:hover {
-    color: #cccccc;
+    color: $text-color-active;
   }
 
   ul {
@@ -40,7 +53,7 @@
       }
       .r-menu-active-indicator {
         float: right;
-        color: #dddddd;
+        color: $text-color-active;
         margin-right: 5px;
         margin-top: 6px;
       }
@@ -52,11 +65,11 @@
     vertical-align: top;
 
     >rain-menu-group>li.isActive{
-        border-left: 3px solid #F0AD4E;
+        border-left: 3px solid $menu-group-color-active;
       }
   }
   .r-selectable-item:hover {
-    background-color: #242424;
+    background-color: $menu-background-color-hover;
   }
   .r-no-select {
     -webkit-user-select: none;
@@ -76,9 +89,9 @@
   .r-menu-layout-button{
     margin: 12px;
     padding: 2px 8px;
-    color: #bbb;
+    color: $text-color;
     background-color: transparent;
-    border:1px solid #999999;
+    border:1px solid $text-color;
   }
   .r-menu-layout-button-horizontal{
     position: absolute;
@@ -94,11 +107,11 @@
   padding-left: 38px;
 }
 .r-menu-item:hover{
-  color: #fff2e4;
+  color: $text-color-active;
   font-weight: bold;
 }
 .r-menu-item-active{
-  color: #fff2e4;
+  color: $text-color-active;
   font-weight: bold;
 }
 .r-menu-group{
@@ -115,7 +128,7 @@
   position: absolute;
   z-index: 1000;
   width: 200px;
-  background-color: #333333;
+  background-color: $menu-background-color-hover;
   padding-left: 0;
 }
 .r-menu-fade-in-animation{

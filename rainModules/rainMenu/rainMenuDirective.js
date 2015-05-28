@@ -7,6 +7,7 @@
             restrict:'AE',
             transclude: true,
             scope: {
+                horizontalMenu:'='
             },
             controller: 'rainMenuCtrl',
             templateUrl: 'rainModules/rainMenu/rainMenuTemplate.html',
@@ -15,11 +16,16 @@
 
         // open the first menu section
         function link(scope,element,attr){
-            var item = element.find('.r-selectable-item:first');
-            if(item){
-                $timeout(function(){
-                    item.trigger('click');
-                })
+
+            //openFirstMenu();
+
+            function openFirstMenu() {
+                var item = element.find('.r-selectable-item:first');
+                if (item) {
+                    $timeout(function () {
+                        item.trigger('click');
+                    })
+                }
             }
         }
     }
