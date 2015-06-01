@@ -33,52 +33,52 @@
             <tr ng-repeat="row in list" ng-click="selectRow(row)" ng-class="{'row-selected':row.rowSelected}">
                 <td ng-repeat="field in row.rowData" ng-if="!field.isHidden">
                     <div style="display: inline-block;" ng-class="{'cell-center':field.isButton}"
-                          grid-cell="field.value"
-                          is-date="field.isDate"
-                          is-checkbox="field.isCheckbox"
-                          is-currency="field.isCurrency"
-                          is-number="field.isNumber"
-                          is-link="field.isLink"
-                          is-button="field.isButton"
-                          is-hidden="field.isHidden"
-                          decimal="field.decimal"
-                          func-link="linkTo(row.rowData,field.linkFunc.funcName,field.linkFunc.funcIdField)">
+                         grid-cell-template="field.value"
+                         is-date="field.isDate"
+                         is-checkbox="field.isCheckbox"
+                         is-currency="field.isCurrency"
+                         is-number="field.isNumber"
+                         is-link="field.isLink"
+                         is-button="field.isButton"
+                         is-hidden="field.isHidden"
+                         decimal="field.decimal"
+                         func-link="linkTo(row.rowData,field.linkFunc.funcEvent,field.linkFunc.funcIdField)">
                         <!--{{field.value}}-->
                     </div>
                 </td>
             </tr>
             </tbody>
         </table>
-            <div class="col-xs-12 rain-grid-pagination">
-                <div class="clearfix" style="display: inline-block;height: 30px;">
-                    <div class="pull-left" style="margin: 5px 5px 5px 0;">
-                        <span style="margin-right: 5px;">Count:</span>
-                        <span style="color: #337AB7;font-weight: bold;">{{rowCount}}</span>
-                    </div>
+        <div class="col-xs-12 rain-grid-pagination">
+            <div class="clearfix" style="display: inline-block;height: 30px;">
+                <div class="pull-left" style="margin: 5px 5px 5px 0;">
+                    <span style="margin-right: 5px;">Count:</span>
+                    <span style="color: #337AB7;font-weight: bold;">{{rowCount}}</span>
                 </div>
-                <div class="clearfix" style="display: inline-block;" ng-show="enablePage">
-                    <div class="pull-left" style="width: 160px;">
-                        <div class="clearfix">
-                            <div class="pull-left" style="margin: 5px 5px 0 0;">Page size:</div>
-                            <div class="pull-left">
-                                <select class="form-control input-sm" ng-model="pageSize" style=""
-                                        ng-change="pageSizeChanged(pageSize)"
-                                        ng-options="size as size.label for size in pageSizes">
-                                </select>
-                            </div>
+            </div>
+            <div class="clearfix" style="display: inline-block;" ng-show="enablePage">
+                <div class="pull-left" style="width: 160px;">
+                    <div class="clearfix">
+                        <div class="pull-left" style="margin: 5px 5px 0 0;">Page size:</div>
+                        <div class="pull-left">
+                            <select class="form-control input-sm" ng-model="pageSize" style=""
+                                    ng-change="pageSizeChanged(pageSize)"
+                                    ng-options="size as size.label for size in pageSizes">
+                            </select>
                         </div>
                     </div>
                 </div>
-                <div class="clearfix" style="display: inline-block;height: 30px;">
-                    <div class="pull-left"  ng-show="enablePage">
-                        <pagination total-items="rowCount" ng-model="currentPage" max-size="maxSize"
-                                    class="pagination-sm" boundary-links="true" rotate="false"
-                                    first-text="<<" previous-text="<" next-text=">" last-text=">>"
-                                    items-per-page="pageSize.value" ng-change="pageChanged()">
-                        </pagination>
-                    </div>
+            </div>
+            <div class="clearfix" style="display: inline-block;height: 30px;">
+                <div class="pull-left" ng-show="enablePage">
+                    <pagination total-items="rowCount" ng-model="currentPage" max-size="maxSize"
+                                class="pagination-sm" boundary-links="true" rotate="false"
+                                first-text="<<" previous-text="<" next-text=">" last-text=">>"
+                                items-per-page="pageSize.value" ng-change="pageChanged()">
+                    </pagination>
                 </div>
             </div>
+        </div>
 
     </div>
 </div>

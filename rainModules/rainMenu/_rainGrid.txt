@@ -1,0 +1,54 @@
+var gridOptions = {
+    data: promiseData,
+    columnDefs: getColumnDefs(),
+    enablePage: true,
+    idField: 'OrderID',
+    pageSize: 10,
+    selectable: true,
+    selectFirstRow: false,
+    title: 'Order Detail',
+    showToolMenu: true,
+    rowSelectedEvent: {funcEvent:'orderDetailListDir.rowSelectedEvent',funcIdField:'OrderID'}
+};
+function getColumnDefs() {
+    return [
+        {
+           field: 'OrderID',
+           displayName: 'ID'
+        },
+        {
+            field: 'ProductID',
+            displayName: 'Product ID',
+            isHidden: true
+        },
+        {
+            field: 'ProductName',
+            displayName: 'Name',
+            isLink: true,
+            isCurrency: false,
+            isNumber: false,
+            isBoolean: false,
+            isCheckbox: false,
+            isDate: false,
+            isHidden: false,
+            linkFunc: {funcEvent: 'orderDetailListDir.productDetail', funcIdField: 'ProductID'}
+        }
+    ];
+
+}
+
+$scope.$on('orderDetailListDir.rowSelectedEvent', function (event, data) {
+    var id = data.id;
+    vm.orderId = id;
+    vm.selectedRow = true;
+})
+
+$scope.$on('orderDetailListDir.productDetail', function (event,data) {
+    var id = data.id;
+    var modalInstance = nwCommonService.showProductModal(id);
+    modalInstance.then(function () {
+    });
+});
+
+// html with rainGrid and attributes
+/*<div rain-grid="vm.gridOptions"></div>*/

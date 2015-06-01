@@ -4,12 +4,10 @@
     function rainGridDirective() {
         return {
             restrict: 'AE',
-            templateUrl: 'rainModules/rainGrid/_rainGridTemplate.html',
+            templateUrl:  'rainModules/rainGrid/_rainGridTemplate.html',
             replace: false,
             scope: {
-                rainGrid: '=',
-                funcLink: '&',
-                funcOnSelect: '&'
+                rainGrid: '='
             },
             controller: 'rainGridController'
 

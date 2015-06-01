@@ -1,10 +1,10 @@
 (function (module) {
 
-    angular.module(module).controller('rainGridController', ['rainGridService', rainGridController]);
+    angular.module(module).controller('rainGridController', ['$scope,', '$rootScope', 'rainGridService', rainGridController]);
 
     /*-- Function Controller --*/
 
-    function rainGridController($scope, rainGridService) {
+    function rainGridController($scope, $rootScope, rainGridService) {
 
         $scope.gridOptions = {};
         var _dataList = [];
@@ -137,12 +137,15 @@
 
         // page event handlers
 
-        $scope.linkTo = function (row, funcName, funcIdField) {
-            /*if (!id) {
-             throw "gridOptions.idField is missing or invalid";
-             }*/
-            var params = {'row': row, 'funcName': funcName, 'funcIdField': funcIdField};
-            $scope.funcLink({params: params});
+        $scope.linkTo = function (row, funcEvent, funcIdField) {
+            // execute the link function of this field
+            var field = _.find(row, function (col) {
+                return col.fieldName === funcIdField;
+            });
+            if (field) {
+                var id = field.value;
+                $rootScope.$broadcast(funcEvent, {id: id});
+            }
         };
 
         $scope.pageSizeChanged = function (pageSize) {
@@ -184,8 +187,9 @@
             if (row.rowSelected) {
                 $scope.selectedRow = row;
             }
-            if (row.rowSelected && $scope.funcOnSelect) {
-                $scope.funcOnSelect({id: row.id});
+            if (row.rowSelected && $scope.gridOptions.rowSelectedEvent) {
+                var funcEvent = $scope.gridOptions.rowSelectedEvent.funcEvent;
+                $rootScope.$broadcast(funcEvent, {id: row.id});
             }
         };
 

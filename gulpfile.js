@@ -32,11 +32,21 @@ gulp.task('buildMenuTemplateCache', function () {
 gulp.task('buildFrameworkTemplateCache', function () {
     return gulp.src(['./rainModules/rainFramework/**/*.html'])
         .pipe(templateCache({
-            root: 'rainModules/rainMenu/',
-            module: 'rainMenu'
+            root: 'rainModules/rainFramework/',
+            module: 'rainFramework'
         }))
         .pipe(gulp.dest('./rainModules/rainFramework/'))
 });
+
+gulp.task('buildGridTemplateCache', function () {
+    return gulp.src(['./rainModules/rainGrid/**/*.html'])
+        .pipe(templateCache({
+            root: 'rainModules/rainGrid/',
+            module: 'rainGrid'
+        }))
+        .pipe(gulp.dest('./rainModules/rainGrid/'))
+});
+
 
 // --- create a single javaScript file --- //
 
