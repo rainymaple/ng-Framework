@@ -33,7 +33,7 @@
             <tr ng-repeat="row in list" ng-click="selectRow(row)" ng-class="{'row-selected':row.rowSelected}">
                 <td ng-repeat="field in row.rowData" ng-if="!field.isHidden">
                     <div style="display: inline-block;" ng-class="{'cell-center':field.isButton}"
-                         grid-cell-template="field.value"
+                         grid-cell="field.value"
                          is-date="field.isDate"
                          is-checkbox="field.isCheckbox"
                          is-currency="field.isCurrency"
