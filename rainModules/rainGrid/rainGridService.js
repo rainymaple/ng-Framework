@@ -145,7 +145,7 @@
         // Filtering
         function showFilterModal(gridOptions, filters) {
             var modalInstance = $modal.open({
-                templateUrl: baseUrl + 'rainGridFilterModal.html',
+                templateUrl: baseUrl + 'rainGridFilterModalTemplate.html',
                 controller: 'rainGridFilterModalCtrl',
                 resolve: {
                     columnDefs: function () {
@@ -204,7 +204,7 @@
                     ];
             }
             return constraints;
-        }   // end of getFilterContraintsByColumnType
+        }   // end of getFilterConstraintsByColumnType
 
         function filterData(_dataRows, filters) {
 
