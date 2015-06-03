@@ -1,5 +1,6 @@
-(function (app) {
-    app.controller('rainGridFilterModalCtrl', ['$modalInstance', 'columnDefs', 'filters', '$scope', rainGridFilterModalCtrl]);
+(function () {
+    angular.module('rain.grid').controller('rain.grid.filterModal.controller',
+        ['$modalInstance', 'columnDefs', 'filters', '$scope', rainGridFilterModalCtrl]);
 
     function rainGridFilterModalCtrl($modalInstance, columnDefs, filters, $scope) {
 
@@ -59,4 +60,4 @@
     }
 
 
-})(angular.module('rainGrid'));
+})();

@@ -1,6 +1,6 @@
 (function () {
-    angular.module('rainService').factory('rainService.currentUser',
-        ['rainService.localStorage', currentUser]);
+    angular.module('rain.Service').factory('rain.Service.currentUser',
+        ['rain.Service.localStorage', currentUser]);
     function currentUser(localStorage) {
 
         var _userKey = 'tokenKey';

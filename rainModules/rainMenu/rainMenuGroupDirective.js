@@ -1,5 +1,5 @@
-(function (module) {
-    angular.module(module).directive('rainMenuGroup', rainMenuGroup);
+(function () {
+    angular.module('rain.menu').directive('rainMenuGroup', rainMenuGroup);
 
 
     function rainMenuGroup() {
@@ -60,4 +60,4 @@
             element.find('.r-menu-sub-section').css({'left': pos.left + 22, top: height + 1});
         }
     }
-})('rainMenu');
+})();

@@ -2,21 +2,20 @@
 * Accepted attributes: title, sub-title, router, icon-file
 * */
 
-(function (module) {
-    angular.module(module).directive('rainFramework', rainFramework);
-
+(function () {
+    angular.module('rain.framework').directive('rainFramework', rainFramework);
 
     function rainFramework() {
         return {
             transclude: true,
             scope: {
-                title:'@',
-                subTitle:'@',
+                headerTitle:'@',
+                headerSubTitle:'@',
                 iconFile:'@',
                 router:'@'
             },
-            controller: 'rainFrameworkCtrl',
+            controller: 'rain.framework.controller',
             templateUrl: 'rainModules/rainFramework/rainFrameworkTemplate.html'
         }
     }
-})('rainFramework');
+})();

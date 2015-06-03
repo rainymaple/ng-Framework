@@ -1,17 +1,18 @@
 (function () {
-    var module = angular.module('rainService');
+    var module = angular.module('rain.Service');
 
-    module.factory('rainService.oauth', ['$http', '$q', 'rainService.currentUser', oauth]);
+    module.factory('rain.Service.oauth', ['$http', '$q', 'rain.Service.currentUser', oauth]);
 
-    module.factory('loginRedirect', ['$q', '$rootScope', '$location', loginRedirect]);
+    module.factory('rain.Service.loginRedirect', ['$q', '$rootScope', '$location', loginRedirect]);
 
     // -- interceptors --//
+    // about interceptor -- https://docs.angularjs.org/api/ng/service/$http
     module.config(function ($httpProvider) {
         $httpProvider.interceptors.push('addToken');
     });
 
     module.config(function ($httpProvider) {
-        $httpProvider.interceptors.push('loginRedirect');
+        $httpProvider.interceptors.push('rain.Service.loginRedirect');
     });
 
     // -- service -- //

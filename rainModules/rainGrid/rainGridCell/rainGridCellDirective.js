@@ -1,12 +1,12 @@
-(function (app) {
-    app.directive('gridCell', [gridCell]);
+(function () {
+    angular.module('rain.grid').directive('gridCell', [gridCell]);
 
     /*-- Function Directive --*/
     function gridCell() {
 
         return {
             restrict: 'AE',
-            templateUrl: 'rainModules/rainGrid/rainGridCellTemplate.html',
+            templateUrl: 'rainModules/rainGrid/rainGridCell/rainGridCellTemplate.html',
             replace: false,
             scope: {
                 gridCell: '=',
@@ -36,4 +36,4 @@
 
 
     }
-})(angular.module('rainGrid'));
+})();

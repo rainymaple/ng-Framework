@@ -1,3 +1,3 @@
 (function () {
-    angular.module('rainService',[]);
+    angular.module('rain.Service',[]);
 })();

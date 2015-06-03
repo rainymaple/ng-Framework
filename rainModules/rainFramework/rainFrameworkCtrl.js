@@ -4,8 +4,8 @@
  * router:               'ngRoute','uiRouter','ngNewRouter'
  * */
 
-(function (module) {
-    angular.module(module).controller('rainFrameworkCtrl',
+(function () {
+    angular.module('rain.framework').controller('rain.framework.controller',
         ['$scope', '$window', '$timeout', '$rootScope', rainFrameworkCtrl]);
 
     function rainFrameworkCtrl($scope, $window, $timeout, $rootScope) {
@@ -87,5 +87,5 @@
         }
 
     }
-})('rainFramework');
+})();
 

@@ -2,8 +2,8 @@
  * event to broadcast:   'rain-menu-item-selected-event','rain-menu-orientation-changed-event'
  * event to watch:       'rain-menu-show'
  * */
-(function (module) {
-    angular.module(module).controller('rainMenuCtrl', ['$scope', '$rootScope', rainMenuCtrl]);
+(function () {
+    angular.module('rain.menu').controller('rain.menu.controller', ['$scope', '$rootScope', rainMenuCtrl]);
 
     function rainMenuCtrl($scope, $rootScope) {
 
@@ -80,5 +80,5 @@
             })
         }
     }
-})('rainMenu');
+})();
 

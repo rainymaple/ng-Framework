@@ -1,5 +1,5 @@
-(function (module) {
-    angular.module(module).directive('rainMenuItem', rainMenuItem);
+(function () {
+    angular.module('rain.menu').directive('rainMenuItem', rainMenuItem);
 
 
     function rainMenuItem() {
@@ -39,4 +39,4 @@
             })
         })
     }
-})('rainMenu');
+})();

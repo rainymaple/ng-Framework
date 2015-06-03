@@ -7,59 +7,63 @@
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="libs/fontawesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="app/animate.css"/>
-
+    <link rel="stylesheet" href="libs/toastr/toastr.min.js"/>
 
     <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="libs/angular/angular.min.js"></script>
     <script src="libs/angular-animate/angular-animate.min.js"></script>
+    <script src="libs/toastr/toastr.js"></script>
 
-    <!--rainModule Component-->
+    <!--rainModule Component
     <link rel="stylesheet" href="dist/rainModule.css"/>
     <script src="dist/rainModule.js"></script>
+    -->
 
-    <!-- rainModule
+    <!-- rainModule -->
     <script src="rainModules/rainMenu/rainMenuModule.js"></script>
     <script src="rainModules/rainFramework/rainFrameworkModule.js"></script>
-    -->
+
     <!-- Application Component -->
     <script src="app/appModule.js"></script>
     <link rel="stylesheet" href="app/style.css"/>
 
-    <!-- rainFramework
+    <!-- rainFramework-->
     <script src="rainModules/rainFramework/rainFrameworkDirective.js"></script>
     <script src="rainModules/rainFramework/rainFrameworkCtrl.js"></script>
     <link rel="stylesheet" href="rainModules/rainFramework/rainFramework.css"/>
-    -->
-    <!-- rainMenu
+    <!-- rainMenu-->
     <script src="rainModules/rainMenu/rainMenuDirective.js"></script>
     <script src="rainModules/rainMenu/rainMenuCtrl.js"></script>
     <script src="rainModules/rainMenu/rainMenuGroupDirective.js"></script>
     <script src="rainModules/rainMenu/rainMenuItemDirective.js"></script>
     <link rel="stylesheet" href="rainModules/rainMenu/rainMenu.css"/>
-    -->
+
+
+
+
 </head>
-<body class="container-fluid">
-    <rain-framework title="Rain Framework" sub-title="with Responsive Design" router="uiRouter"
+<body class="container-fluid" ng-controller="appCtrl">
+    <rain-framework header-title="Rain Framework" header-sub-title="with Responsive Design" router="uiRouter"
                     icon-file="images/r-design150.jpg">
         <rain-menu horizontal-menu="false">
             <rain-menu-group label="Orders" icon="fa-tags" >
-                <rain-menu-item label="Order List" icon="" route="orders"></rain-menu-item>
-                <rain-menu-item label="Manage Order" icon="" route="order-manage"></rain-menu-item>
+                <rain-menu-item label="Order List" icon="fa-list-alt" route="orders"></rain-menu-item>
+                <rain-menu-item label="Manage Order" icon="fa-tag" route="order-manage"></rain-menu-item>
             </rain-menu-group>
             <rain-menu-group label="Data Management" icon="fa-newspaper-o" >
-                <rain-menu-item label="Employees" icon="" route="employee"></rain-menu-item>
-                <rain-menu-item label="Customers" icon="" route="customer"></rain-menu-item>
-                <rain-menu-item label="Shippers" icon="" route="shipper"></rain-menu-item>
-                <rain-menu-item label="Suppliers" icon="" route="supplier"></rain-menu-item>
-                <rain-menu-item label="Territories" icon="" route="territory"></rain-menu-item>
-                <rain-menu-item label="Categories" icon="" route="category"></rain-menu-item>
-                <rain-menu-item label="Products" icon="" route="product"></rain-menu-item>
+                <rain-menu-item label="Employees" icon="fa-user" route="employee"></rain-menu-item>
+                <rain-menu-item label="Customers" icon="fa-user-secret" route="customer"></rain-menu-item>
+                <rain-menu-item label="Shippers" icon="fa-ship" route="shipper"></rain-menu-item>
+                <rain-menu-item label="Suppliers" icon="fa-truck" route="supplier"></rain-menu-item>
+                <rain-menu-item label="Territories" icon="fa-globe" route="territory"></rain-menu-item>
+                <rain-menu-item label="Categories" icon="fa-clipboard" route="category"></rain-menu-item>
+                <rain-menu-item label="Products" icon="fa-cart-arrow-down" route="product"></rain-menu-item>
             </rain-menu-group>
             <rain-menu-group label="Reports" icon="fa-line-chart" >
-                <rain-menu-item label="Order Report" icon="" route="report"></rain-menu-item>
+                <rain-menu-item label="Order Report" icon="fa-area-chart" route="report"></rain-menu-item>
             </rain-menu-group>
             <rain-menu-group label="App Settings" icon="fa fa-cog">
-                <rain-menu-item label="Account" icon="" route="account"></rain-menu-item>
+                <rain-menu-item label="Account" icon="fa-user-plus" route="account"></rain-menu-item>
             </rain-menu-group>
         </rain-menu>
     </rain-framework>

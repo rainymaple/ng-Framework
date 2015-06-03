@@ -1,6 +1,7 @@
-(function (module) {
+(function () {
 
-    angular.module(module).controller('rainGridController', ['$scope', '$rootScope', 'rainGridService', rainGridController]);
+    angular.module('rain.grid').controller('rain.grid.controller', ['$scope', '$rootScope', 'rainGridService',
+        rainGridController]);
 
     /*-- Function Controller --*/
 
@@ -196,4 +197,4 @@
 
     }   // end of controller
 
-})('rainGrid');
+})();

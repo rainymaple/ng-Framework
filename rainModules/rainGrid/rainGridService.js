@@ -1,5 +1,7 @@
-(function (app) {
-    app.factory('rainGridService', ['$parse', '$modal', 'rainGridConfig', rainGridService]);
+(function () {
+    angular.module('rain.grid').factory('rainGridService',
+        ['$parse', '$modal', 'rainGridConfig', rainGridService]);
+
     function rainGridService($parse, $modal, rainGridConfig) {
         var baseUrl = rainGridConfig.baseUrl;
         return {
@@ -145,8 +147,8 @@
         // Filtering
         function showFilterModal(gridOptions, filters) {
             var modalInstance = $modal.open({
-                templateUrl: baseUrl + 'rainGridFilterModalTemplate.html',
-                controller: 'rainGridFilterModalCtrl',
+                templateUrl: baseUrl + 'rainGridFilterModal/rainGridFilterModalTemplate.html',
+                controller: 'rain.grid.filterModal.controller',
                 resolve: {
                     columnDefs: function () {
                         return gridOptions.columnDefs;
@@ -259,4 +261,4 @@
             return _dataList;
         }   // end of filterData
     }
-})(angular.module('rainGrid'));
+})();

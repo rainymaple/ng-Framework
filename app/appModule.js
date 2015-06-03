@@ -1,1 +1,4 @@
-angular.module('app',['rainFramework']);
+angular.module('app',[
+    'rain.framework',
+    'rain.Service'
+]);

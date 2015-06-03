@@ -1,5 +1,5 @@
 (function () {
-    var app =angular.module('rainCheckbox',[]);
+    var app =angular.module('rain.checkbox',[]);
     app.directive('rainCheckbox', [rainCheckboxDirective]);
 
     function rainCheckboxDirective() {

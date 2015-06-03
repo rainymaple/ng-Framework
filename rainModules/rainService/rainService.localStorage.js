@@ -1,5 +1,5 @@
 (function () {
-    angular.module('rainService').factory('rainService.localStorage', ['$window', localStorage]);
+    angular.module('rain.Service').factory('rain.Service.localStorage', ['$window', localStorage]);
     function localStorage($window) {
         var store = $window.localStorage;
 
