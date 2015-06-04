@@ -12,7 +12,7 @@
                 icon:'@',
                 route:'@'
             },
-            templateUrl: 'rainModules/rainMenu/rainMenuItemTemplate.html',
+            templateUrl: 'rainModules/rainMenu/rainMenuItem/rainMenuItemTemplate.html',
             link: link
         }
     }

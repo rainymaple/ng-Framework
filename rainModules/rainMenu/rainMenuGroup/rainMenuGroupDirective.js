@@ -11,7 +11,7 @@
                 label: '@',
                 icon: '@'
             },
-            templateUrl: 'rainModules/rainMenu/rainMenuGroupTemplate.html',
+            templateUrl: 'rainModules/rainMenu/rainMenuGroup/rainMenuGroupTemplate.html',
             link: link
         }
     }
