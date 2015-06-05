@@ -1,0 +1,49 @@
+<div class="authentication">
+
+    <div class="middle-box text-center loginscreen">
+        <div>
+            <div>
+
+                <h1 class="logo-name">ng-NW</h1>
+
+            </div>
+            <h3>Welcome to ng-NorthWind</h3>
+
+            <p>Login with Token-Based Authentication</p>
+
+            <form class="m-t" role="form" name="formLogin" ng-submit="login(formLogin)" novalidate>
+                <div class="form-group" form-input>
+                    <input type="text" ng-model="username" minlength="4"
+                           name="username" placeholder="Username" required="">
+                </div>
+                <div class="form-group" form-input>
+                    <input type="password" ng-model="password" minlength="4"
+                           name="password" placeholder="Password" required="">
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+
+                <div style="font-size: 16px;text-align: left;padding-left: 70px;">
+                    <div>For regular user, input
+                        <span style="font-size: 16px; font-weight: bold;color:#2F4050;">user/user</span>
+                    </div>
+                    <div>For administrator, input
+                        <span style="font-size: 16px; font-weight: bold;color:#2F4050;">admin/admin</span>
+                    </div>
+                </div>
+                <!--                <a href="#">
+                                    <small>Forgot password?</small>
+                                </a>
+
+                                <p class="text-muted text-center">
+                                    <small>Do not have an account?</small>
+                                </p>
+                                <a class="btn btn-sm btn-white btn-block">Create an account</a>-->
+            </form>
+            <p class="m-t">
+                Based on Bootstrap 3 and AngularJs 1.4 &copy; 2015
+            </p>
+
+        </div>
+    </div>
+
+</div>
