@@ -3,7 +3,7 @@
  * event to watch:       'rain-menu-show'
  * */
 (function () {
-    angular.module('rain.menu').controller('rain.menu.controller', ['$scope', '$rootScope', rainMenuCtrl]);
+    angular.module('rainMenu').controller('rainMenu.controller', ['$scope', '$rootScope', rainMenuCtrl]);
 
     function rainMenuCtrl($scope, $rootScope) {
 

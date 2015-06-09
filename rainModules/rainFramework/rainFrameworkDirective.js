@@ -3,7 +3,7 @@
 * */
 
 (function () {
-    angular.module('rain.framework').directive('rainFramework', rainFramework);
+    angular.module('rainFramework').directive('rainFramework', rainFramework);
 
     function rainFramework() {
         return {
@@ -14,7 +14,7 @@
                 iconFile:'@',
                 router:'@'
             },
-            controller: 'rain.framework.controller',
+            controller: 'rainFramework.controller',
             templateUrl: 'rainModules/rainFramework/rainFrameworkTemplate.html'
         }
     }

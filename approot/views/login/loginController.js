@@ -1,10 +1,10 @@
 (function () {
-    var module = angular.module('rain.login');
+    var module = angular.module('app-framework');
 
-    module.controller('rainLoginController',['$scope','rain.Service.oauth','rain.service.loginRedirect',
-        rainLoginController]);
+    module.controller('loginController', ['$scope', 'rainService.oauth', 'rainService.loginRedirect',
+        loginController]);
 
-    function rainLoginController($scope,oauth,loginRedirect){
+    function loginController($scope, oauth, loginRedirect) {
 
         $scope.username = '';
         $scope.password = '';
@@ -42,4 +42,4 @@
                 })
         };
     }
-});
+})();

@@ -1,3 +1,3 @@
 (function () {
-    angular.module("rain.form", []);
+    angular.module("rainForm", []);
 })();

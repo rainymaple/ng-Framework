@@ -1,7 +1,7 @@
 (function () {
-    var module = angular.module('rain.Service');
+    var module = angular.module('rainService');
 
-    module.factory('rain.Service.oauth', ['$http', '$q', 'rain.Service.currentUser', oauth]);
+    module.factory('rainService.oauth', ['$http', 'rainService.currentUser', oauth]);
 
     // -- service -- //
     function oauth($http, currentUser) {

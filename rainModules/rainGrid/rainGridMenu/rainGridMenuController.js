@@ -1,5 +1,5 @@
 (function () {
-    angular.module('rain.grid').controller('rain.grid.menu.controller',
+    angular.module('rainGrid').controller('rainGrid.menu.controller',
         ['$scope', 'rainGridService', rainGridMenuCtrl]);
 
     function rainGridMenuCtrl($scope, rainGridService) {

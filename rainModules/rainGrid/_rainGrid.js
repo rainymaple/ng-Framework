@@ -1,5 +1,5 @@
 (function () {
-    var app=angular.module('rain.grid', []);
+    var app=angular.module('rainGrid', []);
 
     var config = {
         baseUrl: 'rainModules/rainGrid/',

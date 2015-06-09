@@ -1,5 +1,5 @@
 (function () {
-    angular.module('rain.grid').directive('rainGridMenu', [rainGridMenu]);
+    angular.module('rainGrid').directive('rainGridMenu', [rainGridMenu]);
 
     function rainGridMenu() {
         return {
@@ -10,7 +10,7 @@
                 filterData: '&',
                 gridOptions: '='
             },
-            controller: 'rain.grid.menu.controller'
+            controller: 'rainGrid.menu.controller'
         }
     }
 

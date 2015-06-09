@@ -1,5 +1,5 @@
 (function () {
-    angular.module('rain.menu').directive('rainMenuGroup', rainMenuGroup);
+    angular.module('rainMenu').directive('rainMenuGroup', rainMenuGroup);
 
 
     function rainMenuGroup() {

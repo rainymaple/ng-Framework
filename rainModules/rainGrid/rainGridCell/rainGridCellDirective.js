@@ -1,5 +1,5 @@
 (function () {
-    angular.module('rain.grid').directive('gridCell', [gridCell]);
+    angular.module('rainGrid').directive('gridCell', [gridCell]);
 
     /*-- Function Directive --*/
     function gridCell() {

@@ -1,9 +1,9 @@
 (function () {
-    var module = angular.module('rain.Service');
+    var module = angular.module('rainService');
 
     // -- service: addToken -- //
 
-    module.factory('rain.service.addToken', ['$q', 'currentUser', addToken]);
+    module.factory('rainService.addToken', ['$q', 'rainService.currentUser', addToken]);
 
     function addToken($q, currentUser) {
 
@@ -20,7 +20,7 @@
 
     // -- service: loginRedirect -- //
 
-    module.factory('rain.service.loginRedirect', ['$q', '$injector', '$location', loginRedirect]);
+    module.factory('rainService.loginRedirect', ['$q', '$injector', '$location', loginRedirect]);
 
     function loginRedirect($q, $rootScope, $location) {
 
@@ -50,9 +50,9 @@
     // about interceptor -- https://docs.angularjs.org/api/ng/service/$http
 
     module.config(function ($httpProvider) {
-        $httpProvider.interceptors.push('rain.service.addToken');
+        $httpProvider.interceptors.push('rainService.addToken');
     });
     module.config(function ($httpProvider) {
-        $httpProvider.interceptors.push('rain.service.loginRedirect');
+        $httpProvider.interceptors.push('rainService.loginRedirect');
     });
 })();

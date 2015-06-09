@@ -1,5 +1,5 @@
 (function () {
-    angular.module('rain.grid').directive('rainGrid', [rainGridDirective]);
+    angular.module('rainGrid').directive('rainGrid', [rainGridDirective]);
 
     function rainGridDirective() {
         return {
@@ -9,7 +9,7 @@
             scope: {
                 rainGrid: '='
             },
-            controller: 'rain.grid.controller'
+            controller: 'rainGrid.controller'
 
         };
     }   // end of rainGrid

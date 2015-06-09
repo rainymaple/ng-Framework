@@ -5,7 +5,7 @@
  * */
 
 (function () {
-    angular.module('rain.framework').controller('rain.framework.controller',
+    angular.module('rainFramework').controller('rainFramework.controller',
         ['$scope', '$window', '$timeout', '$rootScope', rainFrameworkCtrl]);
 
     function rainFrameworkCtrl($scope, $window, $timeout, $rootScope) {

@@ -1,5 +1,5 @@
 (function () {
-    angular.module('rain.grid').controller('rain.grid.filterInput.controller',
+    angular.module('rainGrid').controller('rainGrid.filterInput.controller',
         ['$scope', 'rainGridService', rainGridFilterInputCtrl]);
 
     function rainGridFilterInputCtrl($scope, rainGridService) {

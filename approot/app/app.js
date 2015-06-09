@@ -1,4 +1,6 @@
-angular.module('app',[
-    'rain.framework',
-    'rain.Service'
-]);
+    angular.module('app-framework',[
+        'rainFramework'
+        ,'rainService'
+        ,'rainForm'
+    ]);
+

@@ -24,7 +24,7 @@ gulp.task('buildMenuTemplateCache', function () {
     return gulp.src(['./rainModules/rainMenu/**/*.html'])
         .pipe(templateCache({
             root: 'rainModules/rainMenu/',
-            module: 'rain.menu'
+            module: 'rainMenu'
         }))
         .pipe(gulp.dest('./rainModules/rainMenu/'))
 });
@@ -33,7 +33,7 @@ gulp.task('buildFrameworkTemplateCache', function () {
     return gulp.src(['./rainModules/rainFramework/**/*.html'])
         .pipe(templateCache({
             root: 'rainModules/rainFramework/',
-            module: 'rain.framework'
+            module: 'rainFramework'
         }))
         .pipe(gulp.dest('./rainModules/rainFramework/'))
 });
@@ -42,7 +42,7 @@ gulp.task('buildGridTemplateCache', function () {
     return gulp.src(['./rainModules/rainGrid/**/*.html'])
         .pipe(templateCache({
             root: 'rainModules/rainGrid/',
-            module: 'rain.grid'
+            module: 'rainGrid'
         }))
         .pipe(gulp.dest('./rainModules/rainGrid/'))
 });

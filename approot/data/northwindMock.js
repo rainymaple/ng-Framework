@@ -16,7 +16,7 @@
         var northwindDb = NorthWindDb.getNorthwindDb();
 
         // pass through any local request
-        $httpBackend.whenGET(/wwwroot/).passThrough();
+        $httpBackend.whenGET(/approot/).passThrough();
 
         $httpBackend.whenGET(/rainModules/).passThrough();
 

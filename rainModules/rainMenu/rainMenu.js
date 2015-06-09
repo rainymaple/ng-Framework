@@ -1,1 +1,4 @@
-angular.module('rain.menu',['ngAnimate']);
+angular.module('rainMenu',
+    [
+        //'ngAnimate'
+    ]);

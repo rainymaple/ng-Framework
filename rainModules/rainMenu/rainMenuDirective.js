@@ -1,5 +1,5 @@
 (function () {
-    angular.module('rain.menu').directive('rainMenu',['$timeout',rainMenu] );
+    angular.module('rainMenu').directive('rainMenu',['$timeout',rainMenu] );
 
 
     function rainMenu($timeout) {
@@ -9,7 +9,7 @@
             scope: {
                 horizontalMenu:'='
             },
-            controller: 'rain.menu.controller',
+            controller: 'rainMenu.controller',
             templateUrl: 'rainModules/rainMenu/rainMenuTemplate.html',
             link: link
         };

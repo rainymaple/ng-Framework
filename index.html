@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app-framework">
 <head lang="en">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title></title>
@@ -7,12 +7,24 @@
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="libs/fontawesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="approot/styles/animate.css"/>
-    <link rel="stylesheet" href="libs/toastr/toastr.min.js"/>
+    <link rel="stylesheet" href="libs/toastr/toastr.min.css"/>
 
     <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="libs/angular/angular.min.js"></script>
     <script src="libs/angular-animate/angular-animate.min.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="libs/toastr/toastr.js"></script>
+
+
+    <!-- Application Component -->
+    <script src="approot/app/app.js"></script>
+    <script src="approot/app/appController.js"></script>
+    <link rel="stylesheet" href="approot/styles/style.css"/>
+
+    <!-- login-->
+    <script src="approot/views/login/loginController.js"></script>
+    <script src="approot/views/login/login.js"></script>
+
 
     <!--rainModule Component
     <link rel="stylesheet" href="dist/rainModule.css"/>
@@ -22,15 +34,14 @@
     <!-- rainModule -->
     <script src="rainModules/rainMenu/rainMenu.js"></script>
     <script src="rainModules/rainFramework/rainFramework.js"></script>
+    <script src="rainModules/rainService/rainService.js"></script>
 
-    <!-- Application Component -->
-    <script src="approot/app/app.js"></script>
-    <link rel="stylesheet" href="approot/app/style.css"/>
 
     <!-- rainFramework-->
     <script src="rainModules/rainFramework/rainFrameworkDirective.js"></script>
     <script src="rainModules/rainFramework/rainFrameworkController.js"></script>
     <link rel="stylesheet" href="rainModules/rainFramework/rainFramework.css"/>
+
     <!-- rainMenu-->
     <script src="rainModules/rainMenu/rainMenuDirective.js"></script>
     <script src="rainModules/rainMenu/rainMenuController.js"></script>
@@ -38,34 +49,47 @@
     <script src="rainModules/rainMenu/rainMenuItem/rainMenuItemDirective.js"></script>
     <link rel="stylesheet" href="rainModules/rainMenu/rainMenu.css"/>
 
+    <!-- rainService-->
+    <script src="rainModules/rainService/rainServiceLocalStorage.js"></script>
+    <script src="rainModules/rainService/rainServiceCurrentUser.js"></script>
+    <script src="rainModules/rainService/rainServiceHttpInterceptor.js"></script>
+    <script src="rainModules/rainService/rainServiceOauth.js"></script>
+
+    <!-- rainForm-->
+    <script src="rainModules/rainForm/rainForm.js"></script>
+    <script src="rainModules/rainForm/rainFormInput.js"></script>
+
+    <!-- rainCheckbox-->
+    <script src="rainModules/rainCheckbox/rainCheckbox.js"></script>
+    <link rel="stylesheet" href="rainModules/rainCheckbox/rain-checkbox.css"/>
+
+    <!-- rainNumberOnly-->
+    <script src="rainModules/rainNumberOnly/rainNumberOnly.js"></script>
+
+    <!-- rainGrid-->
+    <script src="rainModules/rainGrid/_rainGrid.js"></script>
+    <script src="rainModules/rainGrid/_rainGridDirective.js"></script>
+    <script src="rainModules/rainGrid/_rainGridController.js"></script>
+    <script src="rainModules/rainGrid/rainGridService.js"></script>
+    <script src="rainModules/rainGrid/rainGridMenu/rainGridMenuDirective.js"></script>
+    <script src="rainModules/rainGrid/rainGridMenu/rainGridMenuController.js"></script>
+    <script src="rainModules/rainGrid/rainGridFilterModal/rainGridFilterModalCtrl.js"></script>
+    <script src="rainModules/rainGrid/rainGridFilterInput/rainGridFilterInputDirective.js"></script>
+    <script src="rainModules/rainGrid/rainGridFilterInput/rainGridFilterInputController.js"></script>
+    <script src="rainModules/rainGrid/rainGridCell/rainGridCellDirective.js"></script>
+    <link rel="stylesheet" href="rainModules/rainGrid/rainGrid.css"/>
 
 
 
 </head>
-<body class="container-fluid" ng-controller="appCtrl">
-    <rain-framework header-title="Rain Framework" header-sub-title="with Responsive Design" router="uiRouter"
-                    icon-file="images/r-design150.jpg">
-        <rain-menu horizontal-menu="false">
-            <rain-menu-group label="Orders" icon="fa-tags" >
-                <rain-menu-item label="Order List" icon="fa-list-alt" route="orders"></rain-menu-item>
-                <rain-menu-item label="Manage Order" icon="fa-tag" route="order-manage"></rain-menu-item>
-            </rain-menu-group>
-            <rain-menu-group label="Data Management" icon="fa-newspaper-o" >
-                <rain-menu-item label="Employees" icon="fa-user" route="employee"></rain-menu-item>
-                <rain-menu-item label="Customers" icon="fa-user-secret" route="customer"></rain-menu-item>
-                <rain-menu-item label="Shippers" icon="fa-ship" route="shipper"></rain-menu-item>
-                <rain-menu-item label="Suppliers" icon="fa-truck" route="supplier"></rain-menu-item>
-                <rain-menu-item label="Territories" icon="fa-globe" route="territory"></rain-menu-item>
-                <rain-menu-item label="Categories" icon="fa-clipboard" route="category"></rain-menu-item>
-                <rain-menu-item label="Products" icon="fa-cart-arrow-down" route="product"></rain-menu-item>
-            </rain-menu-group>
-            <rain-menu-group label="Reports" icon="fa-line-chart" >
-                <rain-menu-item label="Order Report" icon="fa-area-chart" route="report"></rain-menu-item>
-            </rain-menu-group>
-            <rain-menu-group label="App Settings" icon="fa fa-cog">
-                <rain-menu-item label="Account" icon="fa-user-plus" route="account"></rain-menu-item>
-            </rain-menu-group>
-        </rain-menu>
-    </rain-framework>
+<body class="container-fluid" ng-controller="appController">
+    <div ng-switch="loginState">
+        <div ng-switch-when="unauthorized">
+            <div app-login></div>
+        </div>
+        <div ng-switch-default>
+            <div ng-include src="'approot/views/_layout/layout.html'"></div>
+        </div>
+    </div>
 </body>
 </html>

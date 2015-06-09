@@ -1,5 +1,5 @@
 (function () {
-    angular.module('rain.grid').directive('rainGridFilter', [rainGridFilter]);
+    angular.module('rainGrid').directive('rainGridFilter', [rainGridFilter]);
 
     /*-- Function Directive --*/
     function rainGridFilter() {
@@ -12,7 +12,7 @@
                 columns: '=',
                 deleteFilter: '&'
             },
-            controller: 'rain.grid.filterInput.controller'
+            controller: 'rainGrid.filterInput.controller'
         };
 
     }   // end of fieldSelect

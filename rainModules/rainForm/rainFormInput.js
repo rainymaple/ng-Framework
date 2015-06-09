@@ -1,5 +1,5 @@
 (function () {
-    var module = angular.module("rain.form");
+    var module = angular.module("rainForm");
 
     module.directive("formInput", formInput);
 

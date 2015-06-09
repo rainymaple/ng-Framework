@@ -1,8 +1,9 @@
 (function () {
-    var app = angular.module('app');
-    app.controller('appCtrl',['$scope',appCtrl]);
+    var module = angular.module('app-framework');
 
-    function appCtrl($scope){
+    module.controller('appController', ['$scope', appController]);
 
+    function appController($scope) {
+        $scope.loginState ='unauthorized';
     }
 })();

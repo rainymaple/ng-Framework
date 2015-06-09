@@ -1,5 +1,5 @@
 (function(app){
-    app.factory("NorthWindDb",[northWindDb]);
+    angular.module('northwindDbMock').factory("NorthWindDb",[northWindDb]);
 
     function northWindDb() {
         return {
@@ -33876,4 +33876,4 @@
                 ]
         }
     }
-})(angular.module('appNorthwind'));
+})();

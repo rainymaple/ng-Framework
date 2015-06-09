@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('rain.grid').controller('rain.grid.controller', ['$scope', '$rootScope', 'rainGridService',
+    angular.module('rainGrid').controller('rainGrid.controller', ['$scope', '$rootScope', 'rainGridService',
         rainGridController]);
 
     /*-- Function Controller --*/

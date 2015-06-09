@@ -1,5 +1,5 @@
 (function () {
-    angular.module('rain.grid').factory('rainGridService',
+    angular.module('rainGrid').factory('rainGridService',
         ['$parse', '$modal', 'rainGridConfig', rainGridService]);
 
     function rainGridService($parse, $modal, rainGridConfig) {
@@ -148,7 +148,7 @@
         function showFilterModal(gridOptions, filters) {
             var modalInstance = $modal.open({
                 templateUrl: baseUrl + 'rainGridFilterModal/rainGridFilterModalTemplate.html',
-                controller: 'rain.grid.filterModal.controller',
+                controller: 'rainGrid.filterModal.controller',
                 resolve: {
                     columnDefs: function () {
                         return gridOptions.columnDefs;
