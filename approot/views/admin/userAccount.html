@@ -1,0 +1,117 @@
+<div ng-controller="userAccountCtrl" class="admin-tab animated fadeIn" ng-show="dataReady">
+
+    <form class="form-horizontal admin-form" novalidate name="formUser" id="formUser">
+        <filedset>
+            <legend ng-class="{'edit-mode':isEditMode,'add-mode':!isEditMode}">{{title}}</legend>
+            <div class="form-group" form-input>
+                <label for="username" class="col-xs-2">User Name</label>
+
+                <div class="col-xs-10">
+                    <div class="col-xs-8">
+                        <input type="text" id="username" name="username" ng-disabled="isEditMode"
+                               required ng-minlength="4"
+                               ng-model="user.username" placeholder="User Name">
+                    </div>
+                    <div class="col-xs-4 inline-error-message">
+                    <span class='help-block' ng-messages='formUser.username.$error'>
+                        <span ng-message="required">*</span>
+                        <span ng-message="minlength">at least 4 characters</span>
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" form-input>
+                <label for="password1" class="col-xs-2 control-label">Password</label>
+
+                <div class="col-xs-10">
+                    <div class="col-xs-8">
+                        <input type="password" id="password1" name="password1"
+                               required ng-minlength="4" ng-model="user.password" placeholder="Password">
+                    </div>
+                    <div class="col-xs-4 inline-error-message">
+                    <span class='help-block' ng-messages='formUser.password1.$error'>
+                        <span ng-message="required">*</span>
+                        <span ng-message="minlength">at least 4 characters</span>
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" form-input>
+                <label for="password2" class="col-xs-2 control-label"
+                       ng-class="{'has-error':formUser.password2.$dirty && password2!==user.password}">
+                    <label class="control-label" style="padding-top: 0;">Confirm</label>
+                </label>
+
+                <div class="col-xs-10">
+                    <div class="col-xs-8"
+                         ng-class="{'has-error':formUser.password2.$dirty && password2!==user.password}">
+                        <input type="password" id="password2" name="password2"
+                               required ng-minlength="4" ng-model="password2" placeholder="Password">
+                    </div>
+                    <div class="col-xs-4 inline-error-message">
+                    <span class='help-block' ng-messages='formUser.password2.$error'>
+                        <span ng-message="required">*</span>
+                        <span ng-message="minlength">at least 4 characters</span>
+
+                    </span>
+                    <span ng-show='!formUser.password2.$error.required && !formUser.password2.$error.minlength'>
+                        <span ng-show="formUser.password2.$dirty && password2!==user.password" style="color: #a94442;">
+                            passwords do not match
+                        </span>
+                    </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" form-input>
+                <label for="role" class="col-xs-2 control-label">Role</label>
+
+                <div class="col-xs-10">
+                    <div class="col-xs-5">
+                        <select class="form-control" ng-model="user.role" id="role" name="role"
+                                ng-options="role.key as role.name for role in roles">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <div class="col-xs-5">
+                        <button type="submit" class="btn btn-info"
+                                ng-disabled="formUser.$invalid || password2!==user.password"
+                                ng-click="saveUser(formUser)">
+                            <i class="glyphicon glyphicon-ok"></i>
+                            Save
+                        </button>
+                        <button class="btn btn-warning" ng-click="newUser()" ng-show="isEditMode">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            new
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </filedset>
+    </form>
+
+
+    <div class="row center-block" style="margin-top: 20px;">
+        <div class="table-container">
+            <div style="padding: 10px;" class="table-responsive">
+                <div rain-grid="gridOptions" func-link="linkFunc(params)"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="deleteUserModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Delete</h3>
+        </div>
+        <div class="modal-body">
+            <p style="font-size: 16px;">Are you sure you want to delete this user?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">Yes</button>
+            <button class="btn btn-warning" ng-click="cancel()">No</button>
+        </div>
+    </script>
+</div>

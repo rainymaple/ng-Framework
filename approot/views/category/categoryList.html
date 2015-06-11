@@ -1,0 +1,16 @@
+<div ng-controller="categoryCtrl as vm" class="animated fadeIn">
+    <div class="legend">Categories</div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <div rain-grid="vm.gridOptions"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div product-list-dir category-id="vm.categoryId"></div>
+        </div>
+    </div>
+
+</div>

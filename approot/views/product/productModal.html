@@ -1,0 +1,99 @@
+<div>
+    <div class="modal-header">
+        <div style="display:inline-block;margin-left: 10px;font-size: 16px;font-weight: bold;">Product Detail</div>
+    </div>
+    <div style="margin:10px;padding-right: 10px;">
+
+        <div>
+            <form name="formProduct" class="form-horizontal">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group form-group-sm">
+                            <label for="ProductName" class="col-sm-3 control-label">
+                                Product Name
+                            </label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="ProductName" name="ProductName" disabled
+                                       ng-model="product.ProductName">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group  form-group-sm">
+                            <label for="QuantityPerUnit" class="col-md-5 col-sm-3 control-label">Quantity Per Unit</label>
+
+                            <div class="col-md-7 col-sm-9">
+                                <input type="text" class="form-control" id="QuantityPerUnit"
+                                       name="QuantityPerUnit" disabled ng-model="product.QuantityPerUnit">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group  form-group-sm">
+                            <label for="UnitPrice" class="col-md-6 col-sm-3 control-label">Unit Price</label>
+
+                            <div class="col-md-6 col-sm-9">
+                                <input type="text" class="form-control" id="UnitPrice" disabled
+                                       name="UnitPrice" value={{product.UnitPrice|currency}}>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group  form-group-sm">
+                            <label for="UnitsInStock" class="col-md-5 col-sm-3  control-label">Units In Stock</label>
+
+                            <div class="col-md-7 col-sm-9">
+                                <input type="text" class="form-control" id="UnitsInStock" name="UnitsInStock" disabled
+                                       ng-model="product.UnitsInStock">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group  form-group-sm">
+                            <label for="UnitsOnOrder" class="col-md-6 col-sm-3 control-label">Units On Order</label>
+
+                            <div class="col-md-6 col-sm-9">
+                                <input type="text" class="form-control" id="UnitsOnOrder" name="UnitsOnOrder" disabled
+                                       ng-model="product.UnitsOnOrder">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group  form-group-sm">
+                            <label for="ReorderLevel" class="col-md-5 col-sm-3 control-label">Reorder Level</label>
+
+                            <div class="col-md-7 col-sm-3">
+                                <input type="text" class="form-control" id="ReorderLevel" name="ReorderLevel" disabled
+                                       ng-model="product.ReorderLevel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group  form-group-sm">
+                            <label  class="col-md-6 col-sm-3  control-label">Discontinued</label>
+
+                            <div class="col-md-6 col-sm-3">
+                                <div class="pull-left" rain-checkbox="product.Discontinued" readonly="true"></div>
+                               <!-- <div class="clearfix" style="margin-top: 4px;">
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <!--<button class="btn btn-warning" ng-click="cancel()">Cancel</button>-->
+    </div>
+</div>

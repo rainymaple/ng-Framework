@@ -48,7 +48,7 @@ $theme-background-color: #4B7976;
         top: 0;
         margin-top: 0;
         background-color: #FFF;
-        border: 1px solid #D3CFC8;
+        border: 1px solid $theme-background-color;
       }
 
       label:after {

@@ -1,5 +1,5 @@
 (function () {
-    var module =angular.module('rain.numberOnly',[]);
+    var module =angular.module('rainNumberOnly',[]);
     module.directive('numberOnly',numberOnly);
     function numberOnly(){
         return {

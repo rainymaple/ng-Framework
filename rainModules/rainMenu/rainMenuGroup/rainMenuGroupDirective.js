@@ -57,7 +57,7 @@
             if (menuGroup) {
                 height = menuGroup.height();
             }
-            element.find('.r-menu-sub-section').css({'left': pos.left + 22, top: height + 1});
+            element.find('.r-menu-sub-section').css({'left': pos.left + 2, top: height + 1});
         }
     }
 })();

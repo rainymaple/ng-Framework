@@ -1,24 +1,24 @@
-<rain-framework header-title="Rain Framework" header-sub-title="with Responsive Design" router="uiRouter"
+<rain-framework header-title="Rain Framework" header-sub-title="with Responsive Design" router='{{router}}'
                 icon-file="approot/images/r-design150.jpg">
     <rain-menu horizontal-menu="false">
         <rain-menu-group label="Orders" icon="fa-tags" >
-            <rain-menu-item label="Order List" icon="fa-list-alt" route="orders"></rain-menu-item>
-            <rain-menu-item label="Manage Order" icon="fa-tag" route="order-manage"></rain-menu-item>
+            <rain-menu-item label="Order List" icon="fa-list-alt" route="orderList"></rain-menu-item>
+            <rain-menu-item label="Manage Order" icon="fa-tag" route="orderManage"></rain-menu-item>
         </rain-menu-group>
         <rain-menu-group label="Data Management" icon="fa-newspaper-o" >
-            <rain-menu-item label="Employees" icon="fa-user" route="employee"></rain-menu-item>
-            <rain-menu-item label="Customers" icon="fa-user-secret" route="customer"></rain-menu-item>
-            <rain-menu-item label="Shippers" icon="fa-ship" route="shipper"></rain-menu-item>
-            <rain-menu-item label="Suppliers" icon="fa-truck" route="supplier"></rain-menu-item>
-            <rain-menu-item label="Territories" icon="fa-globe" route="territory"></rain-menu-item>
-            <rain-menu-item label="Categories" icon="fa-clipboard" route="category"></rain-menu-item>
-            <rain-menu-item label="Products" icon="fa-cart-arrow-down" route="product"></rain-menu-item>
+            <rain-menu-item label="Employees" icon="fa-user" route="employeeList"></rain-menu-item>
+            <rain-menu-item label="Customers" icon="fa-user-secret" route="customerList"></rain-menu-item>
+            <rain-menu-item label="Shippers" icon="fa-ship" route="shipperList"></rain-menu-item>
+            <rain-menu-item label="Suppliers" icon="fa-truck" route="supplierList"></rain-menu-item>
+            <rain-menu-item label="Territories" icon="fa-globe" route="territoryList"></rain-menu-item>
+            <rain-menu-item label="Categories" icon="fa-clipboard" route="categoryList"></rain-menu-item>
+            <rain-menu-item label="Products" icon="fa-cart-arrow-down" route="productList"></rain-menu-item>
         </rain-menu-group>
         <rain-menu-group label="Reports" icon="fa-line-chart" >
-            <rain-menu-item label="Order Report" icon="fa-area-chart" route="report"></rain-menu-item>
+            <rain-menu-item label="Order Report" icon="fa-area-chart" route="orderReport"></rain-menu-item>
         </rain-menu-group>
         <rain-menu-group label="App Settings" icon="fa fa-cog">
-            <rain-menu-item label="Account" icon="fa-user-plus" route="account"></rain-menu-item>
+            <rain-menu-item label="Account" icon="fa-user-plus" route="account.user"></rain-menu-item>
         </rain-menu-group>
     </rain-menu>
 </rain-framework>

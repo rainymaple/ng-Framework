@@ -1,10 +1,11 @@
 (function () {
-    var app = angular.module('app');
+    var app = angular.module('app-framework');
+
     app.config(["$stateProvider", "$urlRouterProvider",
 
         function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise("/login"); // default view
+            $urlRouterProvider.otherwise("/home"); // default view
 
             $stateProvider
                 .state("login", {
@@ -19,11 +20,13 @@
                     url: "/error403",
                     templateUrl: "approot/views/login/error403.html"
                 })
+
                 .state("home", {
                     url: "/",
-                    templateUrl: "approot/views/Home/home.html"
+                    templateUrl: "approot/views/home/home.html"
                 })
-                .state("employeeList", {
+                .
+                state("employeeList", {
                     url: "/employees",
                     templateUrl: "approot/views/Employee/employeeList.html"
                 })
@@ -56,7 +59,7 @@
                     templateUrl: "approot/views/Order/orderList.html"
                 })
                 .state("order", {
-                    url: "/orderAdmin",
+                    url: "/orderManage",
                     templateUrl: "approot/views/Order/orderAdmin.html"
                 })
                 .state("order.orderEdit", {
@@ -71,17 +74,17 @@
                     url: "/OrderReport",
                     templateUrl: "approot/views/Report/orderReport.html"
                 })
-                .state("admin", {
-                    url: "/admin",
-                    templateUrl: "approot/views/Admin/admin.html"
+                .state("account", {
+                    url: "/account",
+                    templateUrl: "approot/views/Admin/account.html"
                 })
-                .state("admin.user", {
+                .state("account.user", {
                     url: "/users",
-                    templateUrl: "approot/views/Admin/userAdmin.html"
+                    templateUrl: "approot/views/Admin/userAccount.html"
                 })
-                .state("admin.permission", {
+                .state("account.permission", {
                     url: "/permissions",
-                    templateUrl: "approot/views/Admin/permissionAdmin.html"
+                    templateUrl: "approot/views/Admin/permission.html"
                 });
         }
     ]);

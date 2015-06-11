@@ -1,5 +1,17 @@
 (function () {
-    angular.module('app').config(["$provide", function ($provide) {
+    var module = angular.module('app-framework');
+
+    var _router={
+        newRoute:'NGNEWROUTER',
+        uiRouter:'UIROUTER',
+        ngRouter:'NGROUTE'
+    };
+
+    module.value('appConfig',{
+        router: _router.uiRouter
+    });
+
+    module.config(["$provide", function ($provide) {
 
             $provide.decorator("$exceptionHandler", exceptionDecorator);
 

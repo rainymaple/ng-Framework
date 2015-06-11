@@ -33,8 +33,14 @@
 <!-- Accepted attributes: title, sub-title, router, icon-file -->
 <div ng-switch="routerName" class="rain-view" ng-class="{'rain-view-full-width':isFullWidth()}">
 
-    <div ng-switch-when="NGNEWROUTER" ng-viewport>{{routeString}}</div>
-    <div ng-switch-when="UIROUTER" ui-view>{{routeString}}</div>
-    <div ng-switch-default ng-view>{{routeString}}</div>
+    <div ng-switch-when="NGNEWROUTER">
+        <ng-viewport>{{routeString}}</ng-viewport>
+    </div>
+    <div ng-switch-when="UIROUTER">
+        <div ui-view></div>
+    </div>
+    <div ng-switch-default>
+        <div ng-view>{{routeString}}</div>
+    </div>
 
 </div>

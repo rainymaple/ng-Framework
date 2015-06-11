@@ -1,0 +1,148 @@
+<div class="col-xs-12 go-forward">
+    <div class="panel panel-primary" style="margin-top: 20px;">
+        <div class="panel-heading">
+            <button class="btn btn-default btn-sm" style="background-color: transparent;color:#fff;"
+                    ng-click="vm.backToList()">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Back
+            </button>
+            <div style="display:inline-block;margin-left: 10px;font-size: 16px;">Employee Detail</div>
+        </div>
+        <div class="panel-body">
+            <form name="formEmployee" class="form-horizontal">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group  form-group-sm">
+                            <label for="firstName" class="col-md-4 col-sm-3 control-label">First Name</label>
+
+                            <div class="col-md-8 col-sm-9">
+                                <input type="text" class="form-control" id="firstName" name="firstName" disabled
+                                       ng-model="vm.employee.FirstName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group  form-group-sm">
+                            <label for="lastName" class="col-md-4 col-sm-3 control-label">Last Name</label>
+
+                            <div class="col-md-8 col-sm-9">
+                                <input type="text" class="form-control" id="lastName" name="lastName" disabled
+                                       ng-model="vm.employee.LastName">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group  form-group-sm">
+                            <label for="title" class="col-md-4 col-sm-3 control-label">Title</label>
+
+                            <div class="col-md-8 col-sm-9">
+                                <input type="text" class="form-control" id="title" name="title" disabled
+                                       ng-model="vm.employee.Title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group  form-group-sm">
+                            <label for="titleOfCourtesy" class="col-md-4 col-sm-3 control-label">Title of
+                                Courtesy</label>
+
+                            <div class="col-md-8 col-sm-9">
+                                <input type="text" class="form-control" id="titleOfCourtesy" disabled
+                                       name="titleOfCourtesy" ng-model="vm.employee.TitleOfCourtesy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group  form-group-sm">
+                            <label for="address" class="col-md-4 col-sm-3 control-label">Address</label>
+
+                            <div class="col-md-8 col-sm-9">
+                                <input type="text" class="form-control" id="address" name="address" disabled
+                                       ng-model="vm.employee.Address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group  form-group-sm">
+                            <label for="postalCode" class="col-md-4 col-sm-3 control-label">Postal Code</label>
+
+                            <div class="col-md-8 col-sm-9">
+                                <input type="text" class="form-control" id="postalCode" name="postalCode" disabled
+                                       ng-model="vm.employee.PostalCode">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group  form-group-sm">
+                            <label for="country" class="col-md-4 col-sm-3 control-label">Country</label>
+
+                            <div class="col-md-8 col-sm-9">
+                                <input type="text" class="form-control" id="country" name="country" disabled
+                                       ng-model="vm.employee.Country">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group  form-group-sm">
+                            <label for="city" class="col-md-4 col-sm-3 control-label">City</label>
+
+                            <div class="col-md-8 col-sm-9">
+                                <input type="text" class="form-control" id="city" name="city" disabled
+                                       ng-model="vm.employee.City">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group  form-group-sm">
+                            <label for="homePhone" class="col-md-4 col-sm-3 control-label">HomePhone</label>
+
+                            <div class="col-md-8 col-sm-9">
+                                <input type="text" class="form-control" id="homePhone" name="homePhone" disabled
+                                       ng-model="vm.employee.HomePhone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group  form-group-sm">
+                            <label for="extension" class="col-md-4 col-sm-3 control-label">Extension</label>
+
+                            <div class="col-md-8 col-sm-9">
+                                <input type="text" class="form-control" id="extension" name="extension" disabled
+                                       ng-model="vm.employee.Extension">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="notes" class="col-md-2 col-sm-3 control-label">Notes</label>
+
+                        <div class="col-md-10 col-sm-9" style="padding:0 25px;">
+                        <textarea class="form-control" rows="3" id="notes" name="notes" disabled
+                                  ng-model="vm.employee.Notes"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group  form-group-sm">
+                            <label for="extension" class="col-md-4 col-sm-3 control-label">Photo</label>
+
+                            <div class="col-md-8 col-sm-9">
+                                <img ng-src="{{vm.imageSrc}}" style="height: 112px;width: 160px;"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

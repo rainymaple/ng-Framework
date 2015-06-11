@@ -1,18 +1,16 @@
-/*
 $text-color:#a7b1c2;
 $text-color-active:#dddddd;
 $menu-group-color-active:#19AA8D;
 $menu-background-color: #2F4050;
 $menu-background-color-hover: #293846;
-*/
-$text-color:#B1B1B1;
+/*$text-color:#B1B1B1;
 $text-color-active:#dddddd;
 $menu-group-color-active:#F0AD4E;
 $menu-background-color: #333;
-$menu-background-color-hover: #242424;
+$menu-background-color-hover: #242424;*/
 
 .r-menu-area-vertical {
-  width: 260px;
+  width: 225px;
   float: left;
   min-height: 90vh;
   padding-top: 30px;
@@ -20,6 +18,7 @@ $menu-background-color-hover: #242424;
 .r-menu-area-horizontal {
   width: 100%;
   height: 40px;
+  padding-left: 10px !important;
 }
 
 .r-menu-area {
@@ -120,7 +119,7 @@ $menu-background-color-hover: #242424;
 .r-menu-group-horizontal{
   display: inline-block;
   min-width: 120px !important;
-  margin-left: 20px;
+  /*margin-left: 20px;*/
   padding-right: 16px;
   height: 40px;
 }

@@ -1,5 +1,7 @@
-(function (app) {
-    app.factory('dbEntityConfig', [dbEntityConfig]);
+(function () {
+    var module = angular.module('app-framework');
+
+    module.factory('dbEntityConfig', [dbEntityConfig]);
 
     var apiBase = '/api/';
 
@@ -66,4 +68,4 @@
         return apiBase + entityName;
     }
 
-})(angular.module('appNorthwind'));
+})();
