@@ -24,6 +24,10 @@
             scope.isOpen = false;
         };
 
+        scope.isActiveGroup = function () {
+            return element === rainMenuCtrl.getActiveGroupElement();
+        };
+
         scope.clicked = function () {
             if (!scope.isOpen) {
                 rainMenuCtrl.closeCurrentMenu();
@@ -45,7 +49,7 @@
             e.stopPropagation();
             e.preventDefault();
             scope.$apply(function () {
-                rainMenuCtrl.setActiveElement(element);
+                rainMenuCtrl.setActiveGroupElement(element);
                 rainMenuCtrl.setRoute(scope.route);
             })
         });
@@ -57,7 +61,7 @@
             if (menuGroup) {
                 height = menuGroup.height();
             }
-            element.find('.r-menu-sub-section').css({'left': pos.left + 2, top: height + 1});
+            element.find('.r-menu-sub-section').css({'left': pos.left + 2, top: height + 6});
         }
     }
 })();

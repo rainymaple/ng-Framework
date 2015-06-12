@@ -9,8 +9,8 @@
             transclude: true,
             scope: {
                 label: '@',
-                icon:'@',
-                route:'@'
+                icon: '@',
+                route: '@'
             },
             templateUrl: 'rainModules/rainMenu/rainMenuItem/rainMenuItemTemplate.html',
             link: link
@@ -19,21 +19,21 @@
 
     function link(scope, element, attr, rainMenuCtrl) {
 
-        scope.isActive=function(){
+        scope.isActive = function () {
             return element === rainMenuCtrl.getActiveElement();
         };
 
-        scope.isVertical = function(){
+        scope.isVertical = function () {
             return rainMenuCtrl.isVertical();
         };
 
-        element.on('click',function(e){
+        element.on('click', function (e) {
             e.stopPropagation();
             e.preventDefault();
-            scope.$apply(function(){
+            scope.$apply(function () {
                 rainMenuCtrl.setActiveElement(element);
                 rainMenuCtrl.setRoute(scope.route);
-                if(!scope.isVertical()){
+                if (!scope.isVertical()) {
                     rainMenuCtrl.closeCurrentMenu();
                 }
             })

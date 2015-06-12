@@ -1,18 +1,21 @@
 (function () {
 
+    var _eventEditUser='userAdminCtrl.editUser';
+    var _eventDeleteUser ='userAdminCtrl.deleteUser';
+
     var module = angular.module('app-framework');
 
     module.controller("userAccountCtrl", ["$scope", "rainService.repository", "dbEntityConfig",
-        "rainGridService", "$modal", userAdminCtrl]);
+        "$modal", userAdminCtrl]);
 
-    function userAdminCtrl($scope, repositoryService, dbEntityConfig, rainGridService, $modal) {
+    function userAdminCtrl($scope, repositoryService, dbEntityConfig, $modal) {
 
         var _entityUser = dbEntityConfig.entities.user;
         var _entityRole = dbEntityConfig.entities.role;
         $scope.dataReady = false;
         $scope.hasUser = false;
         $scope.password2 = '';
-        $scope.imageConstruction='approot/Images/construction.png'
+        $scope.imageConstruction='approot/Images/construction.png';
 
         activate();
 
@@ -153,9 +156,20 @@
             setEditMode(true);
         }
 
-        $scope.linkFunc = function (params) {
-            rainGridService.rainGridLinkFunc(params, {editUser: editUser, deleteUser: deleteUser});
-        };
+
+        $scope.$on(_eventEditUser,function(event,data){
+            if(!data||!data.id){
+                return;
+            }
+            editUser(data.id);
+        });
+
+        $scope.$on(_eventDeleteUser,function(event,data){
+            if(!data||!data.id){
+                return;
+            }
+            deleteUser(data.id);
+        });
     }
 
     // rainGrid functions
@@ -179,7 +193,7 @@
                 field: 'username',
                 displayName: 'Username',
                 isLink: true,
-                linkFunc: {funcName: 'editUser', funcIdField: 'id'}
+                linkFunc: {funcEvent: _eventEditUser,  funcIdField: 'id'}
             },
             {
                 field: 'role',
@@ -189,7 +203,7 @@
                 field: 'Delete',
                 displayName: '',
                 isButton: true,
-                linkFunc: {funcName: 'deleteUser', funcIdField: 'id'}
+                linkFunc: {funcEvent: _eventDeleteUser, funcIdField: 'id'}
             }
         ];
     }

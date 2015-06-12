@@ -1,5 +1,5 @@
 <li class="r-selectable-item r-no-select" ng-click="clicked()"
-    ng-class="{'r-menu-group-horizontal':!isVertical(),'isActive':isOpen}">
+    ng-class="{'r-menu-group-horizontal':!isVertical(),'isActiveGroup':isActiveGroup()||isOpen}">
     <div class="r-no-select group-title">
         <i class="fa {{icon}} r-menu-icon"></i>
         {{label}}

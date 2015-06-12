@@ -1,21 +1,25 @@
-<div class="col-md-11 col-lg-10" style="min-width: 750px;max-width: 850px;">
-    <!--<div class="panel panel-primary">
-        <div class="panel-heading" style="font-size:large">
-            Admin
-        </div>-->
-    <div class="panel-body" style="min-height: 700px;">
+<div style="text-align: center" class="col-md-10 col-lg-8">
+    <div style="display: inline-block;">
+        <div style="min-width: 750px;max-width: 850px;">
+            <!--<div class="panel panel-primary">
+                <div class="panel-heading" style="font-size:large">
+                    Admin
+                </div>-->
+            <div class="panel-body" style="min-height: 700px;text-align: left;">
 
-        <div class="wizard">
-            <a ui-sref="order.orderEdit" ui-sref-active="active">
-                Order
-            </a>
-            <a ui-sref="order.orderDetailEdit" ui-sref-active="active">
-                Order Detail
-            </a>
+                <div class="wizard" style="">
+                    <a ui-sref="order.orderEdit" ui-sref-active="active">
+                        Order
+                    </a>
+                    <a ui-sref="order.orderDetailEdit" ui-sref-active="active">
+                        Order Detail
+                    </a>
+                </div>
+
+                <div ui-view class="wizard-content"></div>
+
+            </div>
+            <!--</div>-->
         </div>
-
-        <div ui-view class="wizard-content"></div>
-
     </div>
-    <!--</div>-->
 </div>

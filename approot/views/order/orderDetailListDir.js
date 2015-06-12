@@ -3,11 +3,11 @@
     var module = angular.module('app-framework');
 
     module.directive('orderDetailListDir', ['rainService.repository', 'dbEntityConfig',
-        'commonService', 'rainGridService', orderDetailListDir]);
+        'commonService', orderDetailListDir]);
 
     var _productDetailEvent = 'orderDetailListDir.productDetail';
 
-    function orderDetailListDir(repositoryService, dbEntityConfig, commonService, rainGridService) {
+    function orderDetailListDir(repositoryService, dbEntityConfig, commonService) {
         return {
             restrict: 'AE',
             templateUrl: 'approot/Views/Order/orderDetailListDir.html',
@@ -44,22 +44,19 @@
                 });
             });
 
-            function productDetail(id) {
+            function showProductDetail(id) {
                 var modalInstance = commonService.showProductModal(id);
                 modalInstance.then(function () {
                 });
             }
 
-            var linkFunctions = {
-                productDetail: function (id) {
-                    var modalInstance = commonService.showProductModal(id);
-                    modalInstance.then(function () {
-                    });
+            $scope.$on(_productDetailEvent, function (event, data) {
+                if(!data||!data.ProductID){
+                    return;
                 }
-            };
-            $scope.linkFunc = function (params) {
-                rainGridService.rainGridLinkFunc(params, linkFunctions);
-            };
+                showProductDetail(data.ProductID);
+            });
+
         }   // controller
 
     }

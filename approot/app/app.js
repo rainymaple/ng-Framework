@@ -1,6 +1,8 @@
 angular.module('app-framework', [
     'northwindDbMock'
     , 'ui.router'
+    , 'ngSanitize'
+    , 'ngMessages'
     , 'rainFramework'
     , 'rainService'
     , 'rainForm'
@@ -9,7 +11,7 @@ angular.module('app-framework', [
     , 'rainNumberOnly'
     , 'rainCheckbox'
     , 'chart.js'
-    , 'ui.select2'
+    , 'ui.select'
     , 'ui.bootstrap'
 // ngAnimate is not compatible with angularJs 1.4
 //    , 'ngAnimate'

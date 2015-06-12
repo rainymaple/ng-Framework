@@ -32,13 +32,14 @@
             self.setActiveElement = function (el) {
                 $scope.activeElement = el;
             };
-            self.setRoute = function (route) {
-                if (route) {
-                    $rootScope.$broadcast('rain-menu-item-selected-event', {route: route});
-                }
-            };
             self.getActiveElement = function () {
                 return $scope.activeElement;
+            };
+            self.setActiveGroupElement = function (el) {
+                $scope.activeGroupElement = el;
+            };
+            self.getActiveGroupElement = function () {
+                return $scope.activeGroupElement;
             };
             self.isVertical = function () {
                 return $scope.isVertical;
@@ -49,6 +50,11 @@
             self.closeCurrentMenu = function () {
                 if ($scope.openMenuScope) {
                     $scope.openMenuScope.closeMenu();
+                }
+            };
+            self.setRoute = function (route) {
+                if (route) {
+                    $rootScope.$broadcast('rain-menu-item-selected-event', {route: route});
                 }
             };
         }

@@ -8,14 +8,14 @@
 
                 <div class="col-xs-9">
                     <div class="col-xs-8" style="min-width: 330px;">
-                        <ui-select ng-model="order.customer" theme="select2" style="min-width: 300px;"
+                        <ui-select ng-model="order.customer" style="min-width: 300px;"
                                    name="customer" required>
-                            <ui-select-match placeholder="Select or search by company/country...">
+                            <ui-select-match placeholder="Select or search by company...">
                                 {{$select.selected.CompanyName}}
                             </ui-select-match>
                             <ui-select-choices
                                     repeat="customer in customers
-                                    | propsFilter: {CompanyName:$select.search,Country: $select.search}">
+                                    | filter: {CompanyName:$select.search}">
                                 <div ng-bind-html="customer.CompanyName | highlight: $select.search"></div>
                                 <small style="margin-left: 10px;">
                                     Country: {{customer.Country}}
@@ -33,13 +33,13 @@
 
                 <div class="col-xs-9">
                     <div class="col-xs-8" style="min-width: 330px;">
-                        <ui-select ng-model="order.country" theme="select2" style="min-width: 300px;"
+                        <ui-select ng-model="order.country"  style="min-width: 300px;"
                                    name="country" required>
-                            <ui-select-match placeholder="Select or search by country/code...">
+                            <ui-select-match placeholder="Select or search by country...">
                                 {{$select.selected.name}}
                             </ui-select-match>
                             <ui-select-choices
-                                    repeat="country in countries | propsFilter: {name: $select.search, code: $select.search}">
+                                    repeat="country in countries | filter: {name: $select.search}">
                                 <div ng-bind-html="country.name | highlight: $select.search"></div>
                                 <small style="margin-left: 10px;">
                                     Code: {{country.code}}
@@ -183,6 +183,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="form-group">
                 <div class="col-xs-offset-3 col-xs-9">
                     <div class="col-xs-5">
@@ -198,6 +199,7 @@
                     </div>
                 </div>
             </div>
+
         </filedset>
     </form>
     {{formOrder.$submitted}}

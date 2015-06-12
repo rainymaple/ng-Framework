@@ -1,9 +1,9 @@
-<rain-framework header-title="Rain Framework" header-sub-title="with Responsive Design" router='{{router}}'
+<rain-framework header-title={{headerTitle}} header-sub-title={{headerSubTitle}} router='{{router}}'
                 icon-file="approot/images/r-design150.jpg">
     <rain-menu horizontal-menu="false">
         <rain-menu-group label="Orders" icon="fa-tags" >
             <rain-menu-item label="Order List" icon="fa-list-alt" route="orderList"></rain-menu-item>
-            <rain-menu-item label="Manage Order" icon="fa-tag" route="orderManage"></rain-menu-item>
+            <rain-menu-item label="Manage Order" icon="fa-tag" route="order.orderEdit"></rain-menu-item>
         </rain-menu-group>
         <rain-menu-group label="Data Management" icon="fa-newspaper-o" >
             <rain-menu-item label="Employees" icon="fa-user" route="employeeList"></rain-menu-item>

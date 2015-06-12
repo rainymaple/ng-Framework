@@ -1,9 +1,11 @@
 <div class="r-menu-area" ng-show="showMenu"
      ng-class="{'r-menu-area-horizontal':!isVertical,'r-menu-area-vertical':isVertical}">
-    <ul ng-transclude class="r-menu"></ul>
-    <a class="btn r-menu-layout-button" ng-click="toggleMenuOrientation()"
-       ng-show="allowHorizontalMenu"
-       ng-class="{'r-menu-layout-button-horizontal':!isVertical}">
+    <ul class="r-menu">
+        <div ng-transclude ng-class="{'r-menu-vertical':isVertical,'r-menu-horizontal':!isVertical}"></div>
+        <a class="btn r-menu-layout-button" ng-click="toggleMenuOrientation()"
+                                            ng-show="allowHorizontalMenu"
+                                            ng-class="{'r-menu-layout-button-horizontal':!isVertical}">
         <i class="fa" ng-class="{' fa-chevron-up':isVertical,' fa-chevron-left':!isVertical}"></i>
-    </a>
+    </a></ul>
+
 </div>
