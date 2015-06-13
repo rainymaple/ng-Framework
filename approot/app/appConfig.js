@@ -7,8 +7,15 @@
         ngRouter:'NGROUTE'
     };
 
+    var _messageConfig={
+        consoleLog:false,
+        alert:false,
+        toastr:true
+    };
+
     module.value('appConfig',{
-        router: _router.uiRouter
+        router: _router.uiRouter,
+        messageConfig:_messageConfig
     });
 
     module.config(["$provide", function ($provide) {

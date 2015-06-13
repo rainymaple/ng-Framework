@@ -1,7 +1,7 @@
 /*
 * usage:
-* var modalInstance = confirmModal.getModalInstance('Confirm','Are you sure?');
-* modalInstance.result.then(function (ok) { ... })
+* var modalResult = confirmModal.getModalInstance('Confirm','Are you sure?');
+* modalResult.then(function (ok) { ... })
 * */
 
 (function () {
@@ -20,7 +20,7 @@
             title = title || 'Confirm';
             message = message || 'Are you sure?';
 
-            return $modal.open({
+            var modalInstance = $modal.open({
                 //templateUrl: 'deleteUserModal.html',
                 //size:'sm',
                 template: getTemplate(title, message),
@@ -33,6 +33,7 @@
                     };
                 }
             });
+            return modalInstance.result;
         }
 
         function getTemplate(title, message) {

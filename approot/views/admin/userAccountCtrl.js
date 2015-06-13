@@ -7,12 +7,13 @@
 
     module.controller("userAccountCtrl", [
         "$scope"
+        ,'commonService'
         , "rainService.repository"
         , "dbEntityConfig"
         , 'rainService.confirm'
         , userAdminCtrl]);
 
-    function userAdminCtrl($scope, repositoryService, dbEntityConfig, confirmModal) {
+    function userAdminCtrl($scope,commonService, repositoryService, dbEntityConfig, confirmModal) {
 
         var _entityUser = dbEntityConfig.entities.user;
         var _entityRole = dbEntityConfig.entities.role;
@@ -82,7 +83,7 @@
         function saveUser(formUser) {
             if (!formUser || formUser.$invalid
                 || formUser.password2.$modelValue !== formUser.password1.$modelValue) {
-                toastr.warning('Please fix the validation error');
+                commonService.showMessage.warning('Please fix the validation error');
                 return;
             }
 
@@ -93,12 +94,12 @@
             repositoryService.addOrUpdateData(_entityUser, $scope.user)
                 .then(function (data) {
                     if (data.error) {
-                        toastr.warning(data.error.message);
+                        commonService.showMessage.warning(data.error.message);
                     } else {
                         getUsers();
                         resetUser();
                         setEditMode(false);
-                        toastr.success("Save Successful");
+                        commonService.showMessage.success("Save Successful");
                     }
                 },
                 function (data, status, headers, config) {
@@ -115,17 +116,17 @@
         function deleteUser(id) {
             if (id === 1 || id === 2) {
                 var username = id === 1 ? 'Administrator' : 'Regular User';
-                toastr.warning("You cannot delete " + username);
+                commonService.showMessage.warning("You cannot delete " + username);
                 return;
             }
 
-            var modalInstance = confirmModal.getModalInstance('Delete', 'Are you sure you want to delete this user?');
+            var modalResult = confirmModal.getModalInstance('Delete', 'Are you sure you want to delete this user?');
 
-            modalInstance.result.then(function (isDelete) {
+            modalResult.then(function (isDelete) {
                 if (isDelete) {
                     repositoryService.deleteDataById(_entityUser, id).then(function (data) {
                         if (data) {
-                            toastr.success("Delete Successful");
+                            commonService.showMessage.success("Delete Successful");
                             getUsers();
                             resetUser();
                         }
@@ -139,7 +140,7 @@
 
         function editUser(id) {
             if (id === 1) {
-                toastr.warning("You cannot modify Administrator");
+                commonService.showMessage.warning("You cannot modify Administrator");
                 return;
             }
             var user = _.find($scope.users, function (u) {
