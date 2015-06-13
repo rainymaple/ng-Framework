@@ -1,21 +1,25 @@
 (function () {
 
-    var _eventEditUser='userAdminCtrl.editUser';
-    var _eventDeleteUser ='userAdminCtrl.deleteUser';
+    var _eventEditUser = 'userAdminCtrl.editUser';
+    var _eventDeleteUser = 'userAdminCtrl.deleteUser';
 
     var module = angular.module('app-framework');
 
-    module.controller("userAccountCtrl", ["$scope", "rainService.repository", "dbEntityConfig",
-        "$modal", userAdminCtrl]);
+    module.controller("userAccountCtrl", [
+        "$scope"
+        , "rainService.repository"
+        , "dbEntityConfig"
+        , 'rainService.confirm'
+        , userAdminCtrl]);
 
-    function userAdminCtrl($scope, repositoryService, dbEntityConfig, $modal) {
+    function userAdminCtrl($scope, repositoryService, dbEntityConfig, confirmModal) {
 
         var _entityUser = dbEntityConfig.entities.user;
         var _entityRole = dbEntityConfig.entities.role;
         $scope.dataReady = false;
         $scope.hasUser = false;
         $scope.password2 = '';
-        $scope.imageConstruction='approot/Images/construction.png';
+        $scope.imageConstruction = 'approot/Images/construction.png';
 
         activate();
 
@@ -115,18 +119,7 @@
                 return;
             }
 
-            var modalInstance = $modal.open({
-                templateUrl: 'deleteUserModal.html',
-                //size:'sm',
-                controller: function ($scope, $modalInstance) {
-                    $scope.ok = function () {
-                        $modalInstance.close(true)
-                    };
-                    $scope.cancel = function () {
-                        $modalInstance.close(false)
-                    };
-                }
-            });
+            var modalInstance = confirmModal.getModalInstance('Delete', 'Are you sure you want to delete this user?');
 
             modalInstance.result.then(function (isDelete) {
                 if (isDelete) {
@@ -157,15 +150,15 @@
         }
 
 
-        $scope.$on(_eventEditUser,function(event,data){
-            if(!data||!data.id){
+        $scope.$on(_eventEditUser, function (event, data) {
+            if (!data || !data.id) {
                 return;
             }
             editUser(data.id);
         });
 
-        $scope.$on(_eventDeleteUser,function(event,data){
-            if(!data||!data.id){
+        $scope.$on(_eventDeleteUser, function (event, data) {
+            if (!data || !data.id) {
                 return;
             }
             deleteUser(data.id);
@@ -193,7 +186,7 @@
                 field: 'username',
                 displayName: 'Username',
                 isLink: true,
-                linkFunc: {funcEvent: _eventEditUser,  funcIdField: 'id'}
+                linkFunc: {funcEvent: _eventEditUser, funcIdField: 'id'}
             },
             {
                 field: 'role',

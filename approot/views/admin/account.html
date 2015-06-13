@@ -1,21 +1,24 @@
-<div class="col-md-11 col-lg-9" style="max-width: 760px;">
-    <!--<div class="panel panel-primary">
-        <div class="panel-heading" style="font-size:large">
-            Admin
-        </div>-->
-    <div class="panel-body" style="height: 700px;">
+<div style="text-align: center" class="col-md-10 col-lg-8">
 
-        <div class="wizard">
-            <a ui-sref="account.user" ui-sref-active="active">
-                Users
-            </a>
-            <a ui-sref="account.permission" ui-sref-active="active">
-                Permissions
-            </a>
+    <div style="display: inline-block;">
+
+        <div style="min-width: 750px;max-width: 850px;">
+
+            <div class="panel-body" style="min-height: 700px;text-align: left;">
+
+                <div class="wizard">
+                    <a ui-sref="account.user" ui-sref-active="active">
+                        Users
+                    </a>
+                    <a ui-sref="account.permission" ui-sref-active="active">
+                        Permissions
+                    </a>
+                </div>
+
+                <div ui-view class="wizard-content"></div>
+
+            </div>
+
         </div>
-
-        <div ui-view class="wizard-content"></div>
-
     </div>
-    <!--</div>-->
 </div>

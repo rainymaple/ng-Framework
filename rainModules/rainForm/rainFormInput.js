@@ -99,7 +99,7 @@
         return function (scope, element, attributes, form) {
             var name = setupDom(element, $compile, scope);
             if (name) {
-                addMessages(form, element, name, $compile, scope);
+                //addMessages(form, element, name, $compile, scope);
             }
             scope.$watch(watcherFor(form, name), updaterFor(element));
         }
