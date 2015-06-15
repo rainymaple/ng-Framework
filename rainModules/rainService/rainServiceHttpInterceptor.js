@@ -32,7 +32,9 @@
                     // show error message according to the status code
                     statusCode: response.status,
                     // can be redirected to this path after authenticated
-                    requestedPath: $location.path()
+                    requestedPath: $location.path(),
+                    // for debug
+                    eventSource:'rainService.loginRedirect.responseError'
                 });
             }
             return $q.reject(response);

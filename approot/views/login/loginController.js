@@ -9,7 +9,7 @@
         , 'appConfig'
         , loginController]);
 
-    function loginController($scope,$stateParams, oauth,   commonService, appConfig) {
+    function loginController($scope, $stateParams, oauth, commonService, appConfig) {
 
         var _message = commonService.showMessage;
 
@@ -26,7 +26,7 @@
 
         function activate() {
             oauth.logout();
-            $scope.$emit('AUTHENTICATION_EVENT', {statusCode:401});
+            //$scope.$emit('AUTHENTICATION_EVENT', {statusCode: 401});
         }
 
         $scope.login = function (loginForm) {
@@ -37,12 +37,10 @@
             oauth.login(appConfig.loginEndpoint, $scope.username, $scope.password)
                 .then(function (response) {
                     if (response) {
-                        $scope.$emit('AUTHENTICATION_EVENT', {statusCode:response.status});
+                        $scope.$emit('AUTHENTICATION_EVENT', {statusCode: response.status});
                         if (response.status !== 200) {
                             var message = response.statusText || loginError;
                             _message.error(message);
-                        } else {
-                            var previousRequestUrl = $stateParams;
                         }
                     }
                 }, function (response) {

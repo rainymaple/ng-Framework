@@ -5,15 +5,23 @@
  * */
 
 (function () {
-    angular.module('rainFramework').controller('rainFramework.controller',
-        ['$scope', '$window', '$timeout', '$rootScope', rainFrameworkCtrl]);
+    angular.module('rainFramework').controller('rainFramework.controller', [
+        '$scope'
+        , '$window'
+        , '$timeout'
+        , '$rootScope'
+        , 'rainService.currentUser'
+        , 'rainService.oauth'
+        , rainFrameworkCtrl]);
 
-    function rainFrameworkCtrl($scope, $window, $timeout, $rootScope) {
+    function rainFrameworkCtrl($scope, $window, $timeout, $rootScope, currentUser,oauth) {
 
         $scope.isMenuButtonVisible = true;
         $scope.isVerticalMenuVisible = true;
         $scope.isMenuVertical = true;
         $scope.routerName = $scope.router.trim().toUpperCase();
+        $scope.username = currentUser.profile.username;
+        $scope.logout = logout;
         $scope.isFullWidth = function () {
             return !$scope.isMenuVertical || !$scope.isVerticalMenuVisible;
         };
@@ -60,7 +68,7 @@
             $scope.menuButtonClicked = function () {
                 $scope.isVerticalMenuVisible = !$scope.isVerticalMenuVisible;
                 var width = Math.max($window.innerWidth, $($window).width());
-                $scope.isMenuVertical =(width < 768);
+                $scope.isMenuVertical = (width < 768);
                 broadcastMenuState();
                 //$scope.$apply();
             }
@@ -72,6 +80,14 @@
                 isVertical: $scope.isMenuVertical,
                 allowHorizontalMenu: !$scope.isMenuButtonVisible
             })
+        }
+
+        function logout() {
+            oauth.logout();
+            $scope.$emit('AUTHENTICATION_EVENT', {
+                statusCode: 401,
+                eventSource:'rainFramework.controller.logout'
+            });
         }
 
         // inform the application to switch route

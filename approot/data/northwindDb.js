@@ -1,4 +1,4 @@
-(function(app){
+(function(){
     angular.module('northwindDbMock').factory("NorthWindDb",[northWindDb]);
 
     function northWindDb() {

@@ -1,6 +1,6 @@
 <div ng-controller="employeeCtrl as vm" class="animated fadeIn">
     <div class="legend">Employees</div>
-    <div class="row" ng-class="{'go-backward':vm.isFromBack}" ng-show="!vm.showDetail">
+    <div class="row animation-half-second" ng-class="{'animated fadeInRight':vm.isFromBack}" ng-show="!vm.showDetail">
         <div class="col-xs-12">
             <div style="padding: 10px;" class="table-responsive">
                 <div rain-grid="vm.gridOptions"></div>

@@ -1,16 +1,35 @@
 (function () {
     var module = angular.module('app-framework');
 
-    module.controller('appController', ['$scope', 'appConfig', '$state', appController]);
+    module.controller('appController', [
+        '$scope'
+        , 'appConfig'
+        , '$state'
+        , '$location'
+        , 'rainService.currentUser'
+        , appController]);
 
-    function appController($scope, appConfig, $state) {
-        //$scope.loginState = 'authorized';
-        $scope.loginState = 'unauthorized';
+    function appController($scope, appConfig, $state, $location, currentUser) {
+
+        var _authorizedState = 'authorized';
+        var _unauthorizedState = 'unauthorized';
+
+        if (currentUser.profile.loggedIn) {
+            $scope.loginState = _authorizedState;
+        } else {
+            $scope.loginState = _unauthorizedState;
+            $location.path('/');
+        }
+        //
+
+        var _homeState = 'home';
+        var _requestedPath = null;
 
         // rainFramework attributes
         $scope.router = appConfig.router;
-        $scope.headerTitle = "Rain Framework";
+        $scope.headerTitle = "ng-Northwind";
         $scope.headerSubTitle = "with Responsive Design";
+        $scope.username = currentUser.profile.username;
 
         $scope.$on('rain-menu-item-selected-event', function (event, data) {
             if (!data && !data.route) {
@@ -30,14 +49,30 @@
                 return;
             }
             if (data.statusCode === 200) {
-                $scope.loginState = 'authorized';
-                $state.go('home');
-                return;
+                $scope.loginState = _authorizedState;
+                if (!_requestedPath) {
+                    $state.go(_homeState);
+                } else {
+                    $location.path(_requestedPath);
+                    _requestedPath = null;
+                }
+            } else {
+                if (data.statusCode === 401){
+                    $location.path('/');
+                }
+                $scope.loginState = _unauthorizedState;
+                // if authentication failed, redirect to login with the previous requested url
+                if (data.requestedPath) {
+                    // e.g. '/account/user'
+                    _requestedPath = data.requestedPath;
+                }
             }
-            // if authentication failed, redirect to login with the previous requested url
-            if (data.requestedPath) {
-                $state.go('login', data.requestedPath);
+        });
+
+/*        $scope.$watch('loginState', function (newValue, oldValue) {
+            if (newValue !== _authorizedState) {
+                $location.path('/');
             }
-        })
+        })*/
     }
 })();

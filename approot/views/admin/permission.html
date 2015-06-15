@@ -1,12 +1,14 @@
-<div ng-controller="userAccountCtrl" class="admin-tab animated fadeIn" ng-show="dataReady">
+<div ng-controller="permissionCtrl">
+    <accordion>
+        <accordion-group ng-repeat="request in requests">
+            <accordion-heading>
+                <span style="-webkit-user-select: none;">{{request.entities}}</span>
+                <i class="pull-right glyphicon"
+                   ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}">
+                </i>
+            </accordion-heading>
+        </accordion-group>
+    </accordion>
 
-    <!--<div ng-include="'wwwroot/Views/Admin/userEditShared.html'"></div>-->
-
-    <form class="form-horizontal admin-form" novalidate name="formUser" id="formUser">
-        <filedset>
-            <legend >API Permissions</legend>
-        </filedset>
-        <img ng-src="{{imageConstruction}}">
-    </form>
 
 </div>
