@@ -17,6 +17,8 @@
 
         var _entityUser = dbEntityConfig.entities.user;
         var _entityRole = dbEntityConfig.entities.role;
+        var _message = commonService.showMessage;
+
         $scope.dataReady = false;
         $scope.hasUser = false;
         $scope.password2 = '';
@@ -83,7 +85,7 @@
         function saveUser(formUser) {
             if (!formUser || formUser.$invalid
                 || formUser.password2.$modelValue !== formUser.password1.$modelValue) {
-                commonService.showMessage.warning('Please fix the validation error');
+                _message.warning('Please fix the validation error');
                 return;
             }
 
@@ -94,12 +96,12 @@
             repositoryService.addOrUpdateData(_entityUser, $scope.user)
                 .then(function (data) {
                     if (data.error) {
-                        commonService.showMessage.warning(data.error.message);
+                        _message.warning(data.error.message);
                     } else {
                         getUsers();
                         resetUser();
                         setEditMode(false);
-                        commonService.showMessage.success("Save Successful");
+                        _message.success("Save Successful");
                     }
                 },
                 function (data, status, headers, config) {
@@ -116,7 +118,7 @@
         function deleteUser(id) {
             if (id === 1 || id === 2) {
                 var username = id === 1 ? 'Administrator' : 'Regular User';
-                commonService.showMessage.warning("You cannot delete " + username);
+                _message.warning("You cannot delete " + username);
                 return;
             }
 
@@ -126,7 +128,7 @@
                 if (isDelete) {
                     repositoryService.deleteDataById(_entityUser, id).then(function (data) {
                         if (data) {
-                            commonService.showMessage.success("Delete Successful");
+                            _message.success("Delete Successful");
                             getUsers();
                             resetUser();
                         }
@@ -140,7 +142,7 @@
 
         function editUser(id) {
             if (id === 1) {
-                commonService.showMessage.warning("You cannot modify Administrator");
+                _message.warning("You cannot modify Administrator");
                 return;
             }
             var user = _.find($scope.users, function (u) {

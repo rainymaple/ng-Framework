@@ -2,9 +2,17 @@
 
     var module = angular.module('app-framework');
 
-    module.controller('orderEditCtrl', ['$scope', 'rainService.repository', 'dbEntityConfig', 'commonService', orderEditCtrl]);
+    module.controller('orderEditCtrl', [
+        '$scope'
+        , 'rainService.repository'
+        , 'dbEntityConfig'
+        , 'commonService'
+        , orderEditCtrl]);
 
     function orderEditCtrl($scope, repositoryService, dbEntityConfig, commonService) {
+
+        var _message = commonService.showMessage;
+
         $scope.order = {
             customer: '', shipName: '', shipCountry: '', freight: '', shippedDate: '', requiredDate: '',
             orderDate: '', shipAddress: '', shipCity: ''
@@ -42,7 +50,7 @@
 
         function saveOrder(formOrder){
             if (!formOrder || formOrder.$invalid) {
-                toastr.warning('Please fix the validation error');
+                _message.warning('Please fix the validation error');
                 return;
             }
         }

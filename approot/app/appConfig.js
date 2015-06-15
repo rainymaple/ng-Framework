@@ -15,7 +15,8 @@
 
     module.value('appConfig',{
         router: _router.uiRouter,
-        messageConfig:_messageConfig
+        messageConfig:_messageConfig,
+        loginEndpoint:'/api/login'
     });
 
     module.config(["$provide", function ($provide) {

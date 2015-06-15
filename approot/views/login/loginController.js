@@ -1,10 +1,17 @@
 (function () {
     var module = angular.module('app-framework');
 
-    module.controller('loginController', ['$scope', 'rainService.oauth', 'rainService.loginRedirect',
-        loginController]);
+    module.controller('loginController', [
+        '$scope'
+        , '$stateParams'
+        , 'rainService.oauth'
+        , 'commonService'
+        , 'appConfig'
+        , loginController]);
 
-    function loginController($scope, oauth, loginRedirect) {
+    function loginController($scope,$stateParams, oauth,   commonService, appConfig) {
+
+        var _message = commonService.showMessage;
 
         $scope.username = '';
         $scope.password = '';
@@ -19,7 +26,7 @@
 
         function activate() {
             oauth.logout();
-            $scope.$emit('SetAuthentication', false);
+            $scope.$emit('AUTHENTICATION_EVENT', {statusCode:401});
         }
 
         $scope.login = function (loginForm) {
@@ -27,15 +34,15 @@
                 // client side validation shows error messages
                 return;
             }
-            oauth.login(config.loginEndpoint, $scope.username, $scope.password)
+            oauth.login(appConfig.loginEndpoint, $scope.username, $scope.password)
                 .then(function (response) {
                     if (response) {
-                        $scope.$emit('SetAuthentication', response);
+                        $scope.$emit('AUTHENTICATION_EVENT', {statusCode:response.status});
                         if (response.status !== 200) {
                             var message = response.statusText || loginError;
-                            toastr.error(message);
+                            _message.error(message);
                         } else {
-                            loginRedirect.redirectPostLogin();
+                            var previousRequestUrl = $stateParams;
                         }
                     }
                 }, function (response) {

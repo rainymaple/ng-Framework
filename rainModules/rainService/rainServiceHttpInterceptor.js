@@ -20,7 +20,7 @@
 
     // -- service: loginRedirect -- //
 
-    module.factory('rainService.loginRedirect', ['$q', '$injector', '$location', loginRedirect]);
+    module.factory('rainService.loginRedirect', ['$q', '$rootScope', '$location', loginRedirect]);
 
     function loginRedirect($q, $rootScope, $location) {
 
@@ -30,7 +30,7 @@
                 // controller of application level should handle this event
                 $rootScope.$broadcast('AUTHENTICATION_EVENT', {
                     // show error message according to the status code
-                    status: response.status,
+                    statusCode: response.status,
                     // can be redirected to this path after authenticated
                     requestedPath: $location.path()
                 });

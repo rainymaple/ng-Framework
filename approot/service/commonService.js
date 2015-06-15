@@ -10,7 +10,8 @@
             showMessage: {
                 warning: warning,
                 success: success,
-                error: error
+                error: error,
+                info:info
             }
         };
 
@@ -41,6 +42,8 @@
 
         function showMsg(msg, tool) {
             if (appConfig.messageConfig.toastr) {
+                toastr.options.closeButton = true;
+                toastr.options.progressBar = true;
                 switch (tool) {
                     case 'error':
                         toastr.error(msg);
@@ -48,8 +51,11 @@
                     case 'success':
                         toastr.success(msg);
                         break;
-                    default :
+                    case 'warning':
                         toastr.warning(msg);
+                        break;
+                    default :
+                        toastr.info(msg);
                         break;
                 }
 
@@ -59,6 +65,10 @@
             if (appConfig.messageConfig.consoleLog) {
                 console.log(msg);
             }
+        }
+
+        function info(msg) {
+            showMsg(msg, 'info')
         }
 
         function warning(msg) {
