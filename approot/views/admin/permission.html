@@ -1,12 +1,25 @@
 <div ng-controller="permissionCtrl">
     <accordion>
-        <accordion-group ng-repeat="request in requests">
+        <accordion-group ng-repeat="permission in permissions" is-open="status.open">
             <accordion-heading>
-                <span style="-webkit-user-select: none;">{{request.entities}}</span>
-                <i class="pull-right glyphicon"
-                   ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}">
+                <span style="-webkit-user-select: none;">{{permission.resource}}</span>
+                <i class="pull-right fa fa-angle-right"
+                   ng-class="{'fa-rotate-90': status.open}">
                 </i>
             </accordion-heading>
+            <div>
+                <p>User access</p>
+
+                <p>Group access</p>
+
+                <div style="padding: 10px;">
+                    <table class="table table-condensed table-striped table-bordered"">
+                        <tr ng-repeat="role in permission.roles">
+                            <td>{{role.name}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </accordion-group>
     </accordion>
 

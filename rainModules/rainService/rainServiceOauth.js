@@ -7,7 +7,11 @@
     function oauth($http, currentUser) {
         return {
             login: login,
-            logout: logout
+            logout: logout,
+            token: {
+                createToken: createToken,
+                decryptToken: decryptToken
+            }
         };
 
         //-- Service Functions --//
@@ -38,6 +42,33 @@
         }
 
 
+        function createToken(username, password, role) {
+            var roleString = '';
+            if (role) {
+                roleString = '&role=' + role.key.trim();
+            }
+            return 'username=' + username.trim() + '&password=' + password.trim() + roleString;
+        }
+
+        function decryptToken(token) {
+            var profile = parseQueryString(token);
+            return profile;
+        }
+
+        function parseQueryString(queryString) {
+            var params = {}, queries, temp, i, l;
+
+            // Split into key/value pairs
+            queries = queryString.split("&");
+
+            // Convert the array of strings into an object
+            for (i = 0, l = queries.length; i < l; i++) {
+                temp = queries[i].split('=');
+                params[temp[0]] = temp[1];
+            }
+
+            return params;
+        }
     }
 
 

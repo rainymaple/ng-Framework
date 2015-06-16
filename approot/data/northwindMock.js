@@ -17,15 +17,18 @@
 
         var northwindDb = NorthWindDb.getNorthwindDb();
 
+        // populate the _users array
+
+        var requests = northWindRequests.getRequest();
+        getAllUsers();
+
         // pass through any local request
+
         $httpBackend.whenGET(/approot/).passThrough();
 
         $httpBackend.whenGET(/rainModules/).passThrough();
 
-        var requests = northWindRequests.getRequest();
 
-        // populate the _users array
-        getAllUsers();
 
         function getAllUsers() {
             angular.forEach(northwindDb[requests.user.entities], function (user) {
@@ -166,7 +169,7 @@
         });
 
 
-    };
+    }
 
     function parseQueryString(queryString) {
         var params = {}, queries, temp, i, l;
@@ -216,14 +219,18 @@
     function isAuthorized(requiredRoles, method) {
         var isAuthorized = false;
 
-        var roles = requiredRoles.read;
+        var requiredRole = _.find(requiredRoles, function (r) {
+            return r.name === _currentUser.role;
+        });
+        if (!requiredRole) {
+            return false;
+        }
         if (method !== 'GET') {
-            roles = requiredRoles.modify;
+            isAuthorized = requiredRole.modify === true;
+        } else {
+            isAuthorized = requiredRole.read === true;
         }
 
-        if (roles.indexOf(_currentUser.role) >= 0) {
-            isAuthorized = true;
-        }
         return isAuthorized;
     }
 

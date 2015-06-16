@@ -20,7 +20,7 @@
         var _entityRole = dbEntityConfig.entities.role;
         var _message = commonService.showMessage;
 
-        $scope.requests =northWindRequests.getRequest();
+        $scope.permissions =northWindRequests.getPermissions();
 
     }
 

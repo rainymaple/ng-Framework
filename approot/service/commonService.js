@@ -11,8 +11,9 @@
                 warning: warning,
                 success: success,
                 error: error,
-                info:info
+                info: info
             }
+
         };
 
         //-- Service Functions --/
@@ -82,6 +83,8 @@
         function error(msg) {
             showMsg(msg, 'error')
         }
+
+
 
     }
 })();

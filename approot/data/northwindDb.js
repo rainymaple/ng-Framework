@@ -43,17 +43,17 @@
             "Roles":
                 [
                 {
-                    //"id":1,
+                    "id":1,
                     "key":"role-admin",
                     "name":"Administrator"
                 },
                 {
-                    //"id":2,
+                    "id":2,
                     "key":"role-user",
                     "name":"Regular User"
                 },
                 {
-                    //"id":3,
+                    "id":3,
                     "key":"role-orderuser",
                     "name":"Order Specialist"
                 }
