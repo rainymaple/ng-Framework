@@ -236,6 +236,18 @@ accordion a:focus{
   font-weight: 600;
   margin-bottom: 0;
 }
+.permission-content{
+  p{
+    font-size: 16px;
+    font-style: italic;
+  }
+  .permission-table{
+    padding: 10px;
+    th{
+      text-align: center;
+    }
+  }
+}
 
 @media screen and (max-width: 430px) {
   .logo-name {

@@ -1,4 +1,5 @@
 $theme-background-color: #4B7976;
+$theme-background-color-readonly: #AABBBB;
 
 .rain-checkbox-container {
   display: table;
@@ -30,10 +31,12 @@ $theme-background-color: #4B7976;
       }
 
       input[type=checkbox]:checked + label {
-
         background: $theme-background-color;
       }
-
+      input[type=checkbox]:checked + label.readonly {
+        background: $theme-background-color-readonly;
+        cursor:not-allowed;
+      }
       input[type=checkbox]:checked + label:after {
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
         filter: alpha(opacity=100);
@@ -43,10 +46,11 @@ $theme-background-color: #4B7976;
       label {
         cursor: pointer;
         position: absolute;
-        width: 22px;
-        height: 22px;
+        width: 20px;
+        height: 20px;
         top: 0;
         margin-top: 0;
+        margin-bottom: 0;
         background-color: #FFF;
         border: 1px solid $theme-background-color;
       }
@@ -60,8 +64,8 @@ $theme-background-color: #4B7976;
         width: 9px;
         height: 5px;
         background: transparent;
-        top: 4px;
-        left: 4px;
+        top: 3px;
+        left: 3px;
         border: 3px solid #FFF;
         border-top: none;
         border-right: none;

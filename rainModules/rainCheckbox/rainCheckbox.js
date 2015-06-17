@@ -19,6 +19,11 @@
                     }
                     $scope.rainCheckbox = !$scope.rainCheckbox;
                 }
+            },
+            link:function(scope,element){
+                if(scope.readonly===true){
+                    element.find('input:checkbox+label').addClass('readonly');
+                }
             }
         }
     }
