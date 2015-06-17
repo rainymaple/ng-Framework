@@ -20,15 +20,25 @@
         var _entityUser = dbEntityConfig.entities.user;
         var _entityRole = dbEntityConfig.entities.role;
         var _message = commonService.showMessage;
+        $scope.addRole =addRole;
 
         //$scope.permissions = getPermissions();
         getRoles();
 
 
+        function addRole(){
+            angular.forEach($scope.permissions,function(p){
+                if(p.selectedRole){
+                    p.roles.push({name: p.selectedRole.key,modify:false,read:false});
+                    p.selectedRole=null;
+                }
+            });
+        }
         function getPermissions(roles) {
             var permissions = northWindRequests.getPermissions();
             angular.forEach(permissions, function (p) {
                 p.rolesAvailable=angular.copy($scope.roles);
+                p.selectedRole=null;
                 angular.forEach(p.roles, function (r) {
                     _.remove(p.rolesAvailable,function(ra){
                         return ra.key=== r.name;
