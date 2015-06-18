@@ -220,7 +220,7 @@
         var isAuthorized = false;
 
         var requiredRole = _.find(requiredRoles, function (r) {
-            return r.name === _currentUser.role;
+            return r.key === _currentUser.role;
         });
         if (!requiredRole) {
             return false;

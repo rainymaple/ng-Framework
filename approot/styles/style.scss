@@ -247,6 +247,16 @@ accordion a:focus{
       text-align: center;
     }
   }
+  .delete-permission{
+    display: inline-block;
+    margin-top: 2px;
+    padding: 3px;
+    margin-right: 2px;
+    cursor: pointer;
+  }
+  .delete-permission:hover{
+    background-color: lightgrey;
+  }
 }
 
 @media screen and (max-width: 430px) {

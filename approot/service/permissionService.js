@@ -28,7 +28,7 @@
                     if (profile && profile.role) {
                         var role = profile.role;
                         var hasPermission = _.find(requiredRoles, function (r) {
-                            return r.name === role && r.read === true;
+                            return r.key === role && r.read === true;
                         });
                         if (!hasPermission) {
                             return $q.reject({status: 403});

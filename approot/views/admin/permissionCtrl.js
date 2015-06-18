@@ -20,40 +20,76 @@
         var _entityUser = dbEntityConfig.entities.user;
         var _entityRole = dbEntityConfig.entities.role;
         var _message = commonService.showMessage;
-        $scope.addRole =addRole;
+        $scope.permissions = null;
+        $scope.roles = null;
+        $scope.addRole = addRole;
+        $scope.deleteRole = deleteRole;
+        $scope.onRoleModifyChanging =onRoleModifyChanging;
 
         //$scope.permissions = getPermissions();
         getRoles();
 
 
-        function addRole(){
-            angular.forEach($scope.permissions,function(p){
-                if(p.selectedRole){
-                    p.roles.push({name: p.selectedRole.key,modify:false,read:false});
-                    p.selectedRole=null;
+        function addRole() {
+            angular.forEach($scope.permissions, function (p) {
+                if (p.selectedRole) {
+                    p.roles.push({key: p.selectedRole.key, modify: false, read: false});
+                    p.selectedRole = null;
                 }
             });
+            updatePermissionRoles($scope.permissions);
         }
-        function getPermissions(roles) {
-            var permissions = northWindRequests.getPermissions();
-            angular.forEach(permissions, function (p) {
-                p.rolesAvailable=angular.copy($scope.roles);
-                p.selectedRole=null;
-                angular.forEach(p.roles, function (r) {
-                    _.remove(p.rolesAvailable,function(ra){
-                        return ra.key=== r.name;
-                    });
-                    r.readonly = r.name === _roleAdmin;
-                })
+
+        function deleteRole(permission, role) {
+            var permissionFound = _.find($scope.permissions, function (p) {
+                return permission.resource === p.resource;
             });
+            if (permissionFound) {
+                _.remove(permissionFound.roles, function (r) {
+                    return role.key === r.key;
+                });
+                updatePermissionRoles($scope.permissions);
+            }
+        }
+
+        function getPermissions() {
+            var permissions = northWindRequests.getPermissions();
+            updatePermissionRoles(permissions);
             return permissions;
         }
 
         function getRoles() {
             return repositoryService.getDataList(_entityRole).then(function (data) {
                 $scope.roles = data;
-                $scope.permissions =getPermissions($scope.roles);
+                $scope.permissions = getPermissions();
             });
+        }
+
+        function updatePermissionRoles(permissions) {
+            angular.forEach(permissions, function (p) {
+                p.rolesForAdd = angular.copy($scope.roles);
+                p.selectedRole = null;
+                angular.forEach(p.roles, function (r) {
+                    _.remove(p.rolesForAdd, function (ra) {
+                        return ra.key === r.key;
+                    });
+                    r.readonly = r.key === _roleAdmin;
+                    var role = _.find($scope.roles, function (ro) {
+                        return ro.key === r.key;
+                    });
+                    if (role) {
+                        r.name = role.name;
+                    }
+                })
+            });
+        }
+
+        function onRoleModifyChanging(role) {
+            // role.modify is not changed yet when this event happens
+            var modify = !role.modify;
+            if(modify===true){
+                role.read=true;
+            }
         }
     }
 
