@@ -249,13 +249,14 @@ accordion a:focus{
   }
   .delete-permission{
     display: inline-block;
-    margin-top: 2px;
-    padding: 3px;
+    padding: 3px 4px;
     margin-right: 2px;
     cursor: pointer;
+    color:grey;
   }
   .delete-permission:hover{
     background-color: lightgrey;
+    color:black;
   }
 }
 

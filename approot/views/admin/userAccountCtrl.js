@@ -7,13 +7,13 @@
 
     module.controller("userAccountCtrl", [
         "$scope"
-        ,'commonService'
+        , 'commonService'
         , "rainService.repository"
         , "dbEntityConfig"
-        , 'rainService.confirm'
+        , 'rainService.dialog'
         , userAdminCtrl]);
 
-    function userAdminCtrl($scope,commonService, repositoryService, dbEntityConfig, confirmModal) {
+    function userAdminCtrl($scope, commonService, repositoryService, dbEntityConfig, dialogService) {
 
         var _entityUser = dbEntityConfig.entities.user;
         var _entityRole = dbEntityConfig.entities.role;
@@ -122,21 +122,19 @@
                 return;
             }
 
-            var modalResult = confirmModal.getModalInstance('Delete', 'Are you sure you want to delete this user?');
+            dialogService.confirmModal('Delete', 'Are you sure you want to delete this user?', delete_user);
 
-            modalResult.then(function (isDelete) {
-                if (isDelete) {
-                    repositoryService.deleteDataById(_entityUser, id).then(function (data) {
-                        if (data) {
-                            _message.success("Delete Successful");
-                            getUsers();
-                            resetUser();
-                        }
-                    }, function (data, status, headers, config) {
-                        //logService.logError(data);
-                    });
-                }
-            });
+            function delete_user() {
+                repositoryService.deleteDataById(_entityUser, id).then(function (data) {
+                    if (data) {
+                        _message.success("Delete Successful");
+                        getUsers();
+                        resetUser();
+                    }
+                }, function (data, status, headers, config) {
+                    //logService.logError(data);
+                });
+            }
 
         }
 

@@ -1,82 +1,20 @@
-<div ng-controller="permissionCtrl" class=" form-group-sm">
-    <accordion>
-        <accordion-group ng-repeat="permission in permissions" is-open="status.open">
-            <accordion-heading>
-                <span style="-webkit-user-select: none;">{{permission.resource}}</span>
-                <i class="pull-right fa fa-angle-right"
-                   ng-class="{'fa-rotate-90': status.open}">
-                </i>
-            </accordion-heading>
-            <div class="permission-content">
-<!--                <p>User access</p>
-
-                <div class='permission-table'>
-                    <table class="table table-condensed table-striped table-bordered">
-                        <tr>
-                            <th>User Name</th>
-                            <th>Modify</th>
-                            <th>Read</th>
-                        </tr>
-                        <tr ng-repeat="user in permission.users">
-                            <td>{{user.name}}</td>
-                            <td><span rain-checkbox="user.modify" readonly="user.readonly"></span></td>
-                            <td><span rain-checkbox="user.read" readonly="user.readonly"></span></td>
-                        </tr>
-                    </table>
-                </div>-->
-                <p>Group access</p>
-
-                <div class='permission-table'>
-                    <div class="row" style="margin-bottom:10px;">
-                        <div class="col-xs-6" style="padding-left: 0;">
-                            <ui-select ng-model="permission.selectedRole" style="min-width: 300px;"
-                                       name="role">
-                                <ui-select-match placeholder="Select or search by role...">
-                                    {{$select.selected.name}}
-                                </ui-select-match>
-                                <ui-select-choices
-                                        repeat="role in permission.rolesForAdd | filter: {key: $select.search}">
-                                    <div ng-bind-html="role.name | highlight: $select.search"></div>
-                                    <!--<small style="margin-left: 10px;">
-                                        Code: {{country.code}}
-                                    </small>-->
-                                </ui-select-choices>
-                            </ui-select>
-
-                        </div>
-                        <div class="col-xs-3">
-                            <span class="btn btn-sm btn-default" ng-click="addRole()">Add</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <table class="table table-condensed table-striped table-bordered">
-                            <tr>
-                                <th>Role Name</th>
-                                <th>Modify</th>
-                                <th>Read</th>
-                            </tr>
-                            <tr ng-repeat="role in permission.roles">
-                                <td>{{role.name}}
-                                    <div class="pull-right fa fa-remove delete-permission"
-                                         ng-show="!role.readonly" ng-click="deleteRole(permission,role)"></div>
-                                </td>
-                                <td>
-                                    <span rain-checkbox="role.modify" readonly="role.readonly"
-                                            on-changing="onRoleModifyChanging(role)">
-                                    </span>
-                                </td>
-                                <td>
-                                    <span rain-checkbox="role.read"
-                                          readonly="role.readonly||role.modify">
-                                    </span>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+<div style="overflow-y: auto;padding:0 10px;">
+    <div ng-controller="permissionCtrl" class=" form-group-sm" style="margin-top: 10px;">
+        <accordion>
+            <accordion-group ng-repeat="permission in permissions" is-open="status.open">
+                <accordion-heading>
+                    <span style="-webkit-user-select: none;">{{permission.resource}}</span>
+                    <i class="pull-right fa fa-angle-right"
+                       ng-class="{'fa-rotate-90': status.open}">
+                    </i>
+                </accordion-heading>
+                <div class="permission-content">
+                    <!--<p>User access</p>-->
+                    <permission-access permission='permission' roles='roles'></permission-access>
                 </div>
-            </div>
-        </accordion-group>
-    </accordion>
+            </accordion-group>
+        </accordion>
 
 
+    </div>
 </div>

@@ -1,0 +1,51 @@
+<p>Group access</p>
+
+<div class='permission-table'>
+    <div class="row" style="margin-bottom:10px;">
+        <div class="col-xs-6" style="padding-left: 0;">
+            <ui-select ng-model="permission.selectedRole" style="min-width: 300px;"
+                       name="role">
+                <ui-select-match placeholder="Select or search by role...">
+                    {{$select.selected.name}}
+                </ui-select-match>
+                <ui-select-choices
+                        repeat="role in permission.rolesForAdd | filter: {name: $select.search}">
+                    <div ng-bind-html="role.name | highlight: $select.search"></div>
+                    <!--<small style="margin-left: 10px;">
+                        Code: {{country.code}}
+                    </small>-->
+                </ui-select-choices>
+            </ui-select>
+
+        </div>
+        <div class="col-xs-3">
+            <a ng-class="{'disabled':!permission.selectedRole}"
+               class="btn btn-sm btn-default" ng-click="addRole()">Add</a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-condensed table-striped table-bordered">
+            <tr>
+                <th>Role Name</th>
+                <th>Modify</th>
+                <th>Read</th>
+            </tr>
+            <tr ng-repeat="role in permission.roles">
+                <td>{{role.name}}
+                    <div class="pull-right fa fa-remove delete-permission"
+                         ng-show="!role.readonly" ng-click="deleteRole(role)"></div>
+                </td>
+                <td>
+                    <span rain-checkbox="role.modify" readonly="role.readonly"
+                          on-changing="onRoleModifyChanging(role)">
+                    </span>
+                </td>
+                <td>
+                    <span rain-checkbox="role.read"
+                          readonly="role.readonly||role.modify">
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
