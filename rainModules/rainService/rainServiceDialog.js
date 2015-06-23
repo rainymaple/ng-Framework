@@ -1,21 +1,20 @@
 /*
 * usage:
-* var modalResult = confirmModal.getModalInstance('Confirm','Are you sure?');
-* modalResult.then(function (ok) { ... })
+* rainService.dialog.confirmModal('Confirm','Are you sure?',function_Ok);
+*
 * */
 
 (function () {
 
-    angular.module('rainService').factory('rainService.confirm', ['$modal', rainConfirm]);
+    angular.module('rainService').factory('rainService.dialog', ['$modal', rainConfirm]);
 
     function rainConfirm($modal) {
 
         return {
-            getModalInstance: getModalInstance
-
+            confirmModal:confirmModal
         };
 
-        function getModalInstance(title, message) {
+        function confirmModal(title, message,func_ok) {
 
             title = title || 'Confirm';
             message = message || 'Are you sure?';
@@ -26,6 +25,10 @@
                 template: getTemplate(title, message),
                 controller: function ($scope, $modalInstance) {
                     $scope.ok = function () {
+                        if(func_ok && angular.isFunction(func_ok)){
+                            func_ok();
+                            //return;
+                        }
                         $modalInstance.close(true)
                     };
                     $scope.cancel = function () {
