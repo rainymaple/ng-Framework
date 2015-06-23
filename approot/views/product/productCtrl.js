@@ -25,8 +25,8 @@
 
         function showProductModal(id) {
             var modalInstance = commonService.showProductModal(id);
-            modalInstance.then(function () {
-            });
+            /*modalInstance.then(function () {
+            });*/
         }
     }
 

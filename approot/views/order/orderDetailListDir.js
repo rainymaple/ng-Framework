@@ -38,23 +38,11 @@
 
 
             $scope.$on(_productDetailEvent, function (event, data) {
-                var id = data.id;
-                var modalInstance = commonService.showProductModal(id);
-                modalInstance.then(function () {
-                });
-            });
-
-            function showProductDetail(id) {
-                var modalInstance = commonService.showProductModal(id);
-                modalInstance.then(function () {
-                });
-            }
-
-            $scope.$on(_productDetailEvent, function (event, data) {
-                if(!data||!data.ProductID){
+                if(!data||!data.id){
                     return;
                 }
-                showProductDetail(data.ProductID);
+                var id = data.id;
+                commonService.showProductModal(id);
             });
 
         }   // controller

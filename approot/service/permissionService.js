@@ -7,6 +7,8 @@
         , 'northWindRequests'
         , permissionService]);
 
+    // for any request to 'approot/views', check the current users' role against the required role of view
+    // if failed, reject this request with status 403
     function permissionService($q, northWindRequests) {
 
         var _permissions = getPermissions();

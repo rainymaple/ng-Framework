@@ -36,10 +36,10 @@
             }
 
             $scope.$on(_eventGetProductDetail, function (event, data) {
-                var id = data.id;
-                var modalInstance = commonService.showProductModal(id);
-                modalInstance.then(function () {
-                });
+                if(!data||!data.id){
+                    return;
+                }
+                commonService.showProductModal(data.id);
             });
 
         }   // controller

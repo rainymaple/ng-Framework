@@ -45,9 +45,7 @@ $scope.$on('orderDetailListDir.rowSelectedEvent', function (event, data) {
 
 $scope.$on('orderDetailListDir.productDetail', function (event,data) {
     var id = data.id;
-    var modalInstance = nwCommonService.showProductModal(id);
-    modalInstance.then(function () {
-    });
+    nwCommonService.showProductModal(id);
 });
 
 // html with rainGrid and attributes

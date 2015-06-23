@@ -1,8 +1,8 @@
 /*
-* usage:
-* rainService.dialog.confirmModal('Confirm','Are you sure?',function_Ok);
-*
-* */
+ * usage:
+ * rainService.dialog.confirmModal('Confirm','Are you sure?',function_Ok);
+ *
+ * */
 
 (function () {
 
@@ -11,10 +11,12 @@
     function rainConfirm($modal) {
 
         return {
-            confirmModal:confirmModal
+            confirmModal: confirmModal,
+            messageModal: messageModal
         };
 
-        function confirmModal(title, message,func_ok) {
+        // confirmModal
+        function confirmModal(title, message, func_ok) {
 
             title = title || 'Confirm';
             message = message || 'Are you sure?';
@@ -22,10 +24,10 @@
             var modalInstance = $modal.open({
                 //templateUrl: 'deleteUserModal.html',
                 //size:'sm',
-                template: getTemplate(title, message),
+                template: getConfirmTemplate(title, message),
                 controller: function ($scope, $modalInstance) {
                     $scope.ok = function () {
-                        if(func_ok && angular.isFunction(func_ok)){
+                        if (func_ok && angular.isFunction(func_ok)) {
                             func_ok();
                             //return;
                         }
@@ -39,7 +41,7 @@
             return modalInstance.result;
         }
 
-        function getTemplate(title, message) {
+        function getConfirmTemplate(title, message) {
             return '<div class="modal-header">'
                 + '<h3 class="modal-title">' + title + '</h3>'
                 + '</div>'
@@ -49,6 +51,40 @@
                 + '<div class="modal-footer">'
                 + '<button class="btn btn-primary" ng-click="ok()">Yes</button>'
                 + '<button class="btn btn-warning" ng-click="cancel()">No</button>'
+                + '</div>';
+        }
+
+        // messageModal
+        function messageModal(title, markup, func_ok) {
+
+            title = title || 'Information';
+            markup = markup || '<p></p>';
+
+            var modalInstance = $modal.open({
+                //size:'sm',
+                template: getMessageTemplate(title, markup),
+                controller: function ($scope, $modalInstance) {
+                    $scope.ok = function () {
+                        if (func_ok && angular.isFunction(func_ok)) {
+                            func_ok();
+                            //return;
+                        }
+                        $modalInstance.close(true)
+                    };
+                }
+            });
+            return modalInstance.result;
+        }
+
+        function getMessageTemplate(title, markup) {
+            return '<div class="modal-header">'
+                + '<h3 class="modal-title">' + title + '</h3>'
+                + '</div>'
+                + '<div class="modal-body">'
+                + markup
+                + '</div>'
+                + '<div class="modal-footer">'
+                + '<button class="btn btn-primary" ng-click="ok()">Close</button>'
                 + '</div>';
         }
     }
