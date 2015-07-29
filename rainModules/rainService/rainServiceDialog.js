@@ -25,21 +25,24 @@
                 //templateUrl: 'deleteUserModal.html',
                 //size:'sm',
                 template: getConfirmTemplate(title, message),
-                controller: function ($scope, $modalInstance) {
-                    $scope.ok = function () {
-                        if (func_ok && angular.isFunction(func_ok)) {
-                            func_ok();
-                            //return;
-                        }
-                        $modalInstance.close(true)
-                    };
-                    $scope.cancel = function () {
-                        $modalInstance.close(false)
-                    };
-                }
+                controller: ['$scope', '$modalInstance', confirmController]
             });
             return modalInstance.result;
+
+            function confirmController($scope, $modalInstance) {
+                $scope.ok = function () {
+                    if (func_ok && angular.isFunction(func_ok)) {
+                        func_ok();
+                        //return;
+                    }
+                    $modalInstance.close(true)
+                };
+                $scope.cancel = function () {
+                    $modalInstance.close(false)
+                };
+            }
         }
+
 
         function getConfirmTemplate(title, message) {
             return '<div class="modal-header">'
@@ -63,18 +66,21 @@
             var modalInstance = $modal.open({
                 //size:'sm',
                 template: getMessageTemplate(title, markup),
-                controller: function ($scope, $modalInstance) {
-                    $scope.ok = function () {
-                        if (func_ok && angular.isFunction(func_ok)) {
-                            func_ok();
-                            //return;
-                        }
-                        $modalInstance.close(true)
-                    };
-                }
+                controller: ['$scope', '$modalInstance', messageController]
             });
             return modalInstance.result;
+
+            function messageController($scope, $modalInstance) {
+                $scope.ok = function () {
+                    if (func_ok && angular.isFunction(func_ok)) {
+                        func_ok();
+                        //return;
+                    }
+                    $modalInstance.close(true)
+                };
+            }
         }
+
 
         function getMessageTemplate(title, markup) {
             return '<div class="modal-header">'

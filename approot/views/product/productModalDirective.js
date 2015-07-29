@@ -7,17 +7,17 @@
         , 'dbEntityConfig'
         , productModal]);
 
-    function productModal(repositoryService, dbEntityConfig ) {
+    function productModal(repositoryService, dbEntityConfig) {
         return {
-            restrict:'AE',
-            scope:{
-                productId:'='
+            restrict: 'AE',
+            scope: {
+                productId: '='
             },
-            templateUrl:'approot/views/product/productModalTemplate.html',
-            controller:controller
+            templateUrl: 'approot/views/product/productModalTemplate.html',
+            controller: ['$scope', controller]
         };
 
-        function controller($scope){
+        function controller($scope) {
             repositoryService.getDataById(dbEntityConfig.entities.product, $scope.productId).then(function (data) {
                 $scope.product = data[0];
             });

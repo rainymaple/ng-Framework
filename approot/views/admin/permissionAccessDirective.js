@@ -15,7 +15,7 @@
                 roles: '='
             },
             templateUrl: 'approot/views/admin/permissionAccessTemplate.html',
-            controller: controller
+            controller: ['$scope',controller]
         };
 
         function controller($scope) {

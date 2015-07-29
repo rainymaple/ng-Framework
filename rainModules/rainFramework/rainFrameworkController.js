@@ -14,7 +14,7 @@
         , 'rainService.oauth'
         , rainFrameworkCtrl]);
 
-    function rainFrameworkCtrl($scope, $window, $timeout, $rootScope, currentUser,oauth) {
+    function rainFrameworkCtrl($scope, $window, $timeout, $rootScope, currentUser, oauth) {
 
         $scope.isMenuButtonVisible = true;
         $scope.isVerticalMenuVisible = true;
@@ -86,7 +86,7 @@
             oauth.logout();
             $scope.$emit('AUTHENTICATION_EVENT', {
                 statusCode: 401,
-                eventSource:'rainFramework.controller.logout'
+                eventSource: 'rainFramework.controller.logout'
             });
         }
 

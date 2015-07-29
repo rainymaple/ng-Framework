@@ -15,7 +15,7 @@
             scope: {
                 orderId: '='
             },
-            controller: controller
+            controller: ['$scope', controller]
 
         };
 
@@ -38,7 +38,7 @@
 
 
             $scope.$on(_productDetailEvent, function (event, data) {
-                if(!data||!data.id){
+                if (!data || !data.id) {
                     return;
                 }
                 var id = data.id;

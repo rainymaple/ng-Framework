@@ -1,9 +1,10 @@
 (function () {
 
-    angular.module('rainGrid').controller('rainGrid.controller', ['$scope', '$rootScope', 'rainGridService',
-        rainGridController]);
+    angular.module('rainGrid').controller('rainGrid.controller', rainGridController);
 
     /*-- Function Controller --*/
+
+    rainGridController.$inject = ['$scope', '$rootScope', 'rainGridService'];
 
     function rainGridController($scope, $rootScope, rainGridService) {
 

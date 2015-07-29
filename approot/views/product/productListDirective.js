@@ -2,9 +2,9 @@
 
     var module = angular.module('app-framework');
 
-    module.directive('productListDir', ['rainService.repository', 'dbEntityConfig', 'commonService', productListDir]);
-
     var _eventGetProductDetail = 'productListDir.productDetail';
+
+    module.directive('productListDir', ['rainService.repository', 'dbEntityConfig', 'commonService', productListDir]);
 
     function productListDir(repositoryService, dbEntityConfig, commonService) {
         return {
@@ -14,7 +14,7 @@
             scope: {
                 categoryId: '='
             },
-            controller: controller
+            controller: ['$scope',controller]
 
         };
 
