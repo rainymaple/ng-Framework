@@ -1,0 +1,80 @@
+.r-title-bar {
+  background-color: white;
+  padding: 0 20px;
+  border-bottom: 1px solid black;
+  min-height: 8vh; }
+
+.r-logo-area {
+  /*text-align: center;*/ }
+  .r-logo-area .r-title-area {
+    display: inline-block;
+    /*text-align: center;*/ }
+
+.r-icon {
+  display: inline-block;
+  width: 65px;
+  height: 65px;
+  margin: 8px;
+  vertical-align: top;
+  border: 1px solid #999; }
+
+.r-logo-title {
+  color: #777;
+  font-size: 26px;
+  font-weight: 800;
+  margin-top: 3px; }
+
+.r-logo-subtitle {
+  font-size: 16px;
+  margin-top: -7px;
+  font-style: italic;
+  color: #4B7976;
+  text-align: right; }
+
+.r-right-side-controls {
+  line-height: 60px; }
+  .r-right-side-controls > div {
+    text-align: center; }
+
+.r-collapsed-menu {
+  display: inline-block;
+  height: 100%; }
+
+.r-nav-button {
+  height: 36px;
+  width: 36px;
+  margin-top: 10px;
+  border: 1px solid #888888;
+  padding: 0;
+  font-size: 21px;
+  color: #777;
+  background-color: transparent; }
+
+.rain-view {
+  margin-left: 225px;
+  padding: 20px;
+  background-color: #cccccc;
+  min-height: 100vh;
+  overflow: auto; }
+
+.rain-view-full-width {
+  margin-left: 0;
+  /*padding-left: 0;*/ }
+
+@media screen and (min-width: 768px) {
+  .r-logo-area {
+    text-align: left; }
+
+  .r-right-side-controls > div {
+    text-align: right; } }
+@media screen and (max-width: 768px) {
+  .rain-view-full-width {
+    padding-left: 0; } }
+@media screen and (max-width: 430px) {
+  .r-icon {
+    display: none; }
+
+  .r-logo-title {
+    font-size: 18px; } }
+
+/*# sourceMappingURL=rainFramework.css.map */
