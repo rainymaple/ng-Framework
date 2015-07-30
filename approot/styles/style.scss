@@ -9,7 +9,6 @@ body {
   overflow-x: hidden;
 }
 
-
 .container-fluid {
   padding: 0;
 }
@@ -135,7 +134,6 @@ form {
   border-color: #adadad;
 }
 
-
 .not-authenticated {
   margin: 0 !important;
 }
@@ -156,17 +154,18 @@ form {
     overflow-y: auto;
   }
 }
-.help-block{
+
+.help-block {
   display: inline-block;
   padding-top: 3px;
   margin-left: 5px;
-  margin-top:0;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
 .authentication {
 
-  color:#cacaca;
+  color: #cacaca;
 
   h3 {
     font-size: 16px;
@@ -222,41 +221,50 @@ form {
   }
 }
 
-.animation-half-second{
+.animation-half-second {
   -webkit-animation-duration: 0.5s;
   -moz-animation-duration: 0.5s;
   animation-duration: 0.5s;
 }
-accordion a:focus{
+
+accordion a:focus {
   outline: medium none;
 }
+
 .logo-name {
   color: #DFDEDE;
   font-size: 100px;
   font-weight: 600;
   margin-bottom: 0;
 }
-.permission-content{
-  p{
+
+.permission-content {
+  p {
     font-size: 16px;
     font-style: italic;
   }
-  .permission-table{
+  .permission-table {
     padding: 10px;
-    th{
+    th {
       text-align: center;
     }
   }
-  .delete-permission{
+  .delete-permission {
     display: inline-block;
     padding: 3px 4px;
     margin-right: 2px;
     cursor: pointer;
-    color:grey;
+    color: grey;
   }
-  .delete-permission:hover{
+  .delete-permission:hover {
     background-color: lightgrey;
-    color:black;
+    color: black;
+  }
+}
+
+ul.dropdown-menu {
+  td, th {
+    line-height: 2;
   }
 }
 
@@ -269,4 +277,5 @@ accordion a:focus{
     min-width: 0;
   }
 }
+
 

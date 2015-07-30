@@ -201,6 +201,9 @@ accordion a:focus {
   background-color: lightgrey;
   color: black; }
 
+ul.dropdown-menu td, ul.dropdown-menu th {
+  line-height: 2; }
+
 @media screen and (max-width: 430px) {
   .logo-name {
     font-size: 60px; }

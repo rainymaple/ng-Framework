@@ -9,7 +9,7 @@
     function productListDir(repositoryService, dbEntityConfig, commonService) {
         return {
             restrict: 'AE',
-            templateUrl: 'approot/Views/Product/productListTemplate.html',
+            templateUrl: 'approot/views/product/productListTemplate.html',
             replace: false,
             scope: {
                 categoryId: '='
