@@ -28,63 +28,63 @@
                 .
                 state("employeeList", {
                     url: "/employees",
-                    templateUrl: "approot/views/Employee/employeeList.html"
+                    templateUrl: "approot/views/employee/employeeList.html"
                 })
                 .state("customerList", {
                     url: "/customers",
-                    templateUrl: "approot/views/Customer/customerList.html"
+                    templateUrl: "approot/views/customer/customerList.html"
                 })
                 .state("shipperList", {
                     url: "/shippers",
-                    templateUrl: "approot/views/Shipper/shipperList.html"
+                    templateUrl: "approot/views/shipper/shipperList.html"
                 })
                 .state("supplierList", {
                     url: "/suppliers",
-                    templateUrl: "approot/views/Supplier/supplierList.html"
+                    templateUrl: "approot/views/supplier/supplierList.html"
                 })
                 .state("territoryList", {
                     url: "/territories",
-                    templateUrl: "approot/views/Territory/territoryList.html"
+                    templateUrl: "approot/views/territory/territoryList.html"
                 })
                 .state("categoryList", {
                     url: "/categories",
-                    templateUrl: "approot/views/Category/categoryList.html"
+                    templateUrl: "approot/views/category/categoryList.html"
                 })
                 .state("productList", {
                     url: "/products",
-                    templateUrl: "approot/views/Product/productList.html"
+                    templateUrl: "approot/views/product/productList.html"
                 })
                 .state("orderList", {
                     url: "/orders",
-                    templateUrl: "approot/views/Order/orderList.html"
+                    templateUrl: "approot/views/order/orderList.html"
                 })
                 .state("order", {
                     url: "/orderManage",
-                    templateUrl: "approot/views/Order/orderAdmin.html"
+                    templateUrl: "approot/views/order/orderAdmin.html"
                 })
                 .state("order.orderEdit", {
                     url: "/orderEdit",
-                    templateUrl: "approot/views/Order/orderEdit.html"
+                    templateUrl: "approot/views/order/orderEdit.html"
                 })
                 .state("order.orderDetailEdit", {
                     url: "/orderDetail",
-                    templateUrl: "approot/views/Order/orderDetailEdit.html"
+                    templateUrl: "approot/views/order/orderDetailEdit.html"
                 })
                 .state("orderReport", {
                     url: "/OrderReport",
-                    templateUrl: "approot/views/Report/orderReport.html"
+                    templateUrl: "approot/views/report/orderReport.html"
                 })
                 .state("account", {
                     url: "/account",
-                    templateUrl: "approot/views/Admin/account.html"
+                    templateUrl: "approot/views/admin/account.html"
                 })
                 .state("account.user", {
                     url: "/users",
-                    templateUrl: "approot/views/Admin/userAccount.html"
+                    templateUrl: "approot/views/admin/userAccount.html"
                 })
                 .state("account.permission", {
                     url: "/permissions",
-                    templateUrl: "approot/views/Admin/permission.html"
+                    templateUrl: "approot/views/admin/permission.html"
                 });
         }
     ]);
