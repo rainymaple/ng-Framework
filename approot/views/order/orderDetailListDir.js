@@ -10,7 +10,7 @@
     function orderDetailListDir(repositoryService, dbEntityConfig, commonService) {
         return {
             restrict: 'AE',
-            templateUrl: 'approot/Views/Order/orderDetailListDir.html',
+            templateUrl: 'approot/views/order/orderDetailListDir.html',
             replace: false,
             scope: {
                 orderId: '='
