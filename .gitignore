@@ -47,8 +47,15 @@ crashlytics.properties
 crashlytics-build.properties
 
 #npm install
-node_modules
+/node_modules
 
 #bower install
-bower_components
+/bower_components
+
+#project distribution folder
+#/dist
+
+#temporary folders
+/tmp
+rainModules/tmp
 
