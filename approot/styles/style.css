@@ -201,8 +201,10 @@ accordion a:focus {
   background-color: lightgrey;
   color: black; }
 
-ul.dropdown-menu td, ul.dropdown-menu th {
-  line-height: 2; }
+ul.dropdown-menu {
+  width: 300px; }
+  ul.dropdown-menu td, ul.dropdown-menu th {
+    line-height: 2; }
 
 @media screen and (max-width: 430px) {
   .logo-name {
