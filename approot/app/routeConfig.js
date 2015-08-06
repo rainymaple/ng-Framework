@@ -59,7 +59,10 @@
                     templateUrl: "approot/views/order/orderList.html"
                 })
                 .state("order", {
-                    url: "/orderManage",
+                    url: "/orderManage/:orderId",
+                    data:{
+                        orderId:''
+                    },
                     templateUrl: "approot/views/order/orderAdmin.html"
                 })
                 .state("order.orderEdit", {
@@ -67,7 +70,7 @@
                     templateUrl: "approot/views/order/orderEdit.html"
                 })
                 .state("order.orderDetailEdit", {
-                    url: "/orderDetail",
+                    url: "/orderDetail/:orderId",
                     templateUrl: "approot/views/order/orderDetailEdit.html"
                 })
                 .state("orderReport", {

@@ -6,126 +6,128 @@
 
     <!-- For debugging, comment out below  -->
 
-<!--    <link rel="stylesheet" href="dist/css/vendor.css"/>
-    <link rel="stylesheet" href="dist/rain.css"/>
-    <link rel="stylesheet" href="dist/app.css"/>
+    <!--    <link rel="stylesheet" href="dist/css/vendor.css"/>
+        <link rel="stylesheet" href="dist/rain.css"/>
+        <link rel="stylesheet" href="dist/app.css"/>
 
-    <script src="dist/vendor.js"></script>
-    <script src="dist/rain.js"></script>
-    <script src="dist/app.js"></script>-->
+        <script src="dist/vendor.js"></script>
+        <script src="dist/rain.js"></script>
+        <script src="dist/app.js"></script>-->
 
     <!-- For debugging, uncomment below  -->
 
 
-        <!-- Vendor Components -->
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-        <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css"/>
-        <link rel="stylesheet" href="libs/animate.css"/>
-        <link rel="stylesheet" href="bower_components/toastr/toastr.min.css"/>
-        <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css"/>
-        <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css"/>
+    <!-- Vendor Components -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="libs/animate.css"/>
+    <link rel="stylesheet" href="bower_components/toastr/toastr.min.css"/>
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css"/>
+    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css"/>
 
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/angular/angular.min.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
-        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-        <script src="bower_components/angular-messages/angular-messages.min.js"></script>
-        <script src="bower_components/angular-mocks/angular-mocks.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="bower_components/lodash/lodash.min.js"></script>
-        <script src="bower_components/toastr/toastr.js"></script>
-        <script src="bower_components/Chart.js/Chart.min.js"></script>
-        <script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
-        <script src="bower_components/angular-ui-select/dist/select.js"></script>
-        <script src="libs/ui-bootstrap-tpls-0.13.0.min.js"></script>
-
-
-         <!--Application Module-->
-        <link rel="stylesheet" href="approot/styles/style.css"/>
-        <script src="approot/app/app.js"></script>
-        <script src="approot/app/appConfig.js"></script>
-        <script src="approot/app/routeConfig.js"></script>
-        <script src="approot/app/appController.js"></script>
-        <script src="approot/service/commonService.js"></script>
-        <script src="approot/service/permissionService.js"></script>
-
-        <script src="approot/data/northwindMock.js"></script>
-        <script src="approot/data/northwindRequests.js"></script>
-        <script src="approot/data/northwindDb.js"></script>
-        <script src="approot/app/dbEntityConfig.js"></script>
-
-        <!--Application component-->
-        <script src="approot/views/login/loginController.js"></script>
-        <script src="approot/views/login/login.js"></script>
-        <script src="approot/views/admin/userAccountCtrl.js"></script>
-        <script src="approot/views/admin/permissionCtrl.js"></script>
-        <script src="approot/views/admin/permissionAccessDirective.js"></script>
-        <script src="approot/views/category/categoryCtrl.js"></script>
-        <script src="approot/views/customer/customerCtrl.js"></script>
-        <script src="approot/views/employee/employeeCtrl.js"></script>
-        <script src="approot/views/order/orderListCtrl.js"></script>
-        <script src="approot/views/order/orderEditCtrl.js"></script>
-        <script src="approot/views/order/orderDetailListDir.js"></script>
-        <script src="approot/views/product/productCtrl.js"></script>
-        <script src="approot/views/product/productListDirective.js"></script>
-        <script src="approot/views/product/productModalDirective.js"></script>
-        <script src="approot/views/report/orderReport.js"></script>
-        <script src="approot/views/territory/territoryCtrl.js"></script>
-        <script src="approot/views/shipper/shipperCtrl.js"></script>
-        <script src="approot/views/supplier/supplierCtrl.js"></script>
-
-        <!--rainModule Component-->
-
-        <!-- rainModule -->
-        <script src="rainModules/rainMenu/rainMenu.js"></script>
-        <script src="rainModules/rainFramework/rainFramework.js"></script>
-        <script src="rainModules/rainService/rainService.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/lodash/lodash.min.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <script src="bower_components/Chart.js/Chart.min.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+    <script src="bower_components/angular-ui-select/dist/select.js"></script>
+    <script src="libs/ui-bootstrap-tpls-0.13.0.min.js"></script>
 
 
-        <!-- rainFramework-->
-        <script src="rainModules/rainFramework/rainFrameworkDirective.js"></script>
-        <script src="rainModules/rainFramework/rainFrameworkController.js"></script>
-        <link rel="stylesheet" href="rainModules/rainFramework/rainFramework.css"/>
+    <!--Application Module-->
+    <link rel="stylesheet" href="approot/styles/style.css"/>
+    <script src="approot/app/app.js"></script>
+    <script src="approot/app/appConfig.js"></script>
+    <script src="approot/app/routeConfig.js"></script>
+    <script src="approot/app/appController.js"></script>
+    <script src="approot/service/commonService.js"></script>
+    <script src="approot/service/permissionService.js"></script>
 
-        <!-- rainMenu-->
-        <script src="rainModules/rainMenu/rainMenuDirective.js"></script>
-        <script src="rainModules/rainMenu/rainMenuController.js"></script>
-        <script src="rainModules/rainMenu/rainMenuGroup/rainMenuGroupDirective.js"></script>
-        <script src="rainModules/rainMenu/rainMenuItem/rainMenuItemDirective.js"></script>
-        <link rel="stylesheet" href="rainModules/rainMenu/rainMenu.css"/>
+    <script src="approot/data/northwindMock.js"></script>
+    <script src="approot/data/northwindRequests.js"></script>
+    <script src="approot/data/northwindDb.js"></script>
+    <script src="approot/app/dbEntityConfig.js"></script>
 
-        <!-- rainService-->
-        <script src="rainModules/rainService/rainServiceLocalStorage.js"></script>
-        <script src="rainModules/rainService/rainServiceCurrentUser.js"></script>
-        <script src="rainModules/rainService/rainServiceHttpInterceptor.js"></script>
-        <script src="rainModules/rainService/rainServiceOauth.js"></script>
-        <script src="rainModules/rainService/rainServiceRepository.js"></script>
-        <script src="rainModules/rainService/rainServiceDialog.js"></script>
+    <!--Application component-->
+    <script src="approot/views/login/loginController.js"></script>
+    <script src="approot/views/login/login.js"></script>
+    <script src="approot/views/admin/userAccountCtrl.js"></script>
+    <script src="approot/views/admin/permissionCtrl.js"></script>
+    <script src="approot/views/admin/permissionAccessDirective.js"></script>
+    <script src="approot/views/category/categoryCtrl.js"></script>
+    <script src="approot/views/customer/customerCtrl.js"></script>
+    <script src="approot/views/employee/employeeCtrl.js"></script>
+    <script src="approot/views/order/orderListCtrl.js"></script>
+    <script src="approot/views/order/orderAdminCtrl.js"></script>
+    <script src="approot/views/order/orderEditCtrl.js"></script>
+    <script src="approot/views/order/orderDetailEditCtrl.js"></script>
+    <script src="approot/views/order/orderDetailListDir.js"></script>
+    <script src="approot/views/product/productCtrl.js"></script>
+    <script src="approot/views/product/productListDirective.js"></script>
+    <script src="approot/views/product/productModalDirective.js"></script>
+    <script src="approot/views/report/orderReport.js"></script>
+    <script src="approot/views/territory/territoryCtrl.js"></script>
+    <script src="approot/views/shipper/shipperCtrl.js"></script>
+    <script src="approot/views/supplier/supplierCtrl.js"></script>
 
-        <!-- rainForm-->
-        <script src="rainModules/rainForm/rainForm.js"></script>
-        <script src="rainModules/rainForm/rainFormInput.js"></script>
+    <!--rainModule Component-->
 
-        <!-- rainCheckbox-->
-        <script src="rainModules/rainCheckbox/rainCheckbox.js"></script>
-        <link rel="stylesheet" href="rainModules/rainCheckbox/rain-checkbox.css"/>
+    <!-- rainModule -->
+    <script src="rainModules/rainMenu/rainMenu.js"></script>
+    <script src="rainModules/rainFramework/rainFramework.js"></script>
+    <script src="rainModules/rainService/rainService.js"></script>
 
-        <!-- rainNumberOnly-->
-        <script src="rainModules/rainNumberOnly/rainNumberOnly.js"></script>
 
-        <!-- rainGrid-->
-        <script src="rainModules/rainGrid/_rainGrid.js"></script>
-        <script src="rainModules/rainGrid/_rainGridDirective.js"></script>
-        <script src="rainModules/rainGrid/_rainGridController.js"></script>
-        <script src="rainModules/rainGrid/rainGridService.js"></script>
-        <script src="rainModules/rainGrid/rainGridMenu/rainGridMenuDirective.js"></script>
-        <script src="rainModules/rainGrid/rainGridMenu/rainGridMenuController.js"></script>
-        <script src="rainModules/rainGrid/rainGridFilterModal/rainGridFilterModalCtrl.js"></script>
-        <script src="rainModules/rainGrid/rainGridFilterInput/rainGridFilterInputDirective.js"></script>
-        <script src="rainModules/rainGrid/rainGridFilterInput/rainGridFilterInputController.js"></script>
-        <script src="rainModules/rainGrid/rainGridCell/rainGridCellDirective.js"></script>
-        <link rel="stylesheet" href="rainModules/rainGrid/rainGrid.css"/>
+    <!-- rainFramework-->
+    <script src="rainModules/rainFramework/rainFrameworkDirective.js"></script>
+    <script src="rainModules/rainFramework/rainFrameworkController.js"></script>
+    <link rel="stylesheet" href="rainModules/rainFramework/rainFramework.css"/>
+
+    <!-- rainMenu-->
+    <script src="rainModules/rainMenu/rainMenuDirective.js"></script>
+    <script src="rainModules/rainMenu/rainMenuController.js"></script>
+    <script src="rainModules/rainMenu/rainMenuGroup/rainMenuGroupDirective.js"></script>
+    <script src="rainModules/rainMenu/rainMenuItem/rainMenuItemDirective.js"></script>
+    <link rel="stylesheet" href="rainModules/rainMenu/rainMenu.css"/>
+
+    <!-- rainService-->
+    <script src="rainModules/rainService/rainServiceLocalStorage.js"></script>
+    <script src="rainModules/rainService/rainServiceCurrentUser.js"></script>
+    <script src="rainModules/rainService/rainServiceHttpInterceptor.js"></script>
+    <script src="rainModules/rainService/rainServiceOauth.js"></script>
+    <script src="rainModules/rainService/rainServiceRepository.js"></script>
+    <script src="rainModules/rainService/rainServiceDialog.js"></script>
+
+    <!-- rainForm-->
+    <script src="rainModules/rainForm/rainForm.js"></script>
+    <script src="rainModules/rainForm/rainFormInput.js"></script>
+
+    <!-- rainCheckbox-->
+    <script src="rainModules/rainCheckbox/rainCheckbox.js"></script>
+    <link rel="stylesheet" href="rainModules/rainCheckbox/rain-checkbox.css"/>
+
+    <!-- rainNumberOnly-->
+    <script src="rainModules/rainNumberOnly/rainNumberOnly.js"></script>
+
+    <!-- rainGrid-->
+    <script src="rainModules/rainGrid/_rainGrid.js"></script>
+    <script src="rainModules/rainGrid/_rainGridDirective.js"></script>
+    <script src="rainModules/rainGrid/_rainGridController.js"></script>
+    <script src="rainModules/rainGrid/rainGridService.js"></script>
+    <script src="rainModules/rainGrid/rainGridMenu/rainGridMenuDirective.js"></script>
+    <script src="rainModules/rainGrid/rainGridMenu/rainGridMenuController.js"></script>
+    <script src="rainModules/rainGrid/rainGridFilterModal/rainGridFilterModalCtrl.js"></script>
+    <script src="rainModules/rainGrid/rainGridFilterInput/rainGridFilterInputDirective.js"></script>
+    <script src="rainModules/rainGrid/rainGridFilterInput/rainGridFilterInputController.js"></script>
+    <script src="rainModules/rainGrid/rainGridCell/rainGridCellDirective.js"></script>
+    <link rel="stylesheet" href="rainModules/rainGrid/rainGrid.css"/>
 
 
 </head>

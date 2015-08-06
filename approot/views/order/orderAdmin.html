@@ -1,24 +1,26 @@
-<div style="text-align: center" class="col-md-10 col-lg-8">
+<div ng-controller="orderAdminCtrl">
+    <div style="text-align: center" class="col-md-10 col-lg-8">
 
-    <div style="display: inline-block;width:100%;">
+        <div style="display: inline-block;width:100%;">
 
-        <div style="min-width: 700px;max-width: 850px;">
+            <div style="min-width: 700px;max-width: 850px;">
 
-            <div class="panel-body" style="min-height: 700px;text-align: left;">
+                <div class="panel-body" style="min-height: 700px;text-align: left;">
 
-                <div class="wizard">
-                    <a ui-sref="order.orderEdit" ui-sref-active="active">
-                        Order
-                    </a>
-                    <a ui-sref="order.orderDetailEdit" ui-sref-active="active">
-                        Order Detail
-                    </a>
+                    <div class="wizard">
+                        <a ng-click="gotoOrder()" ng-class={"active":orderActive}>
+                            Order
+                        </a>
+                        <a ng-click="gotoOrderDetail()" ng-class={"active":orderDetailActive}>
+                            Order Detail
+                        </a>
+                    </div>
+
+                    <div ui-view class="wizard-content"></div>
+
                 </div>
 
-                <div ui-view class="wizard-content"></div>
-
             </div>
-
         </div>
     </div>
 </div>

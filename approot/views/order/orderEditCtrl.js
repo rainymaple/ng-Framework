@@ -24,6 +24,8 @@
         $scope.saveOrder = saveOrder;
         $scope.newOrder = newOrder;
 
+        $state.$current.parent.data.orderId=_orderId;
+
         activate();
 
         // controller functions
