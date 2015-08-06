@@ -2,11 +2,17 @@
 
     var module = angular.module('app-framework');
 
-    module.controller('orderListCtrl', ['$scope', 'rainService.repository', 'dbEntityConfig', orderListCtrl]);
+    module.controller('orderListCtrl', [
+        '$scope'
+        , '$state'
+        , 'rainService.repository'
+        , 'dbEntityConfig'
+        , orderListCtrl]);
 
-    var _rowSelectedEvent='orderListCtrl.rowSelected';
+    var _rowSelectedEvent = 'orderListCtrl.rowSelected';
+    var _orderEditEvent = 'orderListCtrl.idSelected';
 
-    function orderListCtrl($scope, repositoryService, dbEntityConfig) {
+    function orderListCtrl($scope, $state, repositoryService, dbEntityConfig) {
         var vm = this;
         vm.selectedRow = false;
         vm.showDetail = true;
@@ -29,8 +35,12 @@
             var id = data.id;
             vm.orderId = id;
             vm.selectedRow = true;
-        })
+        });
 
+        $scope.$on(_orderEditEvent, function (event, data) {
+            var id = data.id;
+            $state.go('order.orderEdit', {orderId: id});
+        });
 
     }
 
@@ -44,7 +54,7 @@
             title: 'Order List',
             selectable: true,
             selectFirstRow: false,
-            rowSelectedEvent: {funcEvent:_rowSelectedEvent,funcIdField:'OrderID'}
+            rowSelectedEvent: {funcEvent: _rowSelectedEvent, funcIdField: 'OrderID'}
         };
     }
 
@@ -52,31 +62,43 @@
         return [
             {
                 field: 'OrderID',
-                displayName: 'Id'
-            }, {
+                displayName: 'Id',
+                isLink: true,
+                linkFunc: {
+                    funcIdField: 'OrderID',
+                    funcEvent: _orderEditEvent
+                }
+            },
+            {
                 field: 'CustomerID',
                 displayName: 'Customer'
-            }, {
+            },
+            {
                 field: 'OrderDate',
                 displayName: 'Order Date',
                 isDate: true
-            }, {
+            },
+            {
                 field: 'RequiredDate',
                 displayName: 'Required Date',
                 isDate: true
-            }, {
+            },
+            {
                 field: 'ShippedDate',
                 displayName: 'Shipped Date',
                 isDate: true
-            }, {
+            },
+            {
                 field: 'Freight',
                 displayName: 'Freight',
                 isNumber: true,
                 decimal: 2
-            }, {
+            },
+            {
                 field: 'ShipName',
                 displayName: 'ShipName'
-            }, {
+            },
+            {
                 field: 'ShipCountry',
                 displayName: 'Ship Country'
             }

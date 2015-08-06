@@ -2,8 +2,8 @@
 
 <div class='permission-table'>
     <div class="row" style="margin-bottom:10px;">
-        <div class="col-xs-6" style="padding-left: 0;">
-            <ui-select ng-model="permission.selectedRole" style="min-width: 300px;"
+        <div class="col-xs-8 col-lg-6" style="padding-left: 0;">
+            <ui-select ng-model="permission.selectedRole" style=""
                        name="role">
                 <ui-select-match placeholder="Select or search by role...">
                     {{$select.selected.name}}
@@ -18,7 +18,7 @@
             </ui-select>
 
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-2">
             <a ng-class="{'disabled':!permission.selectedRole}"
                class="btn btn-sm btn-default" ng-click="addRole()">Add</a>
         </div>

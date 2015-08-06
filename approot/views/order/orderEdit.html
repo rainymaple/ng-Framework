@@ -33,7 +33,7 @@
 
                 <div class="col-xs-9">
                     <div class="col-xs-8" style="min-width: 330px;">
-                        <ui-select ng-model="order.country"  style="min-width: 300px;"
+                        <ui-select ng-model="order.shipCountry"  style="min-width: 300px;"
                                    name="country" required>
                             <ui-select-match placeholder="Select or search by country...">
                                 {{$select.selected.name}}
@@ -192,7 +192,7 @@
                             <i class="glyphicon glyphicon-ok"></i>
                             Save
                         </button>
-                        <button class="btn btn-warning" ng-click="newUser()">
+                        <button class="btn btn-warning" ng-click="newOrder()">
                             <i class="glyphicon glyphicon-plus"></i>
                             new
                         </button>
@@ -202,7 +202,5 @@
 
         </filedset>
     </form>
-    {{formOrder.$submitted}}
-
 
 </div>

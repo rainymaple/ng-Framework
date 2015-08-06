@@ -9,7 +9,8 @@
             transclude: true,
             scope: {
                 label: '@',
-                icon: '@'
+                icon: '@',
+                route:'@'
             },
             templateUrl: 'rainModules/rainMenu/rainMenuGroup/rainMenuGroupTemplate.html',
             link: link
@@ -29,6 +30,9 @@
         };
 
         scope.clicked = function () {
+            if(scope.route) {
+                rainMenuCtrl.setRoute(scope.route);
+            }
             if (!scope.isOpen) {
                 rainMenuCtrl.closeCurrentMenu();
             }

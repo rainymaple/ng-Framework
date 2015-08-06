@@ -54,7 +54,7 @@
         function initPage() {
             $scope.enablePage = $scope.gridOptions.enablePage;
             $scope.currentPage = 1;
-            $scope.maxSize = 3;
+            $scope.maxSize = 2;
             $scope.pageSizes = [
                 {label: ' 5', value: 5},
                 {label: '10', value: 10},

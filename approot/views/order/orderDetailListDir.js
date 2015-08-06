@@ -64,11 +64,13 @@
             {
                 field: 'OrderID',
                 displayName: 'Id'
-            }, {
+            },
+            {
                 field: 'ProductID',
                 displayName: 'ProductID',
                 isHidden: true
-            }, {
+            },
+            {
                 field: 'ProductName',
                 displayName: 'Product Name',
                 isLink: true,

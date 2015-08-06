@@ -41,14 +41,25 @@
   height: 100%; }
 
 .r-nav-button {
-  height: 36px;
-  width: 36px;
+  height: 35px;
+  width: 35px;
   margin-top: 10px;
   border: 1px solid #888888;
   padding: 0;
   font-size: 21px;
   color: #777;
   background-color: transparent; }
+
+.btn-hover-border {
+  color: #999c9e;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: transparent;
+  border-color: transparent; }
+
+.btn-hover-border:hover {
+  background-color: transparent;
+  border-color: #adadad; }
 
 .rain-view {
   margin-left: 225px;
@@ -61,6 +72,11 @@
   margin-left: 0;
   /*padding-left: 0;*/ }
 
+.welcome {
+  display: inline-block;
+  margin-top: 5px;
+  margin-right: 10px; }
+
 @media screen and (min-width: 768px) {
   .r-logo-area {
     text-align: left; }
@@ -69,12 +85,29 @@
     text-align: right; } }
 @media screen and (max-width: 768px) {
   .rain-view-full-width {
-    padding-left: 0; } }
-@media screen and (max-width: 430px) {
+    padding-left: 0; }
+
+  .welcome {
+    display: none;
+    visibility: hidden; } }
+@media screen and (max-width: 640px) {
+  /*.btn-hover-border {
+    border-color: #adadad;
+  }*/
   .r-icon {
     display: none; }
 
   .r-logo-title {
-    font-size: 18px; } }
+    font-size: 18px; }
+
+  .cellphone {
+    display: none;
+    visibility: hidden; } }
+@media screen and (max-width: 320px) {
+  .r-logo-title {
+    font-size: 12px; }
+
+  .r-logo-subtitle {
+    font-size: 11px; } }
 
 /*# sourceMappingURL=rainFramework.css.map */

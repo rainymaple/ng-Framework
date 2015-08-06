@@ -42,4 +42,17 @@
   animation: fadeOutUp 0.5s;
   display: block !important; }
 
+.page-size {
+  display: inline-block;
+  margin-right: 40px; }
+
+.page-count {
+  display: inline-block;
+  height: 30px; }
+
+@media screen and (max-width: 640px) {
+  .cellphone {
+    display: none;
+    visibility: hidden; } }
+
 /*# sourceMappingURL=rainGrid.css.map */
