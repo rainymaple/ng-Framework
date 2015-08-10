@@ -65,9 +65,9 @@
                         freight: order.Freight,
                         shipAddress: order.ShipAddress,
                         shipCity: order.ShipCity,
-                        shippedDate: order.ShippedDate,
-                        requiredDate: order.RequiredDate,
-                        orderDate: order.OrderDate
+                        shippedDate: new Date(order.ShippedDate),
+                        requiredDate: new Date(order.RequiredDate),
+                        orderDate: new Date(order.OrderDate)
                     }
                 });
             }

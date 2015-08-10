@@ -52,6 +52,10 @@
                     name: 'orderDetails',
                     url: getUrl('orderDetails')
                 },
+                deleteOrderDetail:{
+                    name: 'orderDetails',
+                    url: getUrl('deleteOrderDetail')
+                },
                 employee:{
                     name:'employee',
                     url: getUrl('employee')

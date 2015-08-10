@@ -10,6 +10,7 @@
             getDataList: getDataList,
             getDataById: getDataById,
             deleteDataById: deleteDataById,
+            deleteDataByQueryString:deleteDataByQueryString,
             addOrUpdateData: addOrUpdateData
         };
 
@@ -35,6 +36,12 @@
 
         function deleteDataById(entity, id) {
             return $http.delete(entity.url + '/' + id).then(function (result) {
+                return result.data;
+            });
+        }
+
+        function deleteDataByQueryString(entity, queryString) {
+            return $http.delete(entity.url + '?' + queryString).then(function (result) {
                 return result.data;
             });
         }

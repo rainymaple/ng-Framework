@@ -3,7 +3,7 @@
   margin-top: 10px;
   min-height: 200px;
 
-  a{
+  a {
     cursor: pointer;
   }
 
@@ -35,8 +35,9 @@
       tr.row-selected td {
         background-color: #B9F0E3;
       }
-      td .cell-center{
-        text-align: center;width: 100%;
+      td .cell-center {
+        text-align: center;
+        width: 100%;
       }
     }
 
@@ -67,13 +68,29 @@
     display: block !important;
   }
 }
-.page-size{
+
+.page-size {
   display: inline-block;
   margin-right: 40px;
 }
-.page-count{
-  display: inline-block;height: 30px;
+
+.page-count {
+  display: inline-block;
+  height: 30px;
 }
+
+.action-button {
+  display: inline-block;
+  padding: 3px 4px;
+  margin-right: 2px;
+  cursor: pointer;
+  color: grey;
+}
+.action-button:hover {
+  background-color: lightgrey;
+  color: black;
+}
+
 @media screen and (max-width: 640px) {
   .cellphone {
     display: none;

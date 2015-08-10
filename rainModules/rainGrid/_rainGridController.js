@@ -38,6 +38,11 @@
             $scope.gridOptions = {enablePage: true, pageSize: 10, selectable: false, showToolMenu: true};
             $scope.gridOptions = _.assign($scope.gridOptions, $scope.rainGrid);
             $scope.selectable = $scope.gridOptions.selectable;
+            $scope.actionButtonPlace =0;
+            if($scope.gridOptions.deleteLink && $scope.gridOptions.deleteLink.enable){
+                $scope.showDeleteButton =true;
+                $scope.actionButtonPlace =$scope.gridOptions.deleteLink.place||0;
+            }
             $scope.showToolMenu = $scope.gridOptions.showToolMenu;
             $scope.title = $scope.gridOptions.title;
         }

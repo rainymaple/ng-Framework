@@ -42,7 +42,7 @@ body {
   color: #404040;
   font-size: 14px;
   padding: 30px 20px;
-  min-height: 680px;
+  min-height: 500px;
   min-width: 480px; }
   .wizard-content .edit-mode {
     color: cornflowerblue; }

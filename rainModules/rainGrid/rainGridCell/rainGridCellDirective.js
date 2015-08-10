@@ -16,6 +16,7 @@
                 isCheckbox: '=',
                 isLink: '=',
                 isButton: '=',
+                isIcon: '=',
                 isHidden: '=',
                 decimal:'=',
                 funcLink: '&'
@@ -26,7 +27,7 @@
 
         function link(scope, el, attr) {
             scope.value = scope.gridCell;
-            if (scope.isLink || scope.isButton) {
+            if (scope.isLink || scope.isButton || scope.isIcon) {
                 scope.linkFunc = function () {
                     scope.funcLink();
                 }

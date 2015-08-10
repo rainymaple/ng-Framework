@@ -104,7 +104,7 @@
                 var id = parameters[length - 1];
 
                 var index = -1;
-                if (id > 0) {
+                if (id) {
                     for (var i = 0; i < entities.length; i++) {
                         if (entities[i][filterId] == id) {
                             index = i;

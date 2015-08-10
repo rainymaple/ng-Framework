@@ -143,7 +143,7 @@
                     <div class="col-xs-12">
                         <div class="input-group input-group-sm pull-left" style="width: 210px;">
                             <input type="text" class="form-control" datepicker-popup="{{format}}"
-                                   ng-model="order.requiredDate"
+                                   ng-model="order.requiredDate" name="requiredDate" required
                                    is-open="requiredDate_opened" min-date="minDate" max-date="'2018-06-22'"
                                    datepicker-options="dateOptions"
                                    date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
@@ -167,7 +167,7 @@
                     <div class="col-xs-12">
                         <div class="input-group input-group-sm pull-left" style="width: 210px;">
                             <input type="text" class="form-control" datepicker-popup="{{format}}"
-                                   ng-model="order.shippedDate"
+                                   ng-model="order.shippedDate" name="shippedDate"
                                    is-open="shippedDate_opened" min-date="minDate" max-date="'2018-06-22'"
                                    datepicker-options="dateOptions"
                                    date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>

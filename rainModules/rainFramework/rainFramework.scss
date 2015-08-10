@@ -5,7 +5,7 @@ $menu-background-color: #2F4050;
   background-color: white;
   padding: 0 20px;
   border-bottom: 1px solid black;
-  min-height: 8vh;
+  min-height: 7vh;
 }
 
 
@@ -20,15 +20,15 @@ $menu-background-color: #2F4050;
 
 .r-icon {
   display: inline-block;
-  width: 65px;
-  height: 65px;
-  margin: 8px;
+  width: 55px;
+  height: 55px;
+  margin: 4px 4px 1px 4px;
   vertical-align: top;
   border: 1px solid #999;
 }
 .r-logo-title {
   color: #777;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 800;
   margin-top: 3px;
 }
@@ -36,12 +36,13 @@ $menu-background-color: #2F4050;
 .r-logo-subtitle {
   font-size: 16px;
   margin-top: -7px;
+  margin-bottom: 0;
   font-style: italic;
   color: #4B7976;
   text-align: right;
 }
 .r-right-side-controls {
-  line-height: 60px;
+  line-height: 50px;
 
   > div {
     text-align: center;
@@ -77,7 +78,7 @@ $menu-background-color: #2F4050;
   margin-left: 225px;
   padding: 20px;
   background-color: #cccccc;
-  min-height: 100vh;
+  min-height: 93vh;
   overflow: auto;
 }
 .rain-view-full-width {

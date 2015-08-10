@@ -91,11 +91,12 @@
                     if (idField) {
                         id = rowData[gridOptions.idField];
                     }
-                    angular.forEach(columnDefs, function (col) {
+                    for (var i = 0; i < columnDefs.length; i++) {
+                        var col = columnDefs[i];
                         row.push({
                             id: rowData[gridOptions.idField],
                             fieldName: col.field,
-                            value: rowData[col.field]||col.field,
+                            value: rowData[col.field] || col.field,
                             displayName: col.displayName,
                             isCheckbox: col.isCheckbox,
                             isCurrency: col.isCurrency,
@@ -103,11 +104,13 @@
                             decimal: col.decimal,
                             isLink: col.isLink,
                             isButton: col.isButton,
+                            isIcon: col.isIcon,
                             isDate: col.isDate,
                             isHidden: col.isHidden || false,
-                            linkFunc: col.linkFunc || {funcName: '', funcIdField: ''}
+                            linkFunc: col.linkFunc || {funcName: '', funcIdField: ''},
+                            order: i
                         });
-                    });
+                    }
                 }
                 return {rowData: row, rowSelected: false, idField: idField, id: id};
             });
