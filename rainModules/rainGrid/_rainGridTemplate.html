@@ -32,7 +32,7 @@
                 </th>
             </tr>
             <tr ng-repeat="row in list" ng-click="selectRow(row)" ng-class="{'row-selected':row.rowSelected}">
-                <td ng-repeat="field in row.rowData track by $index" ng-if="!field.isHidden">
+                <td ng-repeat="field in row.rowData" ng-if="!field.isHidden">
                     <div style="display: inline-block;" ng-class="{'cell-center':field.isButton}"
                          grid-cell="field.value"
                          is-date="field.isDate"
@@ -48,7 +48,7 @@
                         <!--{{field.value}}-->
                     </div>
                     <div class="pull-right fa fa-remove action-button"
-                         ng-if="showDeleteButton && field.order == actionButtonPlace" ng-click="deleteRole(role)">
+                         ng-if="showDeleteButton && field.order == actionButtonPlace" ng-click="deleteRecord(row)">
                     </div>
                 </td>
             </tr>

@@ -38,10 +38,12 @@
             $scope.gridOptions = {enablePage: true, pageSize: 10, selectable: false, showToolMenu: true};
             $scope.gridOptions = _.assign($scope.gridOptions, $scope.rainGrid);
             $scope.selectable = $scope.gridOptions.selectable;
-            $scope.actionButtonPlace =0;
-            if($scope.gridOptions.deleteLink && $scope.gridOptions.deleteLink.enable){
-                $scope.showDeleteButton =true;
-                $scope.actionButtonPlace =$scope.gridOptions.deleteLink.place||0;
+            $scope.actionButtonPlace = 0;
+            if ($scope.gridOptions.deleteLink && $scope.gridOptions.deleteLink.enable) {
+                $scope.showDeleteButton = true;
+                $scope.actionButtonPlace = $scope.gridOptions.deleteLink.place || 0;
+                $scope.deleteEvent = $scope.gridOptions.deleteLink.funcEvent;
+                $scope.deleteEventIdField = $scope.gridOptions.deleteLink.funcIdField;
             }
             $scope.showToolMenu = $scope.gridOptions.showToolMenu;
             $scope.title = $scope.gridOptions.title;
@@ -200,7 +202,19 @@
             }
         };
 
-
+        $scope.deleteRecord = function (row) {
+            var aa = row;
+            //deleteEventIdField
+            if($scope.deleteEvent && $scope.deleteEventIdField) {
+                var field = _.find(row.rowData, function (col) {
+                    return col.fieldName == $scope.deleteEventIdField;
+                });
+                if(field) {
+                    var deleteEventIdField = field.value;
+                    $rootScope.$broadcast($scope.deleteEvent, {id: deleteEventIdField});
+                }
+            }
+        };
     }   // end of controller
 
 })();

@@ -143,7 +143,8 @@
                 displayName: 'Discount',
                 isNumber: true,
                 decimal: 2
-            },
+            }
+            /*,
             {
                 field: 'fa fa-times',
                 //displayName: 'Delete',
@@ -157,7 +158,7 @@
                 isIcon: true,
                 isHidden: !showEdit,
                 linkFunc: {funcEvent: _eventDeleteProduct, funcIdField: 'DetailID'}
-            }
+            }*/
         ];
     }
 })();
