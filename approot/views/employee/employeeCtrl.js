@@ -2,15 +2,15 @@
 
     var module = angular.module('app-framework');
 
-    module.controller('employeeCtrl', ['$scope','rainService.repository', 'dbEntityConfig', employeeCtrl]);
+    module.controller('employeeCtrl', ['$scope', 'rainService.repository', 'dbEntityConfig', employeeCtrl]);
 
-    var _employeeDetailEvent ='employeeCtrl.employeeDetail';
+    var _employeeDetailEvent = 'employeeCtrl.employeeDetail';
 
-    function employeeCtrl($scope,repositoryService, dbEntityConfig) {
+    function employeeCtrl($scope, repositoryService, dbEntityConfig) {
         var vm = this;
         vm.showDetail = false;
         vm.isFromBack = false;
-        vm.imageSrc='approot/images/Employee.gif';
+        vm.imageSrc = 'approot/images/Employee.gif';
 
         activate();
 
@@ -25,8 +25,8 @@
             });
         }
 
-        $scope.$on(_employeeDetailEvent,function(event,data){
-            var id=data.id;
+        $scope.$on(_employeeDetailEvent, function (event, data) {
+            var id = data.id;
             vm.employee = _.find(vm.employeeList, function (e) {
                 vm.showDetail = true;
                 return e.EmployeeID === id;
@@ -42,6 +42,7 @@
     function setGridOptions() {
         return {
             columnDefs: getColumnDefs(),
+            title: "Employees",
             enablePage: true,
             idField: 'EmployeeID',
             selectable: false

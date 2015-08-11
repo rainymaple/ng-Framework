@@ -39,14 +39,10 @@
             $scope.gridOptions = _.assign($scope.gridOptions, $scope.rainGrid);
             $scope.selectable = $scope.gridOptions.selectable;
             $scope.actionButtonPlace = 0;
-            if ($scope.gridOptions.deleteLink && $scope.gridOptions.deleteLink.enable) {
-                $scope.showDeleteButton = true;
-                $scope.actionButtonPlace = $scope.gridOptions.deleteLink.place || 0;
-                $scope.deleteEvent = $scope.gridOptions.deleteLink.funcEvent;
-                $scope.deleteEventIdField = $scope.gridOptions.deleteLink.funcIdField;
-            }
             $scope.showToolMenu = $scope.gridOptions.showToolMenu;
             $scope.title = $scope.gridOptions.title;
+
+            setActionButtons();
         }
 
         function initRainGrid(dataList) {
@@ -56,6 +52,40 @@
             initData($scope.gridData);
             rainGridService.modifyPaginationIcons();
             //cfpLoadingBar.complete();
+        }
+
+        // delete and edit buttons
+        function setActionButtons(){
+            if ($scope.gridOptions.deleteLink && $scope.gridOptions.deleteLink.enable) {
+                $scope.showDeleteButton = true;
+                if (!!$scope.gridOptions.deleteLink.place) {
+                    $scope.actionButtonPlace = $scope.gridOptions.deleteLink.place
+                } else {
+                    for (var i = 0; i < $scope.gridOptions.columnDefs.length; i++) {
+                        if (!$scope.gridOptions.columnDefs[i].isHidden) {
+                            $scope.actionButtonPlace = i;
+                            break;
+                        }
+                    }
+                }
+                $scope.deleteEvent = $scope.gridOptions.deleteLink.funcEvent;
+                $scope.deleteEventIdField = $scope.gridOptions.deleteLink.funcIdField;
+            }
+            if ($scope.gridOptions.editLink && $scope.gridOptions.editLink.enable) {
+                $scope.showEditButton = true;
+                if (!!$scope.gridOptions.editLink.place) {
+                    $scope.actionButtonPlace = $scope.gridOptions.editLink.place
+                } else {
+                    for (var j = 0; j < $scope.gridOptions.columnDefs.length; j++) {
+                        if (!$scope.gridOptions.columnDefs[j].isHidden) {
+                            $scope.actionButtonPlace = j;
+                            break;
+                        }
+                    }
+                }
+                $scope.editEvent = $scope.gridOptions.editLink.funcEvent;
+                $scope.editEventIdField = $scope.gridOptions.editLink.funcIdField;
+            }
         }
 
         function initPage() {
@@ -203,15 +233,25 @@
         };
 
         $scope.deleteRecord = function (row) {
-            var aa = row;
-            //deleteEventIdField
-            if($scope.deleteEvent && $scope.deleteEventIdField) {
+            if ($scope.deleteEvent && $scope.deleteEventIdField) {
                 var field = _.find(row.rowData, function (col) {
                     return col.fieldName == $scope.deleteEventIdField;
                 });
-                if(field) {
+                if (field) {
                     var deleteEventIdField = field.value;
                     $rootScope.$broadcast($scope.deleteEvent, {id: deleteEventIdField});
+                }
+            }
+        };
+
+        $scope.editRecord = function (row) {
+            if ($scope.editEvent && $scope.editEventIdField) {
+                var field = _.find(row.rowData, function (col) {
+                    return col.fieldName == $scope.editEventIdField;
+                });
+                if (field) {
+                    var editEventIdField = field.value;
+                    $rootScope.$broadcast($scope.editEvent, {id: editEventIdField});
                 }
             }
         };

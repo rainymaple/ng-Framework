@@ -90,6 +90,14 @@
                     , {key: 'role-user', read: true, modify: false}
                     , {key: 'role-orderuser', read: true, modify: false}]
             },
+            editOrderDetail: {
+                endpoint: "/api/editOrderDetail",
+                entities: 'OrderDetails',
+                idField: 'DetailID',
+                roles: [{key: 'role-admin', read: true, modify: true}
+                    , {key: 'role-user', read: true, modify: false}
+                    , {key: 'role-orderuser', read: true, modify: false}]
+            },
             /*            newOrder: {
              endpoint: "/api/newOrder",
              entities: 'Orders',

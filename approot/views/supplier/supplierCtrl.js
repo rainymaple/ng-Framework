@@ -20,6 +20,7 @@
     function setGridOptions() {
         return {
             columnDefs: getColumnDefs(),
+            title: "Suppliers",
             //pageSize: 20,
             idField: 'SupplierID'
         };

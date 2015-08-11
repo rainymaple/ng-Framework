@@ -21,6 +21,7 @@
     function setGridOptions() {
         return {
             columnDefs: getColumnDefs(),
+            title: "Territories",
             idField: 'TerritoryID'
         };
     }

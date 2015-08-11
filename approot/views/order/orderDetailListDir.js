@@ -20,7 +20,9 @@
             scope: {
                 orderId: '=',
                 showDelete: '=',
-                showEdit: '='
+                showEdit: '=',
+                eventEdit: '=',
+                refresh:'='
             },
             controller: ['$scope', controller]
 
@@ -32,11 +34,14 @@
             var _entityOrderDetail = dbEntityConfig.entities.orderDetails;
             var _entityDeleteOrderDetail = dbEntityConfig.entities.deleteOrderDetail;
 
-            $scope.gridOptions = setGridOptions($scope.showDelete, $scope.showEdit);
+            $scope.gridOptions = setGridOptions($scope.showDelete, $scope.showEdit, $scope.eventEdit);
 
             getProducts();
 
             $scope.$watch('orderId', function () {
+                getProducts();
+            });
+            $scope.$watch('refresh', function () {
                 getProducts();
             });
 
@@ -72,7 +77,7 @@
                 function delete_product() {
                     repositoryService.deleteDataById(_entityDeleteOrderDetail, id).then(function (data) {
                         if (data) {
-                            _message.success("Delete Successful");
+                            _message.success("Deleted Successfully");
                             getProducts();
                         }
                     }, function (data, status, headers, config) {
@@ -87,7 +92,7 @@
     }
 
 
-    function setGridOptions(showDelete, showEdit) {
+    function setGridOptions(showDelete, showEdit, eventEdit) {
         return {
             columnDefs: getColumnDefs(showDelete, showEdit),
             pageSize: 5,
@@ -97,7 +102,13 @@
                 enable: true,
                 funcEvent: _eventDeleteProduct,
                 funcIdField: 'DetailID',
-                place:3
+                //place:3
+            },
+            editLink: {
+                enable: !!eventEdit,
+                funcEvent: eventEdit,
+                funcIdField: 'DetailID',
+                //place:3
             }
         };
     }
@@ -145,20 +156,20 @@
                 decimal: 2
             }
             /*,
-            {
-                field: 'fa fa-times',
-                //displayName: 'Delete',
-                isIcon: true,
-                isHidden: !showDelete,
-                linkFunc: {funcEvent: _eventDeleteProduct, funcIdField: 'DetailID'}
-            },
-            {
-                field: 'fa fa-pencil-square-o',
-                displayName: '',
-                isIcon: true,
-                isHidden: !showEdit,
-                linkFunc: {funcEvent: _eventDeleteProduct, funcIdField: 'DetailID'}
-            }*/
+             {
+             field: 'fa fa-times',
+             //displayName: 'Delete',
+             isIcon: true,
+             isHidden: !showDelete,
+             linkFunc: {funcEvent: _eventDeleteProduct, funcIdField: 'DetailID'}
+             },
+             {
+             field: 'fa fa-pencil-square-o',
+             displayName: '',
+             isIcon: true,
+             isHidden: !showEdit,
+             linkFunc: {funcEvent: _eventDeleteProduct, funcIdField: 'DetailID'}
+             }*/
         ];
     }
 })();

@@ -21,6 +21,11 @@
         background: linear-gradient(#ffffff, #89d4ab); }
       .rain-grid-panel .panel-body .rain-grid-table tr th.dsc {
         background: linear-gradient(#89d4ab, #ffffff); }
+    .rain-grid-panel .panel-body .rain-grid-table tr td {
+      padding: 4px;
+      vertical-align: middle; }
+      .rain-grid-panel .panel-body .rain-grid-table tr td div {
+        vertical-align: middle; }
     .rain-grid-panel .panel-body .rain-grid-table tr.row-selected td {
       background-color: #B9F0E3; }
     .rain-grid-panel .panel-body .rain-grid-table td .cell-center {

@@ -75,7 +75,7 @@
                 var length = parameters.length;
                 var id = parameters[length - 1];
 
-                if (id > 0) {
+                if (id) {
                     for (var i = 0; i < entities.length; i++) {
                         if (entities[i][filterId] == id) {
                             entity.push(entities[i]); // find the entity with this id

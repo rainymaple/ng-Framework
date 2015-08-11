@@ -31,7 +31,13 @@
           background: linear-gradient(#89d4ab, #ffffff);
         }
       }
-
+      tr td {
+        padding: 4px;
+        vertical-align: middle;
+        div {
+          vertical-align: middle;
+        }
+      }
       tr.row-selected td {
         background-color: #B9F0E3;
       }
@@ -86,6 +92,7 @@
   cursor: pointer;
   color: grey;
 }
+
 .action-button:hover {
   background-color: lightgrey;
   color: black;

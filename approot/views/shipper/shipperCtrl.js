@@ -19,6 +19,7 @@
         function setGridOptions() {
             vm.gridOptions = {
                 columnDefs: getColumnDefs(),
+                title:"Shippers",
                 idField: 'ShipperID'
             };
         }

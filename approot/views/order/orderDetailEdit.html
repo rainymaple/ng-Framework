@@ -1,3 +1,96 @@
 <div ng-controller="orderDetailEditCtrl" class="animated fadeIn">
-    <div order-detail-list-dir order-id="orderId" show-delete="showDelete" show-edit="showEdit"></div>
+    <div order-detail-list-dir order-id="orderId" show-delete="showDelete" refresh="refresh"
+         show-edit="showEdit" event-edit="eventEdit"></div>
+
+
+
+    <form class="form-horizontal " novalidate name="formOrderDetail" id="formOrderDetail">
+        <filedset>
+            <legend ng-class="{'edit-mode':isEditMode,'add-mode':!isEditMode}">{{title}}</legend>
+
+            <div class="form-group" form-input>
+                <label class="col-sm-2">Product</label>
+
+                <div class="col-sm-9">
+                    <div class="col-sm-8" style="min-width: 330px;">
+                        <ui-select ng-model="orderDetail.product" style="min-width: 300px;"
+                                   name="product" required>
+                            <ui-select-match placeholder="Select or search by product...">
+                                {{$select.selected.ProductName}}
+                            </ui-select-match>
+                            <ui-select-choices
+                                    repeat="product in products | filter: {ProductName:$select.search}">
+                                <div ng-bind-html="product.ProductName | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                    <div class='help-block' ng-messages='formOrderDetail.product.$error'>
+                        <span ng-message="required">required</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" form-input>
+                <label class="col-sm-2">Unit Price</label>
+
+                <div class="col-sm-9">
+                    <div class="col-sm-8" style="width: 210px;">
+                        <input type="text" id="unitPrice" name="unitPrice"
+                               required number-only="2"
+                               ng-model="orderDetail.unitPrice" placeholder="Required, Numbers Only">
+                    </div>
+                    <div class='help-block' ng-messages='formOrderDetail.unitPrice.$error'>
+                        <span ng-message="required">required</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" form-input>
+                <label class="col-sm-2">Quantity</label>
+
+                <div class="col-sm-9">
+                    <div class="col-sm-8" style="width: 210px;">
+                        <input type="text" id="quantity" name="quantity"
+                               required number-only="0"
+                               ng-model="orderDetail.quantity" placeholder="Required, Numbers Only">
+                    </div>
+                    <div class='help-block' ng-messages='formOrderDetail.quantity.$error'>
+                        <span ng-message="required">required</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" form-input>
+                <label class="col-sm-2">Discount</label>
+
+                <div class="col-sm-9">
+                    <div class="col-sm-8" style="width: 210px;">
+                        <input type="text" id="discount" name="discount"
+                               required number-only="2"
+                               ng-model="orderDetail.discount" placeholder="Required, Numbers Only">
+                    </div>
+                    <div class='help-block' ng-messages='formOrderDetail.discount.$error'>
+                        <span ng-message="required">required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="col-sm-5">
+                        <button type="submit" class="btn btn-info"
+                                ng-disabled="formOrderDetail.$invalid"
+                                ng-click="saveOrderDetail(formOrderDetail)">
+                            <i class="glyphicon glyphicon-ok"></i>
+                            Save
+                        </button>
+                        <button class="btn btn-warning" type="button"
+                                ng-click="newOrderDetail(formOrderDetail)" ng-show="isEditMode">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            new
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </filedset>
+    </form>
 </div>

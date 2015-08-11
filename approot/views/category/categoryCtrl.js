@@ -32,6 +32,7 @@
     function setGridOptions() {
         return {
             columnDefs: getColumnDefs(),
+            title:"Categories",
             enablePage: true,
             idField: 'CategoryID',
             pageSize: 5,

@@ -20,6 +20,7 @@
     function setGridOptions() {
         return {
             columnDefs: getColumnDefs(),
+            title: "Customers",
             idField: 'CustomerID',
             selectable: false
         };

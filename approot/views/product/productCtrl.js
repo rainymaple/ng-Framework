@@ -34,6 +34,7 @@
     function setGridOptions() {
         return {
             columnDefs: getColumnDefs(),
+            title: "Products",
             idField: 'ProductID'
         };
     }
