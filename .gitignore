@@ -52,10 +52,14 @@ crashlytics-build.properties
 #bower install
 /bower_components
 
-#project distribution folder
-#/dist
 
-#temporary folders
-/tmp
-rainModules/tmp
+# rainModules
+/rainModules
 
+# All app level JavaScript files
+/approot/**/*.js
+
+# Package config files
+/*.js
+/*.json
+/.bowerrc
