@@ -59,3 +59,5 @@ crashlytics-build.properties
 /tmp
 rainModules/tmp
 
+# Deployment folder
+z_gh-pages
