@@ -1,19 +1,22 @@
 module.exports = function () {
     var approot = './approot';
-    var rainModule='./rainModules';
+    var rainModule = './rainModules';
     var bower_libs = './bower_components';
-    var extra_libs ='./libs';   // manually added, cannot be installed by bower
+    var extra_libs = './libs';   // manually added, cannot be installed by bower
+    var deploy_root = './z_gh-pages/ng-Framework';
 
 
     var config = {
         approot: approot,
-        rainModule:rainModule,
-        rainModuleTmp:rainModule+'/tmp',
+        rainModule: rainModule,
+        rainModuleTmp: rainModule + '/tmp',
         temp: './tmp/',
         distribution: './dist',
+        extra_libs: extra_libs,
+        deploy_root: deploy_root,
         appJs: getAppJs(approot),
         appCss: getAppCss(approot),
-        vendorJs: getVendorJs(bower_libs,extra_libs),
+        vendorJs: getVendorJs(bower_libs, extra_libs),
         vendorJsMap: getVendorJsMap(bower_libs),
         vendorCss: getVendorCss(bower_libs, extra_libs),
         vendorCssMap: bower_libs + "/**/*.css.map",
@@ -30,7 +33,7 @@ function getAppCss(approot) {
     return [approot + '/**/*.css'];
 }
 
-function getVendorJs(bower_libs,extra_libs) {
+function getVendorJs(bower_libs, extra_libs) {
     return [
         // bower_libs
         bower_libs + "/jquery/dist/jquery.min.js",
@@ -47,7 +50,7 @@ function getVendorJs(bower_libs,extra_libs) {
         bower_libs + "/angular-chart.js/dist/angular-chart.min.js",
         bower_libs + "/angular-ui-select/dist/select.min.js",
         // extra_libs
-        extra_libs + "/ui-bootstrap-tpls-0.13.0.min.js"
+        extra_libs + "/ui-bootstrap-tpls-0.13.3.min.js"
     ];
 }
 

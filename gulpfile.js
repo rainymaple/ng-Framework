@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var args = require('yargs').argv;
 var del = require('del');
-var runSequence =require('run-sequence');
+var runSequence = require('run-sequence');
 var config = require('./gulp.config')(); // the way to import local module
 var $ = require('gulp-load-plugins')({lazy: true});
 
@@ -168,18 +168,45 @@ gulp.task('app-css', function () {
         .pipe(gulp.dest(config.distribution))
 });
 
-// 4 --- project build --- //
+// 4 --- Deploy -- copy files to deployment folder --- //
 
-gulp.task('rebuild',function(callback){
+// 4.1 --- deploy: copy files
+gulp.task('deploy-copy', function () {
+    log('Copy files to deployment folder');
+    var approot = config.approot + '/**/*.*';
+    var dist = config.distribution + '/**/*.*';
+    var libs = config.extra_libs + '/**/*.*';
+    return gulp
+        .src([approot, dist, libs], {base: '.'})
+        .pipe(gulp.dest(config.deploy_root))
+});
+
+// 4.2 --- deploy: remove all app level JavaScript files in deployment folder
+gulp.task('deploy-clear-js', function (funcDone) {
+    log('Clear app level JavaScript files in deployment folder');
+    var deploy_approot = config.approot;
+    if(deploy_approot[0]==='.'){
+        deploy_approot=deploy_approot.substr(1);
+    }
+    var allAppJs = config.deploy_root + deploy_approot + '/**/*.js';
+    log(allAppJs);
+    clean(allAppJs, funcDone);
+});
+
+// 5 --- project build --- //
+
+gulp.task('rebuild', function (callback) {
     runSequence('build-clean',
-        ['vendor-js', 'vendor-css','vendor-fonts'],
+        ['vendor-js', 'vendor-css', 'vendor-fonts'],
         ['rain-js', 'rain-css'],
         ['app-js', 'app-css'],
+        ['deploy-copy'],
+        ['deploy-clear-js'],
         callback);
 });
 
 gulp.task('build-clean', function (funcDone) {
-    var path = [config.distribution,config.rainModuleTmp];
+    var path = [config.distribution, config.rainModuleTmp];
     clean(path, funcDone);
 });
 
