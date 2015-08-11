@@ -1,12 +1,4 @@
-# install bower and gulp if they are not installed globally
-  npm install -g bower
-  npm install -g gulp
+# run in github.io
+ http://rainymaple.github.io/ng-Framework/
 
-# install node_modules
-  npm install
-
-# install bower_components
-  bower install
-
-# rebuild the project
-  gulp rebuild
+#
