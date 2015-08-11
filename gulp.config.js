@@ -47,7 +47,7 @@ function getVendorJs(bower_libs,extra_libs) {
         bower_libs + "/angular-chart.js/dist/angular-chart.min.js",
         bower_libs + "/angular-ui-select/dist/select.min.js",
         // extra_libs
-        extra_libs + "/ui-bootstrap-tpls-0.13.0.min.js"
+        extra_libs + "/ui-bootstrap-tpls-0.13.3.min.js"
     ];
 }
 
