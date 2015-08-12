@@ -66,6 +66,16 @@
   background-color: lightgrey;
   color: black; }
 
+.rain-grid-menu .btn-group {
+  cursor: pointer; }
+.rain-grid-menu .dropdown-menu {
+  left: auto;
+  right: -12px;
+  width: auto; }
+  .rain-grid-menu .dropdown-menu .menu-item-icon {
+    margin-right: 5px;
+    color: #337AB7; }
+
 @media screen and (max-width: 640px) {
   .cellphone {
     display: none;

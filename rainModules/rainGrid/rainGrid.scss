@@ -97,7 +97,18 @@
   background-color: lightgrey;
   color: black;
 }
-
+.rain-grid-menu{
+  .btn-group{
+    cursor: pointer;
+  }
+  .dropdown-menu{
+    left:auto;right: -12px;
+    width: auto;
+    .menu-item-icon{
+      margin-right: 5px;color: #337AB7;
+    }
+  }
+}
 @media screen and (max-width: 640px) {
   .cellphone {
     display: none;

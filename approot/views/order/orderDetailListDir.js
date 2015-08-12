@@ -99,13 +99,13 @@
             idField: 'OrderID',
             title: 'Order Details',
             deleteLink: {
-                enable: true,
+                enable: showDelete,
                 funcEvent: _eventDeleteProduct,
                 funcIdField: 'DetailID',
                 //place:3
             },
             editLink: {
-                enable: !!eventEdit,
+                enable: showEdit,
                 funcEvent: eventEdit,
                 funcIdField: 'DetailID',
                 //place:3

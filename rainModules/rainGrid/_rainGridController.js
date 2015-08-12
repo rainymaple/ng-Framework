@@ -48,6 +48,9 @@
         function initRainGrid(dataList) {
             $scope.gridOptions.dataList = dataList;
             $scope.gridData = getGridData($scope.gridOptions);
+            $scope.sortField = null;
+            $scope.sortOrder = null;
+            $scope.currentPage = 1;
             initPage();
             initData($scope.gridData);
             rainGridService.modifyPaginationIcons();
