@@ -1,22 +1,24 @@
-<div ng-controller="orderListCtrl as vm" class="animated fadeIn">
-    <div class="legend">Orders</div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="pull-right" rain-checkbox="vm.showDetail" text="show detail"></div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="table-responsive">
-                <div rain-grid="vm.gridOptions" ></div>
+<div class="legend">Orders</div>
+<div class="col-lg-8">
+    <div ng-controller="orderListCtrl as vm" class="animated fadeIn">
+        <div class="row">
+            <div>
+                <div class="pull-right" rain-checkbox="vm.showDetail" text="show detail"></div>
             </div>
         </div>
-    </div>
-    <div class="row detailRainGrid" ng-hide="!(vm.selectedRow && vm.showDetail)">
-        <div class="col-xs-12">
-            <div order-detail-list-dir order-id="vm.orderId"></div>
-        </div>
-    </div>
 
+        <div class="row">
+            <div>
+                <div class="table-responsive">
+                    <div rain-grid="vm.gridOptions"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row detailRainGrid" ng-hide="!(vm.selectedRow && vm.showDetail)">
+            <div>
+                <div order-detail-list-dir order-id="vm.orderId"></div>
+            </div>
+        </div>
+
+    </div>
 </div>
