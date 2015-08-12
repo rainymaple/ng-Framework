@@ -1,36 +1,38 @@
-<div ng-controller="orderReportCtrl" class="container-fluid">
-    <div class="row">
-        <div class="col-md-6 col-sm-10">
-            <div class="panel panel-default" style="margin: 10px auto;width: 90%;">
-                <div class="panel-heading">Monthly Orders</div>
-                <div class="panel-body">
-                    <canvas id="line" class="chart chart-line" data="data"
-                            labels="labels" legend="true" series="series"
-                            click="onClick">
-                    </canvas>
+<div class="col-lg-10 col-md-11">
+    <div ng-controller="orderReportCtrl" class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-sm-11">
+                <div class="panel panel-default" style="margin: 10px auto;width: 90%;">
+                    <div class="panel-heading">Monthly Orders</div>
+                    <div class="panel-body">
+                        <canvas id="line" class="chart chart-line" data="data"
+                                labels="labels" legend="true" series="series"
+                                click="onClick">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-11">
+                <div class="panel panel-default" style="margin: 10px auto;width: 90%;">
+                    <div class="panel-heading">Order percentage by year</div>
+                    <div class="panel-body">
+                        <canvas id="pie" class="chart chart-pie" data="pieData" legend="pieLegend"
+                                labels="pieLabels">
+                        </canvas>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-sm-10" >
-            <div class="panel panel-default" style="margin: 10px auto;width: 90%;">
-                <div class="panel-heading">Order percentage by year</div>
-                <div class="panel-body">
-                    <canvas id="pie" class="chart chart-pie" data="pieData" legend="pieLegend"
-                            labels="pieLabels">
-                    </canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-10">
-            <div class="panel panel-default" style="margin: 10px auto;width: 90%;">
-                <div class="panel-heading">Monthly Orders</div>
-                <div class="panel-body">
-                    <canvas id="barChart" class="chart chart-bar" data="data" style="width:300px"
-                            labels="labels" legend="true" series="series"
-                            click="onClick">
-                    </canvas>
+        <div class="row">
+            <div class="col-md-6 col-sm-11">
+                <div class="panel panel-default" style="margin: 10px auto;width: 90%;">
+                    <div class="panel-heading">Monthly Orders</div>
+                    <div class="panel-body">
+                        <canvas id="barChart" class="chart chart-bar" data="data" style="width:300px"
+                                labels="labels" legend="true" series="series"
+                                click="onClick">
+                        </canvas>
+                    </div>
                 </div>
             </div>
         </div>
