@@ -19,7 +19,7 @@
         $scope.eventEdit = 'orderDetailEditCtrl.eventEdit';
         $scope.orderNotFound = !_orderId;
         $scope.orderId = !_orderId ? 0 : _orderId;
-        $scope.orderDetail={};
+        $scope.orderDetail = {};
         $scope.showDelete = true;
         $scope.showEdit = true;
         $scope.refresh = 1;
@@ -107,7 +107,7 @@
                     } else {
                         _orderId = data.OrderID;
                         // refresh the "orderDetailListDir" directive
-                        $scope.refresh ++;
+                        $scope.refresh++;
                         $scope.orderId = _orderId;
                         newOrderDetail();
                         _message.success("Saved Successfully");
@@ -119,9 +119,9 @@
         }
 
         function newOrderDetail() {
-            $scope.orderDetail={};
+            $scope.orderDetail = {};
             $scope.formOrderDetail.$setPristine();
-            $scope.isEditMode =false;
+            $scope.isEditMode = false;
         }
     }
 
