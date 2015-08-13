@@ -44,7 +44,7 @@ body {
   font-size: 14px;
   padding: 30px 20px;
   min-height: 500px;
-  min-width: 480px; }
+  /*min-width: 480px;*/ }
   .wizard-content .edit-mode {
     color: cornflowerblue; }
   .wizard-content .add-mode {
@@ -196,42 +196,47 @@ ul.dropdown-menu {
   ul.dropdown-menu td, ul.dropdown-menu th {
     line-height: 2; }
 
-.view-home .title {
-  font-weight: 800;
-  font-size: 36px; }
-.view-home .subtitle {
-  font-weight: 600;
-  font-size: 24px;
-  margin-left: 20px;
-  margin-top: 10px; }
-.view-home .content {
-  margin-top: 10px;
-  margin-left: 30px; }
-.view-home .section {
-  /*margin:10px;*/
-  padding: 10px; }
-  .view-home .section .section-title {
-    font-size: 21px;
-    margin-bottom: 10px; }
-.view-home .tech-name {
-  height: 20px;
-  margin: 10px 0 20px 10px;
-  color: #1A916B; }
-.view-home .tech-images {
-  margin-left: 20px; }
-.view-home .tech-image {
-  display: inline-block;
-  margin: 0 5px; }
-  .view-home .tech-image img {
-    max-width: 60px;
-    max-height: 60px; }
-.view-home .list {
-  padding-left: 20px; }
-  .view-home .list ul li {
-    line-height: 1.5em;
-    font-size: 15px; }
-  .view-home .list img {
-    max-width: 60px; }
+.form-order-edit .max-width-field {
+  max-width: 210px; }
+
+.view-home {
+  padding-left: 10px; }
+  .view-home .title {
+    font-weight: 800;
+    font-size: 36px; }
+  .view-home .subtitle {
+    font-weight: 600;
+    font-size: 24px;
+    margin-left: 20px;
+    margin-top: 10px; }
+  .view-home .content {
+    margin-top: 10px;
+    margin-left: 30px; }
+    .view-home .content .section {
+      padding: 10px; }
+      .view-home .content .section .section-title {
+        font-size: 21px;
+        margin-bottom: 10px; }
+  .view-home .tech-name {
+    height: 20px;
+    margin: 10px 0 20px 10px;
+    color: #1A916B; }
+  .view-home .tech-images {
+    margin-left: 20px; }
+  .view-home .tech-image {
+    display: inline-block;
+    margin: 0 5px; }
+    .view-home .tech-image img {
+      max-width: 60px;
+      max-height: 60px; }
+  .view-home .list {
+    padding-left: 20px; }
+    .view-home .list ul li {
+      line-height: 1.5em;
+      font-size: 15px;
+      cursor: default; }
+    .view-home .list img {
+      max-width: 60px; }
 
 @media screen and (max-width: 430px) {
   .logo-name {
@@ -239,6 +244,28 @@ ul.dropdown-menu {
 
   .login-screen .middle-box {
     width: 100%;
-    min-width: 0; } }
+    min-width: 0; }
+
+  .view-home {
+    padding-left: 5px; }
+    .view-home .title {
+      font-weight: 800;
+      font-size: 26px; }
+    .view-home .subtitle {
+      font-weight: 600;
+      font-size: 15px;
+      margin-left: 10px;
+      margin-top: 10px; }
+    .view-home .content {
+      margin-top: 10px;
+      margin-left: 10px; }
+      .view-home .content .section {
+        padding: 5px; }
+        .view-home .content .section .section-title {
+          font-size: 15px; }
+    .view-home .tech-image img {
+      max-width: 40px; }
+    .view-home .list img {
+      max-width: 40px; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,202 +1,182 @@
 <div ng-controller="orderEditCtrl" class="animated fadeIn">
     <!--<div class="legend">Order</div>-->
-    <form class="form-horizontal " novalidate name="formOrder" id="formOrder">
+    <form class="form-horizontal form-order-edit" novalidate name="formOrder" id="formOrder">
         <filedset>
             <legend ng-class="{'edit-mode':isEditMode,'add-mode':!isEditMode}">{{title}}</legend>
             <div class="form-group" form-input>
-                <label class="col-xs-3">Customer</label>
+                <label class="col-sm-3">Customer</label>
 
-                <div class="col-xs-9">
-                    <div class="col-xs-8" style="min-width: 330px;">
-                        <ui-select ng-model="order.customer" style="min-width: 300px;"
-                                   name="customer" required>
-                            <ui-select-match placeholder="Select or search by company...">
-                                {{$select.selected.CompanyName}}
-                            </ui-select-match>
-                            <ui-select-choices
-                                    repeat="customer in customers
+                <div class="col-sm-6">
+                    <ui-select ng-model="order.customer"
+                               name="customer" required>
+                        <ui-select-match placeholder="Select or search by company...">
+                            {{$select.selected.CompanyName}}
+                        </ui-select-match>
+                        <ui-select-choices
+                                repeat="customer in customers
                                     | filter: {CompanyName:$select.search}">
-                                <div ng-bind-html="customer.CompanyName | highlight: $select.search"></div>
-                                <small style="margin-left: 10px;">
-                                    Country: {{customer.Country}}
-                                </small>
-                            </ui-select-choices>
-                        </ui-select>
-                    </div>
-                    <div class='help-block' ng-messages='formOrder.customer.$error'>
-                        <span ng-message="required">required</span>
-                    </div>
+                            <div ng-bind-html="customer.CompanyName | highlight: $select.search"></div>
+                            <small style="margin-left: 10px;">
+                                Country: {{customer.Country}}
+                            </small>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <div class='help-block col-sm-3' ng-messages='formOrder.customer.$error'>
+                    <span ng-message="required">required</span>
                 </div>
             </div>
             <div class="form-group" form-input>
-                <label class="col-xs-3">Country</label>
+                <label class="col-sm-3">Country</label>
 
-                <div class="col-xs-9">
-                    <div class="col-xs-8" style="min-width: 330px;">
-                        <ui-select ng-model="order.shipCountry"  style="min-width: 300px;"
-                                   name="country" required>
-                            <ui-select-match placeholder="Select or search by country...">
-                                {{$select.selected.name}}
-                            </ui-select-match>
-                            <ui-select-choices
-                                    repeat="country in countries | filter: {name: $select.search}">
-                                <div ng-bind-html="country.name | highlight: $select.search"></div>
-                                <small style="margin-left: 10px;">
-                                    Code: {{country.code}}
-                                </small>
-                            </ui-select-choices>
-                        </ui-select>
-                    </div>
-                    <div class='help-block' ng-messages='formOrder.country.$error'>
-                        <span ng-message="required">required</span>
-                    </div>
+                <div class="col-sm-6">
+                    <ui-select ng-model="order.shipCountry"
+                               name="country" required>
+                        <ui-select-match placeholder="Select or search by country...">
+                            {{$select.selected.name}}
+                        </ui-select-match>
+                        <ui-select-choices
+                                repeat="country in countries | filter: {name: $select.search}">
+                            <div ng-bind-html="country.name | highlight: $select.search"></div>
+                            <small style="margin-left: 10px;">
+                                Code: {{country.code}}
+                            </small>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <div class='help-block col-sm-3' ng-messages='formOrder.country.$error'>
+                    <span ng-message="required">required</span>
                 </div>
             </div>
             <div class="form-group" form-input>
-                <label class="col-xs-3">Ship City</label>
+                <label class="col-sm-3">Ship City</label>
 
-                <div class="col-xs-9">
-                    <div class="col-xs-8" style="width: 330px;">
-                        <input type="text" id="shipCity" name="shipCity" ng-disabled="isEditMode"
-                               required ng-minlength="2"
-                               ng-model="order.shipCity" placeholder="Required">
-                    </div>
-                    <div class='help-block' ng-messages='formOrder.shipCity.$error'>
-                        <span ng-message="required">required</span>
-                        <span ng-message="minlength">at least 2 characters</span>
-                    </div>
+                <div class="col-sm-6">
+                    <input type="text" id="shipCity" name="shipCity" ng-disabled="isEditMode"
+                           required ng-minlength="2"
+                           ng-model="order.shipCity" placeholder="Required">
+                </div>
+                <div class='help-block col-sm-3' ng-messages='formOrder.shipCity.$error'>
+                    <span ng-message="required">required</span>
+                    <span ng-message="minlength">at least 2 characters</span>
                 </div>
             </div>
             <div class="form-group" form-input>
-                <label class="col-xs-3">Ship Address</label>
+                <label class="col-sm-3">Ship Address</label>
 
-                <div class="col-xs-9">
-                    <div class="col-xs-8" style="width: 330px;">
-                        <input type="text" id="shipAddress" name="shipAddress" ng-disabled="isEditMode"
-                               required ng-minlength="4"
-                               ng-model="order.shipAddress" placeholder="Required">
-                    </div>
-                    <div class='help-block' ng-messages='formOrder.shipAddress.$error'>
-                        <span ng-message="required">required</span>
-                        <span ng-message="minlength">at least 4 characters</span>
-                    </div>
+                <div class="col-sm-6">
+                    <input type="text" id="shipAddress" name="shipAddress" ng-disabled="isEditMode"
+                           required ng-minlength="4"
+                           ng-model="order.shipAddress" placeholder="Required">
+                </div>
+                <div class='help-block col-sm-3' ng-messages='formOrder.shipAddress.$error'>
+                    <span ng-message="required">required</span>
+                    <span ng-message="minlength">at least 4 characters</span>
                 </div>
             </div>
             <div class="form-group form-group-sm" form-input>
-                <label class="col-xs-3 control-label">Ship Name</label>
+                <label class="col-sm-3 control-label">Ship Name</label>
 
-                <div class="col-xs-9">
-                    <div class="col-xs-8" style="width: 330px;">
-                        <input type="text" id="shipName" name="shipName" ng-disabled="isEditMode"
-                               required ng-minlength="4" class="form-control"
-                               ng-model="order.shipName" placeholder="Required">
-                    </div>
-                    <div class='help-block' ng-messages='formOrder.shipName.$error'>
-                        <span ng-message="required">required</span>
-                        <span ng-message="minlength">at least 4 characters</span>
-                    </div>
+                <div class="col-sm-6">
+                    <input type="text" id="shipName" name="shipName" ng-disabled="isEditMode"
+                           required ng-minlength="4" class="form-control"
+                           ng-model="order.shipName" placeholder="Required">
+                </div>
+                <div class='help-block col-sm-3' ng-messages='formOrder.shipName.$error'>
+                    <span ng-message="required">required</span>
+                    <span ng-message="minlength">at least 4 characters</span>
                 </div>
             </div>
             <div class="form-group" form-input>
-                <label class="col-xs-3">Freight</label>
+                <label class="col-sm-3">Freight</label>
 
-                <div class="col-xs-9">
-                    <div class="col-xs-8" style="width: 210px;">
-                        <input type="text" id="freight" name="freight" ng-disabled="isEditMode"
-                               required number-only="2"
-                               ng-model="order.freight" placeholder="Required, Numbers Only">
-                    </div>
-                    <div class='help-block' ng-messages='formOrder.freight.$error'>
-                        <span ng-message="required">required</span>
-                    </div>
+                <div class="col-sm-6 max-width-field">
+                    <input type="text" id="freight" name="freight" ng-disabled="isEditMode"
+                           required number-only="2"
+                           ng-model="order.freight" placeholder="Required, Numbers Only">
+                </div>
+                <div class='help-block col-sm-3' ng-messages='formOrder.freight.$error'>
+                    <span ng-message="required">required</span>
                 </div>
             </div>
 
             <div class="form-group" form-input>
-                <label class="col-xs-3">Order Date</label>
+                <label class="col-sm-3">Order Date</label>
 
-                <div class="col-xs-9">
-                    <div class="col-xs-12">
-                        <div class="input-group input-group-sm pull-left" style="width: 210px;">
-                            <input type="text" class="form-control" datepicker-popup="{{format}}"
-                                   ng-model="order.orderDate" name="orderDate" required
-                                   is-open="orderDate_opened" min-date="minDate" max-date="'2018-06-22'"
-                                   datepicker-options="dateOptions"
-                                   date-disabled="disabled(date, mode)" close-text="Close"/>
+                <div class="col-sm-6">
+                    <div class="input-group input-group-sm pull-left max-width-field">
+                        <input type="text" class="form-control" datepicker-popup="{{format}}"
+                               ng-model="order.orderDate" name="orderDate" required
+                               is-open="orderDate_opened" min-date="minDate" max-date="'2018-06-22'"
+                               datepicker-options="dateOptions"
+                               date-disabled="disabled(date, mode)" close-text="Close"/>
                               <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="open($event,'orderDate')">
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </button>
                           </span>
-                        </div>
-                        <div class='help-block' ng-messages='formOrder.orderDate.$error'>
-                            <span ng-message="required">required</span>
-                        </div>
+                    </div>
+                    <div class='help-block col-sm-3' ng-messages='formOrder.orderDate.$error'>
+                        <span ng-message="required">required</span>
                     </div>
                 </div>
             </div>
 
             <div class="form-group" form-input>
-                <label class="col-xs-3">Required Date</label>
+                <label class="col-sm-3">Required Date</label>
 
-                <div class="col-xs-9">
-                    <div class="col-xs-12">
-                        <div class="input-group input-group-sm pull-left" style="width: 210px;">
-                            <input type="text" class="form-control" datepicker-popup="{{format}}"
-                                   ng-model="order.requiredDate" name="requiredDate" required
-                                   is-open="requiredDate_opened" min-date="minDate" max-date="'2018-06-22'"
-                                   datepicker-options="dateOptions"
-                                   date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
+                <div class="col-sm-6">
+                    <div class="input-group input-group-sm pull-left max-width-field">
+                        <input type="text" class="form-control" datepicker-popup="{{format}}"
+                               ng-model="order.requiredDate" name="requiredDate" required
+                               is-open="requiredDate_opened" min-date="minDate" max-date="'2018-06-22'"
+                               datepicker-options="dateOptions"
+                               date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
                               <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="open($event,'requiredDate')">
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </button>
                           </span>
-                        </div>
-                        <div class='help-block' ng-messages='formOrder.country.$error'>
-                            <span ng-message="required">required</span>
-                        </div>
+                    </div>
+                    <div class='help-block col-sm-3' ng-messages='formOrder.country.$error'>
+                        <span ng-message="required">required</span>
                     </div>
                 </div>
             </div>
 
             <div class="form-group" form-input>
-                <label class="col-xs-3">Shipped Date</label>
+                <label class="col-sm-3">Shipped Date</label>
 
-                <div class="col-xs-9">
-                    <div class="col-xs-12">
-                        <div class="input-group input-group-sm pull-left" style="width: 210px;">
-                            <input type="text" class="form-control" datepicker-popup="{{format}}"
-                                   ng-model="order.shippedDate" name="shippedDate"
-                                   is-open="shippedDate_opened" min-date="minDate" max-date="'2018-06-22'"
-                                   datepicker-options="dateOptions"
-                                   date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
+                <div class="col-sm-6">
+                    <div class="input-group input-group-sm pull-left max-width-field">
+                        <input type="text" class="form-control" datepicker-popup="{{format}}"
+                               ng-model="order.shippedDate" name="shippedDate"
+                               is-open="shippedDate_opened" min-date="minDate" max-date="'2018-06-22'"
+                               datepicker-options="dateOptions"
+                               date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
                               <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="open($event,'shippedDate')">
                                     <i class="glyphicon glyphicon-calendar"></i>
                                 </button>
                           </span>
-                        </div>
-                        <div class='help-block' ng-messages='formOrder.country.$error'>
-                            <span ng-message="required">required</span>
-                        </div>
+                    </div>
+                    <div class='help-block col-sm-3' ng-messages='formOrder.country.$error'>
+                        <span ng-message="required">required</span>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-xs-offset-3 col-xs-9">
-                    <div class="col-xs-5">
-                        <button type="submit" class="btn btn-info"
-                                ng-click="saveOrder(formOrder)">
-                            <i class="glyphicon glyphicon-ok"></i>
-                            Save
-                        </button>
-                        <button class="btn btn-warning" ng-click="newOrder()">
-                            <i class="glyphicon glyphicon-plus"></i>
-                            new
-                        </button>
-                    </div>
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-info"
+                            ng-click="saveOrder(formOrder)">
+                        <i class="glyphicon glyphicon-ok"></i>
+                        Save
+                    </button>
+                    <button class="btn btn-warning" ng-click="newOrder()">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        new
+                    </button>
                 </div>
             </div>
 
