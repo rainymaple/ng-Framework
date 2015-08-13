@@ -6,8 +6,13 @@ $menu-background-color-hover: #242424;*/
 .r-menu-area-vertical {
   width: 225px;
   float: left;
-  min-height: 90vh;
+  min-height: 93vh;
   padding-top: 30px; }
+
+.r-menu-area-float {
+  position: absolute !important;
+  z-index: 1000;
+  left: 0; }
 
 .r-menu-area-horizontal {
   width: 100%;

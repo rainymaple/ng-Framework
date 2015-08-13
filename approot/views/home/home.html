@@ -43,21 +43,13 @@
             </div>
             <div class="list">
                 <ul>
-                    <li>
-                        <i class="fa fa-check-square-o"></i>
-                        <span>Move the Northwind data to Firebase</span>
-                    </li>
-                    <li>
-                        <i class="fa fa-check-square-o"></i>
-                        <span>Rewrite all lib modules with TypeScript</span>
-                    </li>
-                    <li>
-                        <i class="fa fa-check-square-o"></i>
-                        <span>Rewrite all app modules with AngularJs 2.0</span>
-                    </li>
-                    <li>
-                        <i class="fa fa-check-square-o"></i>
-                        <span>And more ...</span>
+                    <li ng-repeat="todo in todos">
+                        <div style="display: table-row;">
+                            <div style="display: table-cell;padding-right: 4px;">
+                                <i class="fa fa-check-square-o"></i>
+                            </div>
+                            <div style="display: table-cell;"><span>{{todo}}</span></div>
+                        </div>
                     </li>
                 </ul>
             </div>

@@ -171,6 +171,12 @@
     function setGridOptions() {
         return {
             columnDefs: getColumnDefs(),
+            deleteLink: {
+                enable: true,
+                funcEvent: _eventDeleteUser,
+                funcIdField: 'id',
+                place:1
+            },
             enablePage: true,
             idField: 'id',
             selectable: false
@@ -192,13 +198,13 @@
             {
                 field: 'role',
                 displayName: 'Role'
-            },
-            {
+            }
+/*            ,{
                 field: 'Delete',
                 displayName: '',
                 isButton: true,
                 linkFunc: {funcEvent: _eventDeleteUser, funcIdField: 'id'}
-            }
+            }*/
         ];
     }
 })();

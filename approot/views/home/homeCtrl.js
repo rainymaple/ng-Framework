@@ -7,6 +7,7 @@
     function homeCtrl($scope) {
         $scope.techs = getTechs();
         $scope.devs = getDevs();
+        $scope.todos=getTodos();
         $scope.tech_name = "";
         $scope.dev_name = "";
         $scope.showName = showName;
@@ -67,7 +68,7 @@
 
         var techs =
             [
-                {img: "webstorm.png", name: 'JetBrain WebStorm (Dev IDE)', url: 'https://www.jetbrains.com/webstorm/'},
+                {img: "webStorm.png", name: 'JetBrain WebStorm (Dev IDE)', url: 'https://www.jetbrains.com/webstorm/'},
                 {
                     img: "chrome.png",
                     name: 'Chrome DevTools (web debugging)',
@@ -86,6 +87,13 @@
         return angular.forEach(techs, function (tech) {
             tech.img = _imagePath + tech.img;
         })
+    }
+
+    function getTodos(){
+        return [
+            'Move the Northwind data to Firebase','Rewrite all lib modules with TypeScript',
+            'Rewrite all app modules with AngularJs 2.0','And more ...'
+        ]
     }
 })();
 

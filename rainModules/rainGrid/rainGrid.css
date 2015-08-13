@@ -11,6 +11,7 @@
     border-color: #4B7976;
     height: 35px; }
   .rain-grid-panel .panel-body {
+    overflow: auto;
     /* rainGrid pagination*/ }
     .rain-grid-panel .panel-body .rain-grid-table tr th {
       cursor: pointer;
@@ -75,6 +76,9 @@
   .rain-grid-menu .dropdown-menu .menu-item-icon {
     margin-right: 5px;
     color: #337AB7; }
+
+.rain-grid-filter .filter-row > div {
+  margin-bottom: 5px; }
 
 @media screen and (max-width: 640px) {
   .cellphone {

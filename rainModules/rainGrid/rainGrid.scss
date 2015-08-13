@@ -17,6 +17,7 @@
 
   .panel-body {
 
+    overflow: auto;
     .rain-grid-table {
       tr th {
         cursor: pointer;
@@ -106,6 +107,13 @@
     width: auto;
     .menu-item-icon{
       margin-right: 5px;color: #337AB7;
+    }
+  }
+}
+.rain-grid-filter{
+  .filter-row{
+    >div{
+      margin-bottom: 5px;
     }
   }
 }

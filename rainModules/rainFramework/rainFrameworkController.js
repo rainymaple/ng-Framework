@@ -14,6 +14,8 @@
         , 'rainService.oauth'
         , rainFrameworkCtrl]);
 
+    var _narrowScreen = 768;
+
     function rainFrameworkCtrl($scope, $window, $timeout, $rootScope, currentUser, oauth) {
 
         $scope.isMenuButtonVisible = true;
@@ -23,7 +25,7 @@
         $scope.username = currentUser.profile.username;
         $scope.logout = logout;
         $scope.isFullWidth = function () {
-            return !$scope.isMenuVertical || !$scope.isVerticalMenuVisible;
+            return !$scope.isMenuVertical || !$scope.isVerticalMenuVisible || $scope.isFloatVerticalMenu;
         };
 
         activate();
@@ -68,7 +70,7 @@
             $scope.menuButtonClicked = function () {
                 $scope.isVerticalMenuVisible = !$scope.isVerticalMenuVisible;
                 var width = Math.max($window.innerWidth, $($window).width());
-                $scope.isMenuVertical = (width < 768);
+                $scope.isMenuVertical = (width <= _narrowScreen);
                 broadcastMenuState();
                 //$scope.$apply();
             }
@@ -78,6 +80,7 @@
             $rootScope.$broadcast('rain-menu-show', {
                 show: $scope.isVerticalMenuVisible,
                 isVertical: $scope.isMenuVertical,
+                isFloatVerticalMenu: $scope.isFloatVerticalMenu,
                 allowHorizontalMenu: !$scope.isMenuButtonVisible
             })
         }
@@ -97,7 +100,8 @@
 
         function checkWidth() {
             var width = Math.max($window.innerWidth, $($window).width());
-            $scope.isVerticalMenuVisible = (width >= 768);
+            $scope.isVerticalMenuVisible = (width > _narrowScreen);
+            $scope.isFloatVerticalMenu = width <= _narrowScreen;
             $scope.isMenuButtonVisible = !$scope.isVerticalMenuVisible;
             broadcastMenuState();
         }

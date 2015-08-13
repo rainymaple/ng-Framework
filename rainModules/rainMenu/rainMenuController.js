@@ -64,6 +64,7 @@
                 $scope.showMenu = data.show;
                 $scope.isVertical = data.isVertical;
                 $scope.allowHorizontalMenu = data.allowHorizontalMenu;
+                $scope.isFloatVerticalMenu = data.isFloatVerticalMenu
             });
 
             $scope.toggleMenuOrientation = function () {

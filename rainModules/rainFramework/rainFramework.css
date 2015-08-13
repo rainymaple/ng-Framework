@@ -86,7 +86,7 @@
     text-align: right; } }
 @media screen and (max-width: 768px) {
   .rain-view-full-width {
-    padding-left: 0; }
+    padding-left: 5; }
 
   .welcome {
     display: none;
@@ -95,6 +95,9 @@
   /*.btn-hover-border {
     border-color: #adadad;
   }*/
+  .rain-view {
+    padding: 10px; }
+
   .r-icon {
     display: none; }
 
@@ -104,11 +107,11 @@
   .cellphone {
     display: none;
     visibility: hidden; } }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 380px) {
   .r-logo-title {
-    font-size: 12px; }
+    font-size: 18px; }
 
   .r-logo-subtitle {
-    font-size: 11px; } }
+    font-size: 12px; } }
 
 /*# sourceMappingURL=rainFramework.css.map */

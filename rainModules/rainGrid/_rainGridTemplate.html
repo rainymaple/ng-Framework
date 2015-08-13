@@ -33,27 +33,28 @@
             </tr>
             <tr ng-repeat="row in list" ng-click="selectRow(row)" ng-class="{'row-selected':row.rowSelected}">
                 <td ng-repeat="field in row.rowData" ng-if="!field.isHidden">
-                    <div style="display: inline;" ng-class="{'cell-center':field.isButton}"
-                         grid-cell="field.value"
-                         is-date="field.isDate"
-                         is-checkbox="field.isCheckbox"
-                         is-currency="field.isCurrency"
-                         is-number="field.isNumber"
-                         is-link="field.isLink"
-                         is-button="field.isButton"
-                         is-icon="field.isIcon"
-                         is-hidden="field.isHidden"
-                         decimal="field.decimal"
-                         func-link="linkTo(row.rowData,field.linkFunc.funcEvent,field.linkFunc.funcIdField)">
-                        <!--{{field.value}}-->
+                    <div>
+                        <div style="display: inline;" ng-class="{'cell-center':field.isButton}"
+                             grid-cell="field.value"
+                             is-date="field.isDate"
+                             is-checkbox="field.isCheckbox"
+                             is-currency="field.isCurrency"
+                             is-number="field.isNumber"
+                             is-link="field.isLink"
+                             is-button="field.isButton"
+                             is-icon="field.isIcon"
+                             is-hidden="field.isHidden"
+                             decimal="field.decimal"
+                             func-link="linkTo(row.rowData,field.linkFunc.funcEvent,field.linkFunc.funcIdField)">
+                            <!--{{field.value}}-->
+                        </div>
+                        <div class="pull-right fa fa-remove action-button" style="margin: 0;"
+                             ng-if="showDeleteButton && field.order == actionButtonPlace" ng-click="deleteRecord(row)">
+                        </div>
+                        <div class="pull-right fa fa-pencil-square-o action-button" style="margin: 0;"
+                             ng-if="showEditButton && field.order == actionButtonPlace" ng-click="editRecord(row)">
+                        </div>
                     </div>
-                    <div class="pull-right fa fa-remove action-button"
-                         ng-if="showDeleteButton && field.order == actionButtonPlace" ng-click="deleteRecord(row)">
-                    </div>
-                    <div class="pull-right fa fa-pencil-square-o action-button"
-                         ng-if="showEditButton && field.order == actionButtonPlace" ng-click="editRecord(row)">
-                    </div>
-                </td>
             </tr>
             </tbody>
         </table>
@@ -65,7 +66,7 @@
                 </div>
             </div>-->
             <div class="clearfix cellphone page-size" ng-show="enablePage">
-                <div class="pull-left" >
+                <div class="pull-left">
                     <div class="clearfix">
                         <div class="pull-left" style="margin: 5px 5px 0 0;">Page size:</div>
                         <div class="pull-left">
