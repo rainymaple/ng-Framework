@@ -3,7 +3,9 @@ $text-color-active: #dddddd;
 $menu-group-color-active: #19AA8D;
 $menu-background-color: #2F4050;
 $menu-background-color-hover: #293846;
-$menu-item-active:#A2DFB1;
+$menu-item-active: #A2DFB1;
+$title-bar-height: 7vh;
+$menu-vertical-height: 93vh;
 
 /*$text-color:#B1B1B1;
 $text-color-active:#dddddd;
@@ -14,17 +16,20 @@ $menu-background-color-hover: #242424;*/
 .r-menu-area-vertical {
   width: 225px;
   float: left;
-  min-height: 93vh;
+  min-height: $menu-vertical-height;
   padding-top: 30px;
 }
-.r-menu-area-float{
+
+.r-menu-area-float {
   position: absolute !important;
   z-index: 1000;
   left: 0;
 }
+
 .r-menu-area-horizontal {
   width: 100%;
   height: 40px;
+  top: $title-bar-height;
   padding-left: 10px !important;
 }
 
@@ -119,15 +124,21 @@ rain-menu-group > li.r-menu-group-horizontal.isActiveGroup {
 }
 
 .r-menu-layout-button {
-  margin: 12px;
-  padding: 2px 8px;
-  color: $text-color;
-  background-color: transparent;
-  border: 1px solid $text-color;
+  border-radius: 0;
+  margin-top: 18px;
+  padding: 5px 10px;
+  color: #a7b1c2;
+  background-color: #1A242C;
+  border: 1px solid #1A242C;
+
+}
+
+.r-menu-layout-button:hover {
+  color:white !important;
 }
 
 .r-menu-layout-button-horizontal {
-  margin: 0 0 5px 60px;
+  margin: 0 0 0 60px;
 }
 
 .r-menu-layout-button-vertical {

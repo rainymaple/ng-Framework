@@ -1,11 +1,18 @@
 $text-color:#B1B1B1;
 $menu-background-color: #2F4050;
+$title-bar-height: 7vh;
+$rain-view-height: 93vh;
 
 .r-title-bar {
   background-color: white;
   padding: 0 20px;
   border-bottom: 1px solid black;
-  min-height: 7vh;
+  min-height: $title-bar-height;
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
 }
 
 
@@ -54,9 +61,9 @@ $menu-background-color: #2F4050;
 }
 .r-nav-button {
   height: 35px;
-  width: 35px;
+  /*width: 35px;
   margin-top: 10px;
-  border: 1px solid #888888;
+  border: 1px solid #888888;*/
   padding: 0;
   font-size: 21px;
   color: #777;
@@ -78,7 +85,8 @@ $menu-background-color: #2F4050;
   margin-left: 225px;
   padding: 20px;
   background-color: #cccccc;
-  min-height: 93vh;
+  margin-top: $title-bar-height;
+  min-height: $rain-view-height;
   overflow: auto;
 }
 .rain-view-full-width {
@@ -100,13 +108,25 @@ $menu-background-color: #2F4050;
 
 @media screen and(max-width: 768px) {
   .rain-view-full-width{
-    padding-left: 5;
+    padding-left: 5px;
   }
   .welcome{
     display: none;
     visibility: hidden;
   }
+  .btn-hover-border:hover {
+    border:none;
+  }
+  .btn-logout{
+    i{font-size: 20px;}
+  }
 }
+button:focus {
+  outline: none !important;
+  outline: 0 !important;
+}
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
 
 @media screen and (max-width: 640px) {
   /*.btn-hover-border {
@@ -121,7 +141,7 @@ $menu-background-color: #2F4050;
   .r-logo-title {
     font-size: 18px;
   }
-  .cellphone {
+  .cellphone-hide {
     display: none;
     visibility: hidden;
   }

@@ -2,7 +2,12 @@
   background-color: white;
   padding: 0 20px;
   border-bottom: 1px solid black;
-  min-height: 7vh; }
+  min-height: 7vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030; }
 
 .r-logo-area {
   /*text-align: center;*/ }
@@ -43,9 +48,9 @@
 
 .r-nav-button {
   height: 35px;
-  width: 35px;
+  /*width: 35px;
   margin-top: 10px;
-  border: 1px solid #888888;
+  border: 1px solid #888888;*/
   padding: 0;
   font-size: 21px;
   color: #777;
@@ -66,6 +71,7 @@
   margin-left: 225px;
   padding: 20px;
   background-color: #cccccc;
+  margin-top: 7vh;
   min-height: 93vh;
   overflow: auto; }
 
@@ -86,11 +92,27 @@
     text-align: right; } }
 @media screen and (max-width: 768px) {
   .rain-view-full-width {
-    padding-left: 5; }
+    padding-left: 5px; }
 
   .welcome {
     display: none;
-    visibility: hidden; } }
+    visibility: hidden; }
+
+  .btn-hover-border:hover {
+    border: none; }
+
+  .btn-logout i {
+    font-size: 20px; } }
+button:focus {
+  outline: none !important;
+  outline: 0 !important; }
+
+:focus {
+  outline: none; }
+
+::-moz-focus-inner {
+  border: 0; }
+
 @media screen and (max-width: 640px) {
   /*.btn-hover-border {
     border-color: #adadad;
@@ -104,7 +126,7 @@
   .r-logo-title {
     font-size: 18px; }
 
-  .cellphone {
+  .cellphone-hide {
     display: none;
     visibility: hidden; } }
 @media screen and (max-width: 380px) {

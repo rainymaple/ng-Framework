@@ -17,6 +17,7 @@ $menu-background-color-hover: #242424;*/
 .r-menu-area-horizontal {
   width: 100%;
   height: 40px;
+  top: 7vh;
   padding-left: 10px !important; }
 
 .r-menu-vertical {
@@ -91,14 +92,18 @@ rain-menu-group > li.r-menu-group-horizontal.isActiveGroup {
   /*padding-left: 16px;*/ }
 
 .r-menu-layout-button {
-  margin: 12px;
-  padding: 2px 8px;
+  border-radius: 0;
+  margin-top: 18px;
+  padding: 5px 10px;
   color: #a7b1c2;
-  background-color: transparent;
-  border: 1px solid #a7b1c2; }
+  background-color: #1A242C;
+  border: 1px solid #1A242C; }
+
+.r-menu-layout-button:hover {
+  color: white !important; }
 
 .r-menu-layout-button-horizontal {
-  margin: 0 0 5px 60px; }
+  margin: 0 0 0 60px; }
 
 .r-menu-item {
   padding-left: 38px; }
