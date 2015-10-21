@@ -5,8 +5,7 @@
             <legend ng-class="{'edit-mode':isEditMode,'add-mode':!isEditMode}">{{title}}</legend>
             <div class="form-group" form-input>
                 <label class="col-sm-3">Customer</label>
-
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <ui-select ng-model="order.customer"
                                name="customer" required>
                         <ui-select-match placeholder="Select or search by company...">
@@ -26,10 +25,10 @@
                     <span ng-message="required">required</span>
                 </div>
             </div>
+
             <div class="form-group" form-input>
                 <label class="col-sm-3">Country</label>
-
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <ui-select ng-model="order.shipCountry"
                                name="country" required>
                         <ui-select-match placeholder="Select or search by country...">
@@ -48,10 +47,10 @@
                     <span ng-message="required">required</span>
                 </div>
             </div>
-            <div class="form-group" form-input>
-                <label class="col-sm-3">Ship City</label>
 
-                <div class="col-sm-6">
+            <div class="form-group row" form-input>
+                <label class="col-sm-3">Ship City</label>
+                <div class="col-sm-5">
                     <input type="text" id="shipCity" name="shipCity" ng-disabled="isEditMode"
                            required ng-minlength="2"
                            ng-model="order.shipCity" placeholder="Required">
@@ -61,10 +60,10 @@
                     <span ng-message="minlength">at least 2 characters</span>
                 </div>
             </div>
+
             <div class="form-group" form-input>
                 <label class="col-sm-3">Ship Address</label>
-
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <input type="text" id="shipAddress" name="shipAddress" ng-disabled="isEditMode"
                            required ng-minlength="4"
                            ng-model="order.shipAddress" placeholder="Required">
@@ -74,10 +73,10 @@
                     <span ng-message="minlength">at least 4 characters</span>
                 </div>
             </div>
+
             <div class="form-group form-group-sm" form-input>
                 <label class="col-sm-3 control-label">Ship Name</label>
-
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <input type="text" id="shipName" name="shipName" ng-disabled="isEditMode"
                            required ng-minlength="4" class="form-control"
                            ng-model="order.shipName" placeholder="Required">
@@ -87,9 +86,9 @@
                     <span ng-message="minlength">at least 4 characters</span>
                 </div>
             </div>
+
             <div class="form-group" form-input>
                 <label class="col-sm-3">Freight</label>
-
                 <div class="col-sm-6 max-width-field">
                     <input type="text" id="freight" name="freight" ng-disabled="isEditMode"
                            required number-only="2"
@@ -102,7 +101,6 @@
 
             <div class="form-group" form-input>
                 <label class="col-sm-3">Order Date</label>
-
                 <div class="col-sm-6">
                     <div class="input-group input-group-sm pull-left max-width-field">
                         <input type="text" class="form-control" datepicker-popup="{{format}}"
@@ -124,7 +122,6 @@
 
             <div class="form-group" form-input>
                 <label class="col-sm-3">Required Date</label>
-
                 <div class="col-sm-6">
                     <div class="input-group input-group-sm pull-left max-width-field">
                         <input type="text" class="form-control" datepicker-popup="{{format}}"
@@ -146,7 +143,6 @@
 
             <div class="form-group" form-input>
                 <label class="col-sm-3">Shipped Date</label>
-
                 <div class="col-sm-6">
                     <div class="input-group input-group-sm pull-left max-width-field">
                         <input type="text" class="form-control" datepicker-popup="{{format}}"
